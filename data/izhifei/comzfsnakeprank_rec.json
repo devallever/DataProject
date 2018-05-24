@@ -5,5 +5,12 @@
     "image": "https://raw.githubusercontent.com/izhifei/data/master/ad256c.png",
     "content": "detail",
     "jumpPacke": "com.dong.back.activity"
+  },
+  {
+    "id": "2",
+    "name": "app",
+    "image": "https://raw.githubusercontent.com/MrHexiaohua/Music/master/app/src/main/res/raw/ad256b.jpg",
+    "content": "detail",
+    "jumpPacke": "com.zf.butterfly.prank"
   }
 ]

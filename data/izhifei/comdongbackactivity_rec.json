@@ -1,16 +1,59 @@
-[
-  {
-    "id": "1",
-    "name": "ButterFlyScreen",
-    "image": "https://raw.githubusercontent.com/MrHexiaohua/Music/master/app/src/main/res/raw/ad256b.jpg",
-    "content": "detail",
-    "jumpPacke": "https://play.google.com/store/apps/details?id=com.dong.back.activity"
+{
+  "main_rec": {
+    "apps": [
+      {
+        "id": "1",
+        "name": "3dsada",
+        "image": "https://raw.githubusercontent.com/MrHexiaohua/Music/master/app/src/main/res/raw/ad256b.jpg",
+        "content": "detail",
+        "jumpPacke": "com.zf.butterfly.prank"
+      },
+      {
+        "id": "2",
+        "name": "4344",
+        "image": "https://raw.githubusercontent.com/MrHexiaohua/Music/master/app/src/main/res/raw/ad256b.jpg",
+        "content": "detail",
+        "jumpPacke": "com.zf.butterfly.prank"
+      }
+    ]
   },
-  {
-    "id": "2",
-    "name": "ButterFlyScreen",
-    "image": "https://raw.githubusercontent.com/MrHexiaohua/Music/master/app/src/main/res/raw/ad256b.jpg",
-    "content": "detail",
-    "jumpPacke": "https://play.google.com/store/apps/details?id=com.dong.back.activity"
+  "exit_rec": {
+    "apps": [
+      {
+        "id": "1",
+        "name": "ButterFlyScreen",
+        "image": "https://raw.githubusercontent.com/MrHexiaohua/Music/master/app/src/main/res/raw/ad256b.jpg",
+        "content": "detail",
+        "jumpPacke": "com.zf.butterfly.prank"
+      },
+      {
+        "id": "2",
+        "name": "ButterFlyScreen2",
+        "image": "https://raw.githubusercontent.com/MrHexiaohua/Music/master/app/src/main/res/raw/ad256b.jpg",
+        "content": "detail",
+        "jumpPacke": "com.zf.butterfly.prank"
+      },
+      {
+        "id": "2",
+        "name": "ButterFlyScreen2",
+        "image": "https://raw.githubusercontent.com/MrHexiaohua/Music/master/app/src/main/res/raw/ad256b.jpg",
+        "content": "detail",
+        "jumpPacke": "com.zf.butterfly.prank"
+      },
+      {
+        "id": "2",
+        "name": "ButterFlyScreen2",
+        "image": "https://raw.githubusercontent.com/MrHexiaohua/Music/master/app/src/main/res/raw/ad256b.jpg",
+        "content": "detail",
+        "jumpPacke": "com.zf.butterfly.prank"
+      },
+      {
+        "id": "2",
+        "name": "ButterFlyScreen2",
+        "image": "https://raw.githubusercontent.com/MrHexiaohua/Music/master/app/src/main/res/raw/ad256b.jpg",
+        "content": "detail",
+        "jumpPacke": "com.zf.butterfly.prank"
+      }
+    ]
   }
-]
+}

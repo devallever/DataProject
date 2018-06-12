@@ -18,6 +18,7 @@
     ]
   },
   "exit_rec": {
+    "show_rate": true,
     "apps": [
       {
         "id": "1",

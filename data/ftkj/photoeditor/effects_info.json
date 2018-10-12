@@ -61,6 +61,56 @@
                     "/ds05.png",
                     "/ds06.png"
                   ]
+                },
+                {
+                  "id":"1010102",
+                  "path":"/animalface",
+                  "downloadUrl":"/animalface.zip",
+                  "type":1,
+                  "name":"Animal Face",
+                  "packageName":"com.xxx.xxx",
+                  "smallImg":[
+                    "/s01.png"
+                  ],
+                  "mediumImg":[
+                    "/m01.png","/m02.png"
+                  ],
+                  "bigImg":[
+                    "/b01.png","/b02.png"
+                  ],
+                  "detailSmallImg":[
+                    "/ds01.png",
+                    "/ds02.png",
+                    "/ds03.png",
+                    "/ds04.png",
+                    "/ds05.png",
+                    "/ds06.png"
+                  ]
+                },
+                {
+                  "id":"1010103",
+                  "path":"/lensflare",
+                  "downloadUrl":"/lensflare.zip",
+                  "type":1,
+                  "name":"Lens Flare",
+                  "packageName":"com.xxx.xxx",
+                  "smallImg":[
+                    "/s01.png"
+                  ],
+                  "mediumImg":[
+                    "/m01.png","/m02.png"
+                  ],
+                  "bigImg":[
+                    "/b01.png","/b02.png"
+                  ],
+                  "detailSmallImg":[
+                    "/ds01.png",
+                    "/ds02.png",
+                    "/ds03.png",
+                    "/ds04.png",
+                    "/ds05.png",
+                    "/ds06.png"
+                  ]
                 }
               ]
             }

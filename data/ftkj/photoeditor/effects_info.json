@@ -1,9 +1,263 @@
 {
+  "id":"0",
+  "type":0,
+  "hostname": "https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor",
+  "child":[
+    {
+      "id":"1",
+      "name":"effects",
+      "path":"/effects",
+      "recommend":[
+        "",""
+      ],
+      "list":[
+        "",""
+      ],
+      "child":[
+        {
+          "id":"101",
+          "type":1,
+          "name":"Sticker",
+          "path":"/sticker",
+          "tutorial":"/tutorial.mp4",
+          "recommend":[
+            "10101"
+          ],
+          "list":[
+            "10101"
+          ],
+          "child":[
+            {
+              "id":"10101",
+              "path":"/hot",
+              "type":1,
+              "name":"hot",
+              "displayImgCount":8,
+              "bannerImg":[
+                "/banner.png"
+              ],
+              "child":[
+                {
+                  "id":"1010101",
+                  "path":"/sunglasses",
+                  "downloadUrl":"/sunglasses.zip",
+                  "type":1,
+                  "name":"Sunglasses",
+                  "packageName":"com.xxx.xxx",
+                  "smallImg":[
+                    "/s01.png"
+                  ],
+                  "mediumImg":[
+                    "/m01.png","/m02.png"
+                  ],
+                  "bigImg":[
+                    "/b01.png","/b02.png"
+                  ],
+                  "detailSmallImg":[
+                    "/ds01.png",
+                    "/ds02.png",
+                    "/ds03.png",
+                    "/ds04.png",
+                    "/ds05.png",
+                    "/ds06.png"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id":"102",
+          "type":2,
+          "name":"filter",
+          "path":"/filter",
+          "recommend":[
+            "10201"
+          ],
+          "list":[
+            "10201"
+          ],
+          "child":[
+            {
+              "id":"10201",
+              "path":"/bw",
+              "type":1,
+              "name":"B&W",
+              "displayImgCount":3,
+              "bannerImg":[
+                "/banner.png"
+              ],
+              "downloadUrl":"/bw.zip",
+              "packageName":"com.xxx.xxx",
+              "child":[
+                {
+                  "id":"1020101",
+                  "path":"/natural",
+                  "type":1,
+                  "name":"Natural",
+                  "smallImg":[
+                    "/s01.png"
+                  ],
+                  "mediumImg":[
+                    "/m01.png","/m02.png"
+                  ],
+                  "bigImg":[
+                    "/b01.png","/b02.png"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id":"103",
+          "type":3,
+          "name":"Font",
+          "path":"/font",
+          "child":[
+            {
+              "id":"10301",
+              "path":"/font1",
+              "type":1,
+              "name":"Font1",
+              "downloadUrl":"/font1.zip",
+              "packageName":"com.xxx.xxx",
+              "smallImg":[
+                "/s01.png"
+              ]
+            }
+          ]
+        },
+        {
+          "id":"104",
+          "type":4,
+          "name":"Background",
+          "path":"/background",
+          "recommend":[
+            "10401"
+          ],
+          "list":[
+            "10401"
+          ],
+          "child":[
+            {
+              "id":"10401",
+              "path":"/classic",
+              "type":1,
+              "name":"Classic",
+              "downloadUrl":"/classic.zip",
+              "packageName":"com.xxx.xxx",
+              "bannerImg":[
+                "/banner.png"
+              ],
+              "smallImg":[
+                "/s01.png",
+                "/s02.png",
+                "/s03.png",
+                "/s04.png",
+                "/s05.png",
+                "/s06.png"
+              ],
+              "mediumImg":[
+                "/m01.png",
+                "/m02.png",
+                "/m03.png",
+                "/m04.png",
+                "/m05.png",
+                "/m06.png"
+              ],
+              "bigImg":[
+                "/b01.png",
+                "/b02.png",
+                "/b03.png",
+                "/b04.png",
+                "/b05.png",
+                "/b06.png"
+              ]
+            }
+          ]
+        },
+        {
+          "id":"105",
+          "type":5,
+          "name":"Template",
+          "path":"/template",
+          "recommend":[
+            "10501"
+          ],
+          "list":[
+            "10501"
+          ],
+          "child":[
+            {
+              "id":"10501",
+              "path":"/valentineday",
+              "type":1,
+              "name":"Valentine's Day",
+              "displayImgCount":4,
+              "bannerImg":[
+                "/banner.png"
+              ],
+              "child":[
+                {
+                  "id":"1050101",
+                  "path":"/daydream",
+                  "downloadUrl":"/daydream.zip",
+                  "packageName":"com.xxx.xxx",
+                  "type":1,
+                  "name":"Daydream",
+                  "smallImg":[
+                    "/s01.png"
+                  ],
+                  "mediumImg":[
+                    "/m01.png","/m02.png"
+                  ],
+                  "bigImg":[
+                    "/b01.png","/b02.png"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id":"106",
+          "type":6,
+          "name":"Mixer",
+          "path":"/mixer",
+          "tutorial":"/tutorial.mp4"
+        }
+      ]
+    },
+    {
+      "id":"2",
+      "name":"Tutorial",
+      "list":[
+        "101",
+        "106"
+      ]
+    },
+    {
+      "id":"3",
+      "name":"mainflow",
+      "recommend":[
+        "",""
+      ],
+      "list":[
+        "",""
+      ]
+    }
+  ]
+}
+
+
+/*
+{
   "id":"",
-  "hostname": "https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj",
-  "path":"/filter",
+  "hostname": "",
+  "path":"/",
   "downloadUrl":"/",
-  "type":"",
+  "type":0,
   "name":"",
   "description":"",
   "packageName":"",
@@ -14,7 +268,7 @@
   "mediumImg":[
     "",""
   ],
-  "largeImg":[
+  "bigImg":[
     "",""
   ],
   "bannerImg":[
@@ -32,3 +286,4 @@
   "child":[
   ]
 }
+*/

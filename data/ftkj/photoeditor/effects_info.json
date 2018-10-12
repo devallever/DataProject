@@ -175,6 +175,28 @@
               "smallImg":[
                 "/s01.png"
               ]
+            },
+            {
+              "id":"10302",
+              "path":"/font2",
+              "type":2,
+              "name":"Font2",
+              "downloadUrl":"/font2.zip",
+              "packageName":"com.xxx.xxx",
+              "smallImg":[
+                "/s01.png"
+              ]
+            },
+            {
+              "id":"10303",
+              "path":"/font3",
+              "type":3,
+              "name":"Font3",
+              "downloadUrl":"/font3.zip",
+              "packageName":"com.xxx.xxx",
+              "smallImg":[
+                "/s01.png"
+              ]
             }
           ]
         },

@@ -167,10 +167,10 @@
           "child":[
             {
               "id":"10301",
-              "path":"/font1",
+              "path":"/cinzel",
               "type":1,
-              "name":"Font1",
-              "downloadUrl":"/font1.zip",
+              "name":"Cinzel",
+              "downloadUrl":"/cinzel.ttf",
               "pkgName":"com.xxx.xxx",
               "smallImg":[
                 "/s01.png"

@@ -7,10 +7,10 @@
       "id":"1",
       "name":"effects",
       "path":"/effects",
-      "recommend":[
+      "recommends":[
         "",""
       ],
-      "list":[
+      "flowList":[
         "",""
       ],
       "child":[
@@ -20,10 +20,10 @@
           "name":"Sticker",
           "path":"/sticker",
           "tutorial":"/tutorial.mp4",
-          "recommend":[
+          "recommends":[
             "10101"
           ],
-          "list":[
+          "flowList":[
             "10101"
           ],
           "child":[
@@ -43,7 +43,7 @@
                   "downloadUrl":"/theme.apk",
                   "type":1,
                   "name":"Sunglasses",
-                  "packageName":"com.allever.themeproject",
+                  "pkgName":"com.allever.themeproject",
                   "smallImg":[
                     "/s01.png"
                   ],
@@ -68,7 +68,7 @@
                   "downloadUrl":"/animalface.zip",
                   "type":1,
                   "name":"Animal Face",
-                  "packageName":"com.xxx.xxx",
+                  "pkgName":"com.xxx.xxx",
                   "smallImg":[
                     "/s01.png"
                   ],
@@ -93,7 +93,7 @@
                   "downloadUrl":"/lensflare.zip",
                   "type":1,
                   "name":"Lens Flare",
-                  "packageName":"com.xxx.xxx",
+                  "pkgName":"com.xxx.xxx",
                   "smallImg":[
                     "/s01.png"
                   ],
@@ -121,10 +121,10 @@
           "type":2,
           "name":"filter",
           "path":"/filter",
-          "recommend":[
+          "recommends":[
             "10201"
           ],
-          "list":[
+          "flowList":[
             "10201"
           ],
           "child":[
@@ -138,7 +138,7 @@
                 "/banner.png"
               ],
               "downloadUrl":"/bw.zip",
-              "packageName":"com.xxx.xxx",
+              "pkgName":"com.xxx.xxx",
               "child":[
                 {
                   "id":"1020101",
@@ -171,7 +171,7 @@
               "type":1,
               "name":"Font1",
               "downloadUrl":"/font1.zip",
-              "packageName":"com.xxx.xxx",
+              "pkgName":"com.xxx.xxx",
               "smallImg":[
                 "/s01.png"
               ]
@@ -182,7 +182,7 @@
               "type":2,
               "name":"Font2",
               "downloadUrl":"/font2.zip",
-              "packageName":"com.xxx.xxx",
+              "pkgName":"com.xxx.xxx",
               "smallImg":[
                 "/s01.png"
               ]
@@ -193,7 +193,7 @@
               "type":3,
               "name":"Font3",
               "downloadUrl":"/font3.zip",
-              "packageName":"com.xxx.xxx",
+              "pkgName":"com.xxx.xxx",
               "smallImg":[
                 "/s01.png"
               ]
@@ -205,10 +205,10 @@
           "type":4,
           "name":"Background",
           "path":"/background",
-          "recommend":[
+          "recommends":[
             "10401"
           ],
-          "list":[
+          "flowList":[
             "10401"
           ],
           "child":[
@@ -218,7 +218,7 @@
               "type":1,
               "name":"Classic",
               "downloadUrl":"/classic.zip",
-              "packageName":"com.xxx.xxx",
+              "pkgName":"com.xxx.xxx",
               "bannerImg":[
                 "/banner.png"
               ],
@@ -254,10 +254,10 @@
           "type":5,
           "name":"Template",
           "path":"/template",
-          "recommend":[
+          "recommends":[
             "10501"
           ],
-          "list":[
+          "flowList":[
             "10501"
           ],
           "child":[
@@ -275,7 +275,7 @@
                   "id":"1050101",
                   "path":"/daydream",
                   "downloadUrl":"/daydream.zip",
-                  "packageName":"com.xxx.xxx",
+                  "pkgName":"com.xxx.xxx",
                   "type":1,
                   "name":"Daydream",
                   "smallImg":[
@@ -304,7 +304,7 @@
     {
       "id":"2",
       "name":"Tutorial",
-      "list":[
+      "flowList":[
         "101",
         "106"
       ]
@@ -312,10 +312,10 @@
     {
       "id":"3",
       "name":"mainflow",
-      "recommend":[
+      "recommends":[
         "",""
       ],
-      "list":[
+      "flowList":[
         "",""
       ]
     }

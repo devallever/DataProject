@@ -1,12 +1,11 @@
 {
   "id":"0",
   "type":0,
-  "hostname": "https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor",
+  "hostname": "https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/effects",
   "child":[
     {
       "id":"1",
       "name":"effects",
-      "path":"/effects",
       "recommends":[
         "",""
       ],

@@ -1,17 +1,13 @@
 {
   "id":"0",
   "type":0,
-  "hostname": "https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/effects",
+  "hostname": "https://raw.githubusercontent.com",
+  "path":"/devallever/DataProject/master/data/ftkj/photoeditor",
   "child":[
     {
       "id":"1",
       "name":"effects",
-      "recommends":[
-        "",""
-      ],
-      "flowList":[
-        "",""
-      ],
+      "path":"/effects",
       "child":[
         {
           "id":"101",
@@ -19,12 +15,8 @@
           "name":"Sticker",
           "path":"/sticker",
           "tutorial":"/tutorial.mp4",
-          "recommends":[
-            "10101"
-          ],
-          "flowList":[
-            "10101"
-          ],
+          "recommends":"10101",
+          "flow":"10101",
           "child":[
             {
               "id":"10101",
@@ -32,9 +24,7 @@
               "type":1,
               "name":"hot",
               "displayImgCount":8,
-              "bannerImg":[
-                "/banner.png"
-              ],
+              "bannerImg":"/banner01.png,/banner02.png",
               "child":[
                 {
                   "id":"1010101",
@@ -43,23 +33,10 @@
                   "type":1,
                   "name":"Sunglasses",
                   "pkgName":"com.allever.themeproject",
-                  "smallImg":[
-                    "/s01.png"
-                  ],
-                  "mediumImg":[
-                    "/m01.png","/m02.png"
-                  ],
-                  "bigImg":[
-                    "/b01.png","/b02.png"
-                  ],
-                  "detailSmallImg":[
-                    "/ds01.png",
-                    "/ds02.png",
-                    "/ds03.png",
-                    "/ds04.png",
-                    "/ds05.png",
-                    "/ds06.png"
-                  ]
+                  "smallImg":"/s01.png,/s02.png",
+                  "mediumImg":"/m01.png,/m02.png",
+                  "bigImg":"/b01.png,/b02.png",
+                  "detailSmallImg":"/ds01.png,/ds02.png,/ds03.png,/ds04.png,/ds05.png,/ds06.png"
                 },
                 {
                   "id":"1010102",
@@ -68,23 +45,10 @@
                   "type":1,
                   "name":"Animal Face",
                   "pkgName":"com.xxx.xxx",
-                  "smallImg":[
-                    "/s01.png"
-                  ],
-                  "mediumImg":[
-                    "/m01.png","/m02.png"
-                  ],
-                  "bigImg":[
-                    "/b01.png","/b02.png"
-                  ],
-                  "detailSmallImg":[
-                    "/ds01.png",
-                    "/ds02.png",
-                    "/ds03.png",
-                    "/ds04.png",
-                    "/ds05.png",
-                    "/ds06.png"
-                  ]
+                  "smallImg":"/s01.png,/s02.png",
+                  "mediumImg":"/m01.png,/m02.png",
+                  "bigImg":"/b01.png,/b02.png",
+                  "detailSmallImg":"/ds01.png,/ds02.png,/ds03.png,/ds04.png,/ds05.png,/ds06.png"
                 },
                 {
                   "id":"1010103",
@@ -93,23 +57,10 @@
                   "type":1,
                   "name":"Lens Flare",
                   "pkgName":"com.xxx.xxx",
-                  "smallImg":[
-                    "/s01.png"
-                  ],
-                  "mediumImg":[
-                    "/m01.png","/m02.png"
-                  ],
-                  "bigImg":[
-                    "/b01.png","/b02.png"
-                  ],
-                  "detailSmallImg":[
-                    "/ds01.png",
-                    "/ds02.png",
-                    "/ds03.png",
-                    "/ds04.png",
-                    "/ds05.png",
-                    "/ds06.png"
-                  ]
+                  "smallImg":"/s01.png,/s02.png",
+                  "mediumImg":"/m01.png,/m02.png",
+                  "bigImg":"/b01.png,/b02.png",
+                  "detailSmallImg":"/ds01.png,/ds02.png,/ds03.png,/ds04.png,/ds05.png,/ds06.png"
                 }
               ]
             }
@@ -120,12 +71,8 @@
           "type":2,
           "name":"filter",
           "path":"/filter",
-          "recommends":[
-            "10201"
-          ],
-          "flowList":[
-            "10201"
-          ],
+          "recommends":"10201",
+          "flow":"10201",
           "child":[
             {
               "id":"10201",
@@ -133,9 +80,7 @@
               "type":1,
               "name":"B&W",
               "displayImgCount":3,
-              "bannerImg":[
-                "/banner.png"
-              ],
+              "bannerImg":"/banner01.png,/banner02.png",
               "downloadUrl":"/bw.zip",
               "pkgName":"com.xxx.xxx",
               "child":[
@@ -144,15 +89,9 @@
                   "path":"/natural",
                   "type":1,
                   "name":"Natural",
-                  "smallImg":[
-                    "/s01.png"
-                  ],
-                  "mediumImg":[
-                    "/m01.png","/m02.png"
-                  ],
-                  "bigImg":[
-                    "/b01.png","/b02.png"
-                  ]
+                  "smallImg":"/s01.png,/s02.png",
+                  "mediumImg":"/m01.png,/m02.png",
+                  "bigImg":"/b01.png,/b02.png"
                 }
               ]
             }
@@ -166,14 +105,12 @@
           "child":[
             {
               "id":"10301",
-              "path":"/cinzel",
+              "path":"/font1",
               "type":1,
-              "name":"Cinzel",
-              "downloadUrl":"/cinzel.ttf",
+              "name":"Font1",
+              "downloadUrl":"/font1.zip",
               "pkgName":"com.xxx.xxx",
-              "smallImg":[
-                "/s01.png"
-              ]
+              "smallImg":"/s01.png,/s02.png"
             },
             {
               "id":"10302",
@@ -182,9 +119,7 @@
               "name":"Font2",
               "downloadUrl":"/font2.zip",
               "pkgName":"com.xxx.xxx",
-              "smallImg":[
-                "/s01.png"
-              ]
+              "smallImg":"/s01.png,/s02.png"
             },
             {
               "id":"10303",
@@ -193,9 +128,7 @@
               "name":"Font3",
               "downloadUrl":"/font3.zip",
               "pkgName":"com.xxx.xxx",
-              "smallImg":[
-                "/s01.png"
-              ]
+              "smallImg":"/s01.png,/s02.png"
             }
           ]
         },
@@ -204,12 +137,8 @@
           "type":4,
           "name":"Background",
           "path":"/background",
-          "recommends":[
-            "10401"
-          ],
-          "flowList":[
-            "10401"
-          ],
+          "recommends":"10401",
+          "flow":"10401",
           "child":[
             {
               "id":"10401",
@@ -218,33 +147,10 @@
               "name":"Classic",
               "downloadUrl":"/classic.zip",
               "pkgName":"com.xxx.xxx",
-              "bannerImg":[
-                "/banner.png"
-              ],
-              "smallImg":[
-                "/s01.png",
-                "/s02.png",
-                "/s03.png",
-                "/s04.png",
-                "/s05.png",
-                "/s06.png"
-              ],
-              "mediumImg":[
-                "/m01.png",
-                "/m02.png",
-                "/m03.png",
-                "/m04.png",
-                "/m05.png",
-                "/m06.png"
-              ],
-              "bigImg":[
-                "/b01.png",
-                "/b02.png",
-                "/b03.png",
-                "/b04.png",
-                "/b05.png",
-                "/b06.png"
-              ]
+              "bannerImg":"/banner01.png,/banner02.png",
+              "smallImg":"/s01.png,/s02.png",
+              "mediumImg":"/m01.png,/m02.png",
+              "bigImg":"/b01.png,/b02.png"
             }
           ]
         },
@@ -253,12 +159,8 @@
           "type":5,
           "name":"Template",
           "path":"/template",
-          "recommends":[
-            "10501"
-          ],
-          "flowList":[
-            "10501"
-          ],
+          "recommends":"10501",
+          "flow":"10501",
           "child":[
             {
               "id":"10501",
@@ -266,9 +168,7 @@
               "type":1,
               "name":"Valentine's Day",
               "displayImgCount":4,
-              "bannerImg":[
-                "/banner.png"
-              ],
+              "bannerImg":"/banner01.png,/banner02.png",
               "child":[
                 {
                   "id":"1050101",
@@ -277,15 +177,9 @@
                   "pkgName":"com.xxx.xxx",
                   "type":1,
                   "name":"Daydream",
-                  "smallImg":[
-                    "/s01.png"
-                  ],
-                  "mediumImg":[
-                    "/m01.png","/m02.png"
-                  ],
-                  "bigImg":[
-                    "/b01.png","/b02.png"
-                  ]
+                  "smallImg":"/s01.png,/s02.png",
+                  "mediumImg":"/m01.png,/m02.png",
+                  "bigImg":"/b01.png,/b02.png"
                 }
               ]
             }
@@ -303,20 +197,13 @@
     {
       "id":"2",
       "name":"Tutorial",
-      "flowList":[
-        "101",
-        "106"
-      ]
+      "flow":"101,106"
     },
     {
       "id":"3",
       "name":"mainflow",
-      "recommends":[
-        "",""
-      ],
-      "flowList":[
-        "",""
-      ]
+      "recommends":"10101,10102",
+      "flow":"10101,10102"
     }
   ]
 }

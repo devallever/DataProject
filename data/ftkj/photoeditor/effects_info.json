@@ -114,12 +114,12 @@
             },
             {
               "id":"10302",
-              "path":"/font2",
+              "path":"/IndieFlower",
               "type":2,
-              "name":"Font2",
-              "downloadUrl":"/font2.zip",
+              "name":"IndieFlower",
+              "downloadUrl":"/IndieFlower.zip",
               "pkgName":"com.xxx.xxx",
-              "smallImg":"/s01.png,/s02.png"
+              "smallImg":"/s01.png"
             },
             {
               "id":"10303",

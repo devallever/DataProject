@@ -72,6 +72,8 @@
           "type":2,
           "name":"filter",
           "path":"/filter",
+          "tutorialUrl":"/tutorial.mp4",
+          "tutorialDescription":"adjust your sticker size, drag to suitable site, select your sicker parameter, erase extra parts.",
           "recommends":"10201",
           "flow":"10201",
           "child":[
@@ -83,8 +85,6 @@
               "displayImgCount":3,
               "bannerImg":"/banner01.png,/banner02.png",
               "downloadUrl":"/bw.zip",
-              "tutorialUrl":"/tutorial.mp4",
-              "tutorialDescription":"adjust your sticker size, drag to suitable site, select your sicker parameter, erase extra parts.",
               "pkgName":"com.xxx.xxx",
               "child":[
                 {
@@ -205,7 +205,7 @@
     {
       "id":"2",
       "name":"Tutorial",
-      "flow":"101,10201,103,104,106"
+      "flow":"101,102,103,104,106"
     },
     {
       "id":"3",

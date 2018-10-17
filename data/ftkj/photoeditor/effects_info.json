@@ -14,7 +14,8 @@
           "type":1,
           "name":"Sticker",
           "path":"/sticker",
-          "tutorial":"/tutorial.mp4",
+          "tutorialUrl":"/tutorial.mp4",
+          "tutorialDescription":"adjust your sticker size, drag to suitable site, select your sicker parameter, erase extra parts.",
           "recommends":"10101",
           "flow":"10101",
           "child":[
@@ -190,7 +191,8 @@
           "type":6,
           "name":"Mixer",
           "path":"/mixer",
-          "tutorial":"/tutorial.mp4"
+          "tutorialUrl":"/tutorial.mp4",
+          "tutorialDescription":"blend photos together to create one-of-a-kind images"
         }
       ]
     },

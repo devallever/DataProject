@@ -14,7 +14,7 @@
           "type":1,
           "name":"Sticker",
           "path":"/sticker",
-          "tutorialUrl":"/tutorial.mp4",
+          "tutorialUrl":"/sticker_tutorial.mp4",
           "tutorialDescription":"adjust your sticker size, drag to suitable site, select your sicker parameter, erase extra parts.",
           "recommends":"10101",
           "flow":"10101",
@@ -30,7 +30,7 @@
                 {
                   "id":"1010101",
                   "path":"/sunglasses",
-                  "downloadUrl":"/theme.apk",
+                  "downloadUrl":"/com.xx.sunglasses.apk",
                   "type":1,
                   "name":"Sunglasses",
                   "pkgName":"com.allever.themeproject",
@@ -42,7 +42,7 @@
                 {
                   "id":"1010102",
                   "path":"/animalface",
-                  "downloadUrl":"/animalface.zip",
+                  "downloadUrl":"/com.xx.animalface.apk",
                   "type":1,
                   "name":"Animal Face",
                   "pkgName":"com.xxx.xxx",
@@ -54,7 +54,7 @@
                 {
                   "id":"1010103",
                   "path":"/lensflare",
-                  "downloadUrl":"/lensflare.zip",
+                  "downloadUrl":"/com.xxx.lensflare.apk",
                   "type":1,
                   "name":"Lens Flare",
                   "pkgName":"com.xxx.xxx",
@@ -72,7 +72,7 @@
           "type":2,
           "name":"filter",
           "path":"/filter",
-          "tutorialUrl":"/tutorial.mp4",
+          "tutorialUrl":"/filter-tutorial.mp4",
           "tutorialDescription":"adjust your sticker size, drag to suitable site, select your sicker parameter, erase extra parts.",
           "recommends":"10201",
           "flow":"10201",
@@ -84,7 +84,7 @@
               "name":"B&W",
               "displayImgCount":3,
               "bannerImg":"/banner01.png,/banner02.png",
-              "downloadUrl":"/bw.zip",
+              "downloadUrl":"/com.xxx.bw.apk",
               "pkgName":"com.xxx.xxx",
               "child":[
                 {
@@ -105,7 +105,7 @@
           "type":3,
           "name":"Font",
           "path":"/font",
-          "tutorialUrl":"/tutorial.mp4",
+          "tutorialUrl":"/font-tutorial.mp4",
           "tutorialDescription":"adjust your sticker size, drag to suitable site, select your sicker parameter, erase extra parts.",
           "child":[
             {
@@ -142,7 +142,7 @@
           "type":4,
           "name":"Background",
           "path":"/background",
-          "tutorialUrl":"/tutorial.mp4",
+          "tutorialUrl":"/background-tutorial.mp4",
           "tutorialDescription":"adjust your sticker size, drag to suitable site, select your sicker parameter, erase extra parts.",
           "recommends":"10401",
           "flow":"10401",
@@ -152,7 +152,7 @@
               "path":"/classic",
               "type":1,
               "name":"Classic",
-              "downloadUrl":"/classic.zip",
+              "downloadUrl":"/com.xxx.classic.apk",
               "pkgName":"com.xxx.xxx",
               "bannerImg":"/banner01.png,/banner02.png",
               "smallImg":"/s01.png,/s02.png",
@@ -180,7 +180,7 @@
                 {
                   "id":"1050101",
                   "path":"/daydream",
-                  "downloadUrl":"/daydream.zip",
+                  "downloadUrl":"/com.xxx.daydream.apk",
                   "pkgName":"com.xxx.xxx",
                   "type":1,
                   "name":"Daydream",
@@ -197,7 +197,7 @@
           "type":6,
           "name":"Mixer",
           "path":"/mixer",
-          "tutorialUrl":"/tutorial.mp4",
+          "tutorialUrl":"/mixer-tutorial.mp4",
           "tutorialDescription":"blend photos together to create one-of-a-kind images"
         }
       ]

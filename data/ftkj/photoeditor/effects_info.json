@@ -72,7 +72,7 @@
           "type":2,
           "name":"filter",
           "path":"/filter",
-          "tutorialUrl":"/filter-tutorial.mp4",
+          "tutorialUrl":"/filter_tutorial.mp4",
           "tutorialDescription":"adjust your sticker size, drag to suitable site, select your sicker parameter, erase extra parts.",
           "recommends":"10201",
           "flow":"10201",
@@ -105,7 +105,7 @@
           "type":3,
           "name":"Font",
           "path":"/font",
-          "tutorialUrl":"/font-tutorial.mp4",
+          "tutorialUrl":"/font_tutorial.mp4",
           "tutorialDescription":"adjust your sticker size, drag to suitable site, select your sicker parameter, erase extra parts.",
           "child":[
             {
@@ -142,7 +142,7 @@
           "type":4,
           "name":"Background",
           "path":"/background",
-          "tutorialUrl":"/background-tutorial.mp4",
+          "tutorialUrl":"/background_tutorial.mp4",
           "tutorialDescription":"adjust your sticker size, drag to suitable site, select your sicker parameter, erase extra parts.",
           "recommends":"10401",
           "flow":"10401",
@@ -197,7 +197,7 @@
           "type":6,
           "name":"Mixer",
           "path":"/mixer",
-          "tutorialUrl":"/mixer-tutorial.mp4",
+          "tutorialUrl":"/mixer_tutorial.mp4",
           "tutorialDescription":"blend photos together to create one-of-a-kind images"
         }
       ]

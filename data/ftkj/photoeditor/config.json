@@ -7,11 +7,11 @@
   "child": [
     {
       "version":"4",
-      "url":"https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/effects_info.json",
+      "url":"https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/effects_info.json"
     },
     {
       "version":"6",
-      "url":"https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/effects_info.json",
+      "url":"https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/effects_info.json"
     }
   ]
 }

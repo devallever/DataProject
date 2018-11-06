@@ -30,10 +30,10 @@
                 {
                   "id":"1010101",
                   "path":"/sunglasses",
-                  "downloadUrl":"/com.allever.themeproject.sunglasses.apk",
+                  "downloadUrl":"/com.photoeditor.plugins.sticker.hot.sunglasses.apk",
                   "type":1,
                   "name":"Sunglasses",
-                  "pkgName":"com.allever.themeproject.sunglasses",
+                  "pkgName":"com.photoeditor.plugins.sticker.hot.sunglasses",
                   "smallImg":"/s01.png,/s02.png",
                   "mediumImg":"/m01.png,/m02.png",
                   "bigImg":"/b01.png,/b02.png",

@@ -29,13 +29,13 @@
               "child":[
                 {
                   "id":"1010101",
-                  "path":"/sunglasses",
+                  "path":"/animal",
                   "isNeedBuy": false,
-                  "downloadUrl":"/com.photoeditor.plugins.sticker.hot.sunglasses.apk",
+                  "downloadUrl":"/com.photoeditor.plugins.sticker.hot.animal.apk",
                   "type":1,
-                  "name":"Sunglasses",
-                  "pkgName":"com.photoeditor.plugins.sticker.hot.sunglasses",
-                  "smallImg":"/s01.png,/s02.png",
+                  "name":"Animal",
+                  "pkgName":"com.photoeditor.plugins.sticker.hot.animal",
+                  "smallImg":"/strick_logo.png",
                   "mediumImg":"/m01.png,/m02.png",
                   "bigImg":"/b01.png,/b02.png",
                   "detailSmallImg":"/ds01.png,/ds02.png,/ds03.png,/ds04.png,/ds05.png,/ds06.png"

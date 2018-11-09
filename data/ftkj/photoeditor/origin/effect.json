@@ -21,27 +21,27 @@
           "child":[
             {
               "id":"10101",
-              "path":"",
+              "path":"/animal",
               "isNeedBuy": true,
               "downloadUrl":"/animal",
               "type":1,
               "name":"Animal",
               "pkgName":"com.photoeditor.plugins.sticker.animal",
-              "smallImg":"/icon_animal.png",
-              "mediumImg":"",
+              "smallImg":"/logo.png",
+              "mediumImg":"/banner.png",
               "bigImg":"",
               "detailSmallImg":""
             },
             {
               "id":"10102",
-              "path":"",
+              "path":"/fifa",
               "isNeedBuy": false,
               "downloadUrl":"/fifa",
               "type":1,
               "name":"FIFA",
               "pkgName":"com.photoeditor.plugins.sticker.fifa",
-              "smallImg":"/icon_fifa.png",
-              "mediumImg":"",
+              "smallImg":"/logo.png",
+              "mediumImg":"/banner.png",
               "bigImg":"",
               "detailSmallImg":""
             }

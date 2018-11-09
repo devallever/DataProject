@@ -22,8 +22,8 @@
             {
               "id":"10101",
               "path":"",
-              "isNeedBuy": false,
-              "downloadUrl":"/com.photoeditor.plugins.sticker.animal",
+              "isNeedBuy": true,
+              "downloadUrl":"/animal",
               "type":1,
               "name":"Animal",
               "pkgName":"com.photoeditor.plugins.sticker.animal",
@@ -35,12 +35,12 @@
             {
               "id":"10102",
               "path":"",
-              "isNeedBuy": true,
-              "downloadUrl":"/com.allever.themeproject.worldcup",
+              "isNeedBuy": false,
+              "downloadUrl":"/fifa",
               "type":1,
-              "name":"WorldCup",
-              "pkgName":"com.allever.themeproject.worldcup",
-              "smallImg":"/icon_worldcup.png",
+              "name":"FIFA",
+              "pkgName":"com.photoeditor.plugins.sticker.fifa",
+              "smallImg":"/icon_fifa.png",
               "mediumImg":"",
               "bigImg":"",
               "detailSmallImg":""

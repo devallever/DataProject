@@ -1,16 +1,16 @@
 {
-  "version":"1-3,5,8-10",
-  "packageName":"photoeditor.picsgrid.artvideo.photocollage.layout",
+  "version":"1-10",
+  "packageName":"photoeditor.photoeditor.photoeditor.pro",
   "time":30,
   "url":"https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/effect",
   "lastUpdateTime":123,
   "child": [
     {
-      "version":"4",
+      "version":"11",
       "url":"https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/effect"
     },
     {
-      "version":"6-7",
+      "version":"12-13",
       "url":"https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/effect"
     }
   ]

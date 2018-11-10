@@ -7,7 +7,7 @@
     {
       "id":"1",
       "name":"effects",
-      "path":"res",
+      "path":"/res",
       "child":[
         {
           "id":"101",
@@ -21,14 +21,14 @@
           "child":[
             {
               "id":"10101",
-              "path":"animal",
+              "path":"/animal",
               "isNeedBuy": true,
-              "downloadUrl":"animal",
+              "downloadUrl":"/animal",
               "type":1,
               "name":"Animal",
               "pkgName":"com.photoeditor.plugins.sticker.animal",
               "smallImg":"logo.png",
-              "mediumImg":"banner.png",
+              "mediumImg":"/banner.png",
               "bigImg":"",
               "detailSmallImg":""
             },

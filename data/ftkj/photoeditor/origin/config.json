@@ -1,16 +1,16 @@
 {
   "version":"1-100",
   "packageName":"photoeditor.photoeditor.photoeditor.pro",
-  "time":30,
-  "url":"https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/effect",
-  "lastUpdateTime":123,
+  "time":480,
+  "url":"http://www.allinai.global:23456/205e7393/effect",
+  "lastUpdateTime":1541817630473,
   "child": [
     {
-      "version":"11",
+      "version":"101",
       "url":""
     },
     {
-      "version":"12-13",
+      "version":"102",
       "url":""
     }
   ]

@@ -119,7 +119,7 @@
               "path": "soul",
               "isNeedBuy": false,
               "downloadUrl": "soul.zip",
-              "type": 1,
+              "type": 7,
               "name": "soul",
               "pkgName": "com.photoeditor.plugins.music.soul",
               "smallImg": "https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/res/music/soul/logo.jpg",

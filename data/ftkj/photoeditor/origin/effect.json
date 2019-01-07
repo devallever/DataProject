@@ -78,7 +78,39 @@
           "name": "Font",
           "path": "font",
           "tutorialUrl": "",
-          "tutorialDescription": ""
+          "tutorialDescription": "",
+          "child": [
+            {
+              "id": "10301",
+              "path": "/cinzel",
+              "isNeedBuy": false,
+              "type": 3,
+              "name": "Cinzel",
+              "downloadUrl": "/cinzel.zip",
+              "pkgName": "com.videoeditor.plugins.font.cinzel",
+              "smallImg": "/s01.png"
+            },
+            {
+              "id": "10302",
+              "path": "/IndieFlower",
+              "isNeedBuy": false,
+              "type": 3,
+              "name": "IndieFlower",
+              "downloadUrl": "/IndieFlower.zip",
+              "pkgName": "com.videoeditor.plugins.font.indieflower",
+              "smallImg": "/s01.png"
+            },
+            {
+              "id": "10303",
+              "path": "/ConcertOne-Regular",
+              "isNeedBuy": false,
+              "type": 3,
+              "name": "ConcertOne-Regular",
+              "downloadUrl": "/ConcertOne-Regular.zip",
+              "pkgName": "com.videoeditor.plugins.font.concertoneregular",
+              "smallImg": "/s01.png"
+            }
+          ]
         },
         {
           "id": "104",

@@ -70,6 +70,19 @@
               "mediumImg": "",
               "bigImg": "",
               "detailSmallImg": ""
+            },
+            {
+              "id": "10105",
+              "path": "light",
+              "isNeedBuy": false,
+              "downloadUrl": "light",
+              "type": 1,
+              "name": "Light",
+              "pkgName": "com.videoeditor.plugins.sticker.light",
+              "smallImg": "logo.png",
+              "mediumImg": "",
+              "bigImg": "",
+              "detailSmallImg": ""
             }
           ]
         },

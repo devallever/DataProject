@@ -83,6 +83,19 @@
               "mediumImg": "",
               "bigImg": "",
               "detailSmallImg": ""
+            },
+            {
+              "id": "10106",
+              "path": "text",
+              "isNeedBuy": false,
+              "downloadUrl": "text",
+              "type": 1,
+              "name": "Text",
+              "pkgName": "com.videoeditor.plugins.sticker.text",
+              "smallImg": "logo.png",
+              "mediumImg": "",
+              "bigImg": "",
+              "detailSmallImg": ""
             }
           ]
         },

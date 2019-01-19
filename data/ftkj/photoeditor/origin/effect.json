@@ -1,7 +1,7 @@
 {
   "id": "0",
   "type": 0,
-  "hostname": "http://www.allinai.global:23456",
+  "hostname": "https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor",
   "path": "",
   "child": [
     {
@@ -55,6 +55,19 @@
               "pkgName": "com.photoeditor.plugins.sticker.christmas",
               "smallImg": "logo.png",
               "mediumImg": "banner.png",
+              "bigImg": "",
+              "detailSmallImg": ""
+            },
+            {
+              "id": "10104",
+              "path": "aurora",
+              "isNeedBuy": false,
+              "downloadUrl": "aurora",
+              "type": 1,
+              "name": "Aurora",
+              "pkgName": "com.videoeditor.plugins.sticker.aurora",
+              "smallImg": "logo.png",
+              "mediumImg": "",
               "bigImg": "",
               "detailSmallImg": ""
             }

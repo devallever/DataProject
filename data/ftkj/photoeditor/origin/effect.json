@@ -1,7 +1,7 @@
 {
   "id": "0",
   "type": 0,
-  "hostname": "https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor",
+  "hostname": "http://www.allinai.global:23456",
   "path": "",
   "child": [
     {
@@ -27,7 +27,7 @@
               "type": 1,
               "name": "Animal",
               "pkgName": "com.photoeditor.plugins.sticker.animal",
-              "smallImg": "https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/res/sticker/animal/logo.png",
+              "smallImg": "logo.png",
               "mediumImg": "banner.png",
               "bigImg": "",
               "detailSmallImg": ""
@@ -53,8 +53,8 @@
               "type": 1,
               "name": "Christmas",
               "pkgName": "com.photoeditor.plugins.sticker.christmas",
-              "smallImg": "/logo.png",
-              "mediumImg": "/banner.png",
+              "smallImg": "logo.png",
+              "mediumImg": "banner.png",
               "bigImg": "",
               "detailSmallImg": ""
             }
@@ -154,7 +154,7 @@
               "type": 7,
               "name": "Soul",
               "pkgName": "com.videoeditor.plugins.music.soul",
-              "smallImg": "https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/res/music/soul/logo.jpg",
+              "smallImg": "logo.jpg",
               "mediumImg": "",
               "bigImg": "",
               "detailSmallImg": ""
@@ -167,7 +167,7 @@
               "type": 7,
               "name": "Dark",
               "pkgName": "com.videoeditor.plugins.music.dark",
-              "smallImg": "https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/res/music/dark/logo.jpg",
+              "smallImg": "logo.jpg",
               "mediumImg": "",
               "bigImg": "",
               "detailSmallImg": ""
@@ -180,7 +180,7 @@
               "type": 7,
               "name": "Happy",
               "pkgName": "com.videoeditor.plugins.music.happy",
-              "smallImg": "https://raw.githubusercontent.com/devallever/DataProject/master/data/ftkj/photoeditor/res/music/happy/logo.jpg",
+              "smallImg": "logo.jpg",
               "mediumImg": "",
               "bigImg": "",
               "detailSmallImg": ""

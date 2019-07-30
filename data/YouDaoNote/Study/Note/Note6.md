@@ -368,6 +368,7 @@ public class OkHttpUrlLoader implements ModelLoader<GlideUrl, InputStream> {
 ```
 
  - NDK说明
+
 ```
 This version of the NDK is incompatible with the Android Gradle plugin
    version 3.0 or older. If you see an error like
@@ -376,9 +377,11 @@ This version of the NDK is incompatible with the Android Gradle plugin
    need to upgrade to Android Studio 3.1 or newer.
 
 ```
+
  - 解决办法
 
 其实解决方法很简单，就是修改build.gradle中的红字部分，改为3.1以上版本即可
+
 ```
 dependencies {
     classpath 'com.android.tools.build:gradle:3.2.0'

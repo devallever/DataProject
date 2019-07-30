@@ -159,9 +159,30 @@ Service是Android中实现程序后台运行的解决方案，它适合去执行
 它的运行过程是这样的：handler发送一个消息出去，这个消息会被添加到MessageQueue中等待被处理，而Looper则会一直尝试从消息队列中取出消息，最后分发回handler的handleMessage()方法。
 
 
-##### 25.（）
+##### 25.（）MessageQueue工作原理
 
- 
+MessageQueue有两个主要的方法：
+ - eqeueMessage()：将消息入队
+ - next()：将消息出队。内部是单链表实现的队列，因为要频繁的入队出队操作。next()方法是个阻塞方法，没有消息会一直阻塞在那里。
+
+
+##### 26.（）Looper工作原理
+
+ - 工作流程：Looper会不停滴从MessageQueue中查看是否有新消息，有则立刻处理，否则一直阻塞。
+ - 构造方法：在构造方法中创建了MessageQueue并且保存了当前线程对象。
+ - 创建Looper：Looper.prepare()或主线程中使用prepareMainLopper()。
+ - 开启消息循环：Looper.loop()，该方法有个死循环，循环调用MessageQueue的next()方法来获取新消息。如果返回新消息，就会通过handler的dispatchMessage方法分发给响应的Handler。Handler的dispatchMessage方法是创建Handler时所使用的Looper中执行。这样就切换到指定的线程中去执行。
+ - 退出消息循环：当Lopper调用了MessageQueue中的quit()或quitSafely()方法时，next()方法会返回null，这时即可退出Looper死循环。quiet()是立即退出；quitSafely()是处理完消息之后才退出。
+
+
+##### 27.（）Handler工作原理
+
+Handler的主要工作是发送消息和处理消息。post()方法最终会调用sendMessage()方法去发送消息，而sendMessage()最终会调用到MessageQueue的enqueMessage()方法，即把消息移入到消息队列中去，
+这就完成了。Looper则取出消息，调用handler的dispatchMessage方法。dispatchMessage()方法有两种处理方式：
+ - 当handler使用post方法发送消息，message.callback不为空，此时会选择调用handleCallback()方法，该方法会调用callback的run方法。CallBack实际上是Runnable对象，这里就是执行post()时的Runnable。如果msg.callback为空，则会调用handlerMessage，这里会调用创建Handler子类时重写的handleMessage()方法。
+
+
+
 ##### 1.（）字符和字符串所占字节数
 
  - char：2字节

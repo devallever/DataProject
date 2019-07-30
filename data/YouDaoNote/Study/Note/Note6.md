@@ -4,7 +4,7 @@
  - 按时间倒序记录
 
 
-###### 2019.07.30，（）Glide停止请求和重新请求
+##### 2019.07.30，（）Glide停止请求和重新请求
 
 ```
 Glide.with(context).resumeRequests()
@@ -469,3 +469,48 @@ albumIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 **Error: Program type already present: android.support.v4.app.FragmentTransitionCompat21$1**
  
  - 原因：没有导入v4包
+ 
+ 
+##### 2019.06.24，（）异或加密算法
+
+> [XOR 加密简介: http://www.ruanyifeng.com/blog/2017/05/xor.html](http://www.ruanyifeng.com/blog/2017/05/xor.html)
+
+相同返回0， 不同返回1
+```
+1 ^ 1 // 0
+0 ^ 0 // 0
+1 ^ 0 // 1
+0 ^ 1 // 1
+```
+
+XOR 运算有一个很奇妙的特点：如果对一个值连续做两次 XOR，会返回这个值本身。
+```
+// 第一次 XOR
+1010 ^ 1111 // 0101
+
+// 第二次 XOR
+0101 ^ 1111 // 1010
+```
+
+
+##### 2019.06.04，（） adb connect 连接失败
+> unable to connect 192.168.x.x
+
+解决办法：
+1. 下载termux 谷歌商店可以下
+2. 执行下列命令
+3. 重新连接
+
+```
+su 
+setprop service.adb.tcp.port 5555 
+stop adbd 
+start adbd
+```
+
+>  [参考: adb connect 连接失败问题unable to connect to](https://blog.csdn.net/qq_24505485/article/details/52737523)
+
+##### 2019.06.04，（） gradle 打包命令
+```
+./gradlew assembleRelease
+```

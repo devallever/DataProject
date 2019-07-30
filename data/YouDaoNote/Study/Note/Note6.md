@@ -400,6 +400,7 @@ if (Build.VERSION.SDK_INT >= 26) {
  ```
 
 
+
 ##### 2019.07.17，（）7.0 Uri权限问题
 
 res->xml: filepath.xml
@@ -494,6 +495,7 @@ XOR 运算有一个很奇妙的特点：如果对一个值连续做两次 XOR，
 
 
 ##### 2019.06.04，（） adb connect 连接失败
+
 > unable to connect 192.168.x.x
 
 解决办法：
@@ -511,12 +513,14 @@ start adbd
 >  [参考: adb connect 连接失败问题unable to connect to](https://blog.csdn.net/qq_24505485/article/details/52737523)
 
 ##### 2019.06.04，（） gradle 打包命令
+
 ```
 ./gradlew assembleRelease
 ```
 
 
 ##### 2019.05.16，（） 找不到Could not find manifest-merger.jar
+
 将jcenter()和google()调换
 因为在jcenter()找不到就不会到google()中找
 > 参考: [解决Could not find manifest-merger.jar](https://www.jianshu.com/p/d719984b0ac8)
@@ -584,6 +588,7 @@ def releaseTime() {
 
 
 ##### 2019.05.05，（） 实现点击n次监听
+
 > [参考: Android双击，连续点击5次](https://blog.csdn.net/iblade/article/details/72676229)
 
 

@@ -514,3 +514,130 @@ start adbd
 ```
 ./gradlew assembleRelease
 ```
+
+
+##### 2019.05.16，（） 找不到Could not find manifest-merger.jar
+将jcenter()和google()调换
+因为在jcenter()找不到就不会到google()中找
+> 参考: [解决Could not find manifest-merger.jar](https://www.jianshu.com/p/d719984b0ac8)
+
+
+##### 2015.05.07，（） 配置打包
+
+在app模块下的build.gradle中android闭包中添加
+```
+    signingConfigs {
+        release {
+            storeFile file("${rootProject.ext.signingStoreFile}")
+            storePassword "${rootProject.ext.signingStorePassword}"
+            keyAlias "${rootProject.ext.signingKeyAlias}"
+            keyPassword "${rootProject.ext.signingKeyPassword}"
+        }
+    }
+```
+
+上面的值可以直接使用字符串,也可以在项目的build.gradle中一级闭包添加
+```
+ext{
+    signingStoreFile = '../xiaoxuekey.jks'
+    signingKeyAlias = 'fullmedia'
+    signingStorePassword = '111111'
+    signingKeyPassword = '111111'
+}
+```
+配置打包apk的文件名, 在app模块下的build.gradle中的buildType中添加
+```
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        applicationVariants.all {
+            variant ->
+                if (variant.buildType.name.equals('release')) {
+                    variant.outputs.each { output ->
+                        def outputFile = output.outputFile
+                        if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                            def fileName = "${defaultConfig.applicationId}_(Release)_V${defaultConfig.versionName}_C${defaultConfig.versionCode}_(Build${releaseTime()}).apk"
+                            output.outputFileName = new File(fileName)
+                            //com.tcqmt.xiaoxue_(Release)_V1.0_C1_(Build201905070905).apk
+                        }
+                    }
+                }
+        }
+    }
+```
+
+然后在一级目录创建方法
+```
+def releaseTime() {
+    return new Date().format("yyyyMMddHHmm", TimeZone.getTimeZone("Asia/Chongqing"))
+}
+```
+
+> [参考：Android studio 通过build.gradle 配置打包签名文件，生成 xxx.apk](https://blog.csdn.net/sinat_26710701/article/details/63262652)
+
+
+> [参考：android studio 命令行打包](https://blog.csdn.net/li530893850/article/details/70889763)
+
+
+##### 2019.05.05，（） 实现点击n次监听
+> [参考: Android双击，连续点击5次](https://blog.csdn.net/iblade/article/details/72676229)
+
+
+java实现
+```
+findViewById(R.id.id_test_btn).setOnClickListener(new View.OnClickListener() {
+            final static int COUNTS = 5;//点击次数
+            final static long DURATION = 3 * 1000;//规定有效时间
+            long[] mHits = new long[COUNTS];
+
+            @Override
+            public void onClick(View v) {
+                /**
+                 * 实现双击方法
+                 * src 拷贝的源数组
+                 * srcPos 从源数组的那个位置开始拷贝.
+                 * dst 目标数组
+                 * dstPos 从目标数组的那个位子开始写数据
+                 * length 拷贝的元素的个数
+                 */
+                System.arraycopy(mHits, 1, mHits, 0, mHits.length - 1);
+                //实现左移，然后最后一个位置更新距离开机的时间，如果最后一个时间和最开始时间小于DURATION，即连续5次点击
+                mHits[mHits.length - 1] = SystemClock.uptimeMillis();
+                if (mHits[0] >= (SystemClock.uptimeMillis() - DURATION)) {
+                    String tips = "您已在[" + DURATION + "]ms内连续点击【" + mHits.length + "】次了！！！";
+                    Toast.makeText(TestActivity.this, tips, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+```
+
+kotlin实现
+```
+logo.setOnClickListener(object : View.OnClickListener {
+            val COUNTS = 5//点击次数
+            val DURATION = (3 * 1000).toLong()//规定有效时间
+            var mHits = LongArray(COUNTS)
+
+            override fun onClick(v: View) {
+                /**
+                 * src 拷贝的源数组
+                 * srcPos 从源数组的那个位置开始拷贝.
+                 * dst 目标数组
+                 * dstPos 从目标数组的那个位子开始写数据
+                 * length 拷贝的元素的个数
+                 */
+                System.arraycopy(mHits, 1, mHits, 0, mHits.size - 1)
+                //然后最后一个位置更新距离首次点击的时间，如果最后一个时间和最开始时间小于DURATION，即连续5次点击
+                mHits[mHits.size - 1] = SystemClock.uptimeMillis()
+                if (mHits[0] >= SystemClock.uptimeMillis() - DURATION) {
+                    //连续点击5次的逻辑
+                    RobotServiceHelper.instance(this@HomeActivity).setData(getData())
+                }
+            }
+        })
+```
+

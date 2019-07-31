@@ -2611,12 +2611,102 @@ addTextChangedListener
 > [自定义RadioButton样式](http://blog.csdn.net/mango9126/article/details/76254439)
 
 
+##### 2018.02.28，（）Android自定义控件 倒计时
+> [Android自定义控件 倒计时](https://www.jianshu.com/p/18c6f5d306b0)
+
+##### 2018.02.28，（）Paint&Canvas实现一个点（图片）在圆形（轨迹）上运动
+> [ Paint&Canvas实现一个点（图片）在圆形（轨迹）上运动](http://blog.csdn.net/u011200844/article/details/44568467)
+
+##### 2018.02.28，（）ButterKnife使用之Activity与Fragment
+> [ButterKnife使用之Activity与Fragment](http://blog.csdn.net/qq_36220729/article/details/62888744)
+
+##### 2018.02.28，（）CircleProgressBar
+> [CircleProgressBar](https://github.com/dinuscxj/CircleProgressBar)
 
 
+##### 2018.02.08，（）Android递归方式删除某文件夹下的所有文件
+> [Android递归方式删除某文件夹下的所有文件](http://blog.csdn.net/nupt123456789/article/details/8995070)
+
+```
+    public void DeleteFile(File file) {  
+        if (file.exists() == false) {  
+            mHandler.sendEmptyMessage(0);  
+            return;  
+        } else {  
+            if (file.isFile()) {  
+                file.delete();  
+                return;  
+            }  
+            if (file.isDirectory()) {  
+                File[] childFile = file.listFiles();  
+                if (childFile == null || childFile.length == 0) {  
+                    file.delete();  
+                    return;  
+                }  
+                for (File f : childFile) {  
+                    DeleteFile(f);  
+                }  
+                file.delete();  
+            }  
+        }  
+    } 
+```
+
+##### 2018.02.08，（）彻底理解android中的内部存储与外部存储
+> [彻底理解android中的内部存储与外部存储](http://blog.csdn.net/u012702547/article/details/50269639)
+
+##### 2018.02.08，（）Android Bitmap和Drawable互转
+> [Android Bitmap和Drawable互转](http://www.cnblogs.com/a284628487/p/3097508.html)
+```java
+Bitmap bmp=xxx; 
+BitmapDrawable bd=new BitmapDrawable(bmp);
+
+//
+Drawable d=xxx; 
+BitmapDrawable bd = (BitmapDrawable) d;
+Bitmap bm = bd.getBitmap();
+```
 
 
+##### 2018.02.07，（）onClickListener和onTouchListener的关系
+> [参考：浅谈OnTouchListener，OnClickListener和OnLongClickListener的关系](http://blog.csdn.net/bingospunky/article/details/41212261)
 
+ - 执行顺序：onTouch > onClick  
+ - onClick执行的充要条件：
+onTouch不消费ACTION_DOWN 和 ACTION_UP.
+即：都返回 false
 
+```java
+button.setOnTouchListener(new View.OnTouchListener() {  
+    public boolean onTouch(View arg0, MotionEvent arg1) {  
+        if(arg1.getAction() == MotionEvent.ACTION_DOWN){  
+            Log.i(TAG, "OnTouchListener    +    down");  
+            return false;  
+        }else if(arg1.getAction() == MotionEvent.ACTION_UP){  
+            Log.i(TAG, "OnTouchListener    +    up");  
+            return false;  
+        }else {  
+            Log.i(TAG, "OnTouchListener    +    move");  
+            return false;  
+        }  
+    }  
+}); 
+```
+
+```java
+button.setOnClickListener(new View.OnClickListener() {  
+    public void onClick(View arg0) {  
+        Log.i(TAG, "OnClickListener");  
+    }  
+}); 
+```
+
+程序结果：程序分4种情况分别为：
+
+ - 消化TouchDown，不消化TouchUp------操作：单击按钮------结果：不产生OnClick事件
+ - 不消化TouchDown，消化TouchUp------操作：单击按钮------结果：不产生OnClick事件
+ - 消化TouchDown，消化TouchUp------操作：单击按钮------结果：不产生OnClick事件
+ - 不消化TouchDown，不消化TouchUp----操作：单击按钮----结果：产生OnClick事件
 
 
 

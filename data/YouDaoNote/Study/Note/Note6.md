@@ -1,9 +1,3 @@
-**笔记本6**
-
- - 记录日常的知识点
- - 按时间倒序记录
-
-
 ##### 2019.07.30，（）Glide停止请求和重新请求
 
 ```
@@ -17,6 +11,7 @@ Glide.with(context).pauseRequests()
  - 解决办法：通过修改加载图片源码的方式
 
 做法：
+
  - 从 implementation "com.github.bumptech.glide:okhttp3-integration:4.7.1"这个包中复制下面几个文件并修改如下：
 
 OkHttpGlideModule：
@@ -400,13 +395,12 @@ if (Build.VERSION.SDK_INT >= 26) {
 } else {
     floatWindowViewParams?.type = WindowManager.LayoutParams.TYPE_PHONE
 }
- ```
-
-
-
+```
+ 
 ##### 2019.07.17，（）7.0 Uri权限问题
 
 res->xml: filepath.xml
+
 ```
 <!--FileProvider提供的共享目录配置文件-->
 <!-- 基本覆盖了手机中所有目录的权限， 外置SD卡对应共享目录的权限需要配置自定义的root-path中。 -->

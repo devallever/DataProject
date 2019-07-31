@@ -2056,6 +2056,149 @@ xml中使用Spinner
 ```
 
 
+##### 2018.06.12，（）DialogFragment调用show();引发的bug
+
+java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState
+
+```
+private void checkStateLoss() {
+        if (mStateSaved) {
+            throw new IllegalStateException(
+                    "Can not perform this action after onSaveInstanceState");
+        }
+        if (mNoTransactionsBecause != null) {
+            throw new IllegalStateException(
+                    "Can not perform this action inside of " + mNoTransactionsBecause);
+        }
+    }
+```
+
+只有在saveAllState()的时候，才会将它置为true。
+
+```
+Parcelable saveAllState() {
+        // ...
+        if (HONEYCOMB) {
+            // As of Honeycomb, we save state after pausing.  Prior to that
+            // it is before pausing.  With fragments this is an issue, since
+            // there are many things you may do after pausing but before
+            // stopping that change the fragment state.  For those older
+            // devices, we will not at this point say that we have saved
+            // the state, so we will allow them to continue doing fragment
+            // transactions.  This retains the same semantics as Honeycomb,
+            // though you do have the risk of losing the very most recent state
+            // if the process is killed...  we'll live with that.
+            mStateSaved = true;
+        }
+        // ...
+    }
+```
+在FragmentActivity的onSaveInstanceState()的时候，会去调用FragmentManager.saveAllState()方法去保存当前所有的Fragment的状态，以便下次进行恢复。而在被销毁到恢复期间的时候，去做有关Fragment状态的操作，就会引起IllegalStateException。
+```
+/**
+     * Save all appropriate fragment state.
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Parcelable p = mFragments.saveAllState();
+        if (p != null) {
+            outState.putParcelable(FRAGMENTS_TAG, p);
+        }
+    }
+
+```
+
+
+```
+解决方案
+既然已经找到了问题的症结。那么就有办法解决了。
+
+try.catch住
+已经很明朗是因为mStateSaved出现的错误，那么在继承DialogFragment之后，从写show()方法，然后把super.show()用try.catch包裹住即可。这样就可以忽略此Bug了。
+
+    @Override
+    public void show(FragmentManager manager, String tag) {
+        try{
+            super.show(manager,tag);
+        }catch (IllegalStateException ignore){
+        }
+    }
+重写DialogFragment
+使用try.catch的方式明显不够优雅。那么就可以考虑第二种方案。
+
+既然DialogFragment是继承于Fragment，那么可以把它完整的代码全部拷贝过来，然后重写show()方法，把commit()替换为commitAllowingStateLoss()即可。
+
+不过如果Fragment的继承有包的限制，可以在自己的项目中，新建一个android.support.v4.app的Package，然后在其中新建一个PDialogFragment.java，将DialogFragment的代码全部copy过来，重写对应的方法即可。
+
+    public void show(FragmentManager manager, String tag) {
+        mDismissed = false;
+        mShownByMe = true;
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.add(this, tag);
+        ft.commitAllowingStateLoss();
+    }
+虽然用继承DialogFragment的方式，自己去写show()，不去调用super.show()应该也可以，但是show()中其实是有一些状态的置换的，最好不要用这种方式，用这种方式在调试的时候可能没有问题，但是发布出去可能会导致未知问题。
+
+```
+
+
+##### 2018.06.07，（）动态添加控件
+```
+        //添加imageView
+        LinearLayout linearLayout = findViewById(R.id.id_ll_ad_container);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        recommendImageView.setLayoutParams(params);
+        DisplayUtils.setMargins(recommendImageView,
+                DisplayUtils.dip2px(this, 5),
+                DisplayUtils.dip2px(this, 5),
+                DisplayUtils.dip2px(this, 5),
+                DisplayUtils.dip2px(this, 5));
+        linearLayout.addView(recommendImageView);
+```
+> [参考：]()
+
+##### 2018.06.07，（）dp与px互转
+```
+    public static int px2dip(Context context, float pxValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
+    }
+
+    public static int dip2px(Context context, float dipValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dipValue * scale + 0.5f);
+    }
+```
+> [参考:Android 为什么 dp2px 或 px2dp 公式需要加 0.5f](https://blog.csdn.net/changcsw/article/details/52440543)
+
+这两个公式网上很多，但为什么 最后都要加上0.5f 呢？
+ 按正常的推理应该是  dip = pxValue / scale 和 px = dipValue * scale ，
+
+实际上准确的值就应该是 咱们推理出来的，之所以后面加上0.5f是因为 咱们要的只不是那么精准，根据推理算出来的是个浮点数，而咱们程序中一般使用int类型就够了，这里涉及到一个类型转换精准度问题，熟悉java特效的同学应该知道
+
+float 类型的 4.1 和4.9 强转成int类型后，会失去精准度变成 int类型的4， 而如果咱们想四舍五入的话，把他们都加上0.5f，这样转换出来的结果就是：
+
+4.4 + 0.5 = 4.9 转为int 还是4，而4.5 + 0.5 = 5.0 转换成int后就是5，正好是四舍五入，这样就保证了咱们算出来的值相对精准。
+
+
+##### 2018.06.06，（）DialogFragment监听返回键
+实现DialogInterface.OnKeyListener接口
+
+```
+    @Override
+    public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+        //如果按下的是返回键
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            //TO DO 
+            return true;
+        }else {
+            //这里注意当不是返回键时需将事件扩散，否则无法处理其他点击事件
+            return false;
+        }
+    }
+```
+> [参考：dialogfragment监听返回键](https://blog.csdn.net/u011421608/article/details/51542761)
 
 
 

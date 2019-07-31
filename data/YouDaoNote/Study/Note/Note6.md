@@ -2473,6 +2473,154 @@ public class MyApplication extends SomeOtherApplication {
 }
 ```
 
+##### 2018.03.11，（）Ubuntu下shadowsocks配置说明
+
+> [Ubuntu下shadowsocks配置说明](https://www.linuxidc.com/Linux/2015-09/123579.htm)
+
+```
+安装
+
+Linux不同的发行版执行的命令如下：
+
+Debian / Ubuntu:
+apt-get install python-pip
+pip install shadowsocks
+ 
+CentOS:
+yum install python-setuptools && easy_install pip
+pip install shadowsocks
+
+配置
+
+sudo vim /etc/shadowsocks.json
+//这里的json文件是自己创建的，不是系统自带
+
+配置文件的内容大致如下：
+
+{
+    "server":"服务器的ip",
+    "server_port":19175,
+    "local_address":"127.0.0.1",
+    "local_port":1080,
+    "password":"密码",
+    "timeout":300,
+    "method":"aes-256-cfb",
+    "fast_open":false
+}
+
+启动ss客户端
+
+前两步很简单，可是有人就纳闷了安装好了不知道怎么用，其实可以用sslocal -help 来查看帮助就知道了
+
+sslocal -c /etc/shadowsocks.json
+
+一条命令代理就可以启动了。
+
+Ubuntu开机后自动运行
+
+现在可以科学上网了，可是每次开机都要手动打开终端输入一条命令，虽然这条命令并不长，但是每次都去手动输入，显得自己很low,而且关掉终端代理就关闭了。
+
+写个脚本
+
+我们可以在比如/home下新建个文件叫做shadow.sh，在里面写上我们启动ss客户端需要的命令，然后保存即可。
+
+#！/bin/bash
+#shadow.sh
+sslocal -c /etc/shadowsocks.json
+
+看可不可以我们到终端执行命令 sh /home/shadow.sh，如果成功的话会有信息输出的。你也可以到浏览器去试试。这个时候你虽然输入的少了，可是关了终端还是会掉的，我们可以让他在后台运行，nohup sh /home/shadow.sh &。
+
+加入开机运行
+
+这里我们需要在/etc下编辑一个叫rc,local的文件，需要root权限，在终端先su获取root权限，如果你有root帐号的话，然后vim /etc/rc.local编辑，在exit之前输入nohup bash /home/shadow.sh>/home/d.txt & 保存。
+
+这个时候你可以reboot重启了，测试下看看能不能后台自动运行，重启你可以先去看下我们要他输出d.txt，你竟然发现是 /home/shadow.sh line 3 :sslocal: command not found,打开浏览器果然是无法链接代理服务器。
+
+经过一番搜索我们发现远离linux是找不到sslocal这条命令？需要添加路径，我们发现sslocal和ssserver这两个命令是被存在 /usr/local/bin下面的，其实不用去profile添加了，直接把这两个文件移动到/bin下，就可以了。
+```
+
+
+##### 2018.03.09，（）ubuntu下navicat表格数据内容中文乱码
+编辑解压的navicat目录下面的start_navicat:   查找export LANG="en_US.UTF-8" 改为 export LANG="zh_CN.UTF-8"。
+
+> [Ubuntu navicat链接mysql后中文数据乱码](http://blog.csdn.net/xugangwen/article/details/53885760)
+
+##### 2018.03.09，（）Android中自动朗读(TTS)的简单使用
+> [Android中自动朗读(TTS)的简单使用](http://blog.csdn.net/u010142437/article/details/9255629)
+
+
+##### 2018.03.06，（）Java小数点位数保留
+
+```
+double d = 0.200;
+DecimalFormat df = new DecimalFormat("0.00");
+System.out.println(df.format(d));
+```
+> [Java小数点位数保留](https://www.jianshu.com/p/00fff555986b)
+
+##### 2018.03.06，（）android edittext监听输入完成，输入完成后，获取到值
+
+```
+addTextChangedListener
+```
+> [android edittext监听输入完成，输入完成后，获取到值](http://blog.csdn.net/harryweasley/article/details/50395209)
+
+##### 2018.03.06，（）读取assets下的文本文件内容
+
+```
+  public String readFileFromAssets(Context context, String fileName) throws IOException {
+    if (null == context || null == fileName) return null;
+    AssetManager am = context.getAssets();
+    InputStream input = am.open(fileName);
+    ByteArrayOutputStream output = new ByteArrayOutputStream();
+    byte[] buffer = new byte[1024];
+    int len = 0;
+    while ((len = input.read(buffer)) != -1) {
+      output.write(buffer, 0, len);
+    }
+    output.close();
+    input.close();
+    return output.toString();
+  }
+```
+> [读取assets下的文本文件内容](https://my.oschina.net/u/165872/blog/124455)
+
+##### 2018.03.06，（）gson解析对象数组，使用泛型封装报错
+
+```
+    public static <T> List<T> jsonToBeanList(String json, Class<T> t) {
+        List<T> list = new ArrayList<>();
+        Gson gson = new Gson();
+        JsonParser parser = new JsonParser();
+        JsonArray jsonarray = parser.parse(json).getAsJsonArray();
+        for (JsonElement element : jsonarray) {
+            list.add(gson.fromJson(element, t));
+        }
+        return list;
+    }
+    
+    List<ActionMap> list = jsonToBeanList(json, ActionMap.class);
+```
+> [gson解析对象数组，使用泛型封装报错](http://ask.csdn.net/questions/340779)
+
+
+##### 2018.03.02，（）自定义radiobutton的样式 
+> [自定义radiobutton的样式 ](http://blog.csdn.net/u010399316/article/details/47320745)
+
+##### 2018.03.02，（）自定义RadioButton样式
+> [自定义RadioButton样式](http://blog.csdn.net/mango9126/article/details/76254439)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

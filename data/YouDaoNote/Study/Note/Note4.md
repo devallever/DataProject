@@ -1,6 +1,12 @@
 ##### 1.（Java）进程与线程的区别
 
 
+ - 进程：是CPU分配资源的最小单位。例如一个应用就是一个进程(也可以多个进程)，CPU为这个应用分配资源，如内存
+ - 线程：是CPU调度的最小单位。CPU执行的是线程
+
+进程之间不能共享资源，线程可以共享所在进程的资源。一个进程至少包含一个线程，线程依赖进程而存在。
+
+
 ##### 2.（Android）实现多进程的方式
 
  - 给四大组件指定process属性
@@ -14,6 +20,13 @@
 
 ##### 3.（Android）实现IPC的方式
 
+Android跨进程通信的方式有：Intent、文件共享、ContentProvider、广播、Socket和AIDL
+ - Intent：
+ - 文件共享：两个进程读写一个文件来传递数据
+ - ContentProvider：Andorid专用于不同应用间共享数据
+ - 广播：
+ - Socket：网络上不同应用的数据交互
+ - AIDL：
 
 ##### 4.（设计模式）观察者模式
 
@@ -23,10 +36,110 @@
 
 ##### 5.（设计模式）单例模式
 
+ - 饿汉模式
+
+这家伙太饥饿难耐啦，什么也不干，也不想想在多线程时候怎么保证单例对象的唯一性。
+
+```java
+public class HungrySingleton {
+    private static final HungrySingleton hungrySingleton = new HungrySingleton();
+    private HungrySingleton(){}
+
+    public static HungrySingleton getInstance(){
+        return hungrySingleton;
+    }
+    /**防止反序列化重新构建对象*/
+    private Object readResolve() throws ObjectStreamException{
+        return hungrySingleton;
+    }
+}
+```
+
+ - 懒汉模式
+
+这家伙懂事点点，考虑到多线程时候怎么保证单例对象的唯一性。就加个synchronized关键字嘛，每次调用该方法都进行同步，但是反应还是有点迟钝。
+```
+public class LazySingleton {
+    private static LazySingleton lazySingleton = null;
+    private LazySingleton(){}
+
+    /**偷懒！ 只判断一次，造成每次调用该方法都进行同步*/
+    public static synchronized LazySingleton getInstance(){
+        if (lazySingleton == null){
+            lazySingleton = new LazySingleton();
+        }
+        return lazySingleton;
+    }
+    /**防止反序列化重新构建对象*/
+    private Object readResolve() throws ObjectStreamException {
+        return lazySingleton;
+    }
+}
+
+```
+
+ - 双重检查锁定
+
+还是这家伙还是挺老实的，干活不怕苦不怕累，使用了两次判空操作，第一次判空防止不必要的同步，第二次判空保证在null情况下才创建实例。
+
+```java
+public class DCLSingleton {
+    private static volatile DCLSingleton dclSingleton = null;
+    private DCLSingleton(){}
+    public static DCLSingleton getInstance(){
+        if (dclSingleton == null){  //避免不必要的同步
+            synchronized (DCLSingleton.class){
+                if (dclSingleton == null){
+                    dclSingleton = new DCLSingleton();
+                }
+            }
+        }
+        return dclSingleton;
+    }
+    /**防止反序列化重新构建对象*/
+    private Object readResolve() throws ObjectStreamException {
+        return dclSingleton;
+    }
+}
+```
+ - 静态内部类
+
+这家伙比较靠谱了，既保证线程安全，也保证单例唯一性，又延迟了单例的实例化，mua
+```
+public class StaticInnerSingleton {
+    private StaticInnerSingleton(){}
+    public static StaticInnerSingleton getInstance(){
+        return StaticInnerSingleHolder.staticInnerSingleton;
+    }
+
+    private static class StaticInnerSingleHolder{
+        private static final StaticInnerSingleton staticInnerSingleton = new StaticInnerSingleton();
+    }
+    /**防止反序列化重新构建对象*/
+    private Object readResolve() throws ObjectStreamException {
+        return StaticInnerSingleHolder.staticInnerSingleton;
+    }
+}
+```
+
+ - 注意事项
+
+以上实现方式，在反序列化时候会重新创建对象，所以必须加入以下方法
+
+```
+/**防止反序列化重新构建对象*/
+private Object readResolve() throws ObjectStreamException {
+        return StaticInnerSingleHolder.staticInnerSingleton;
+}
+```
 
 
 ##### 6.（Java）内存泄漏与内存溢出
 
+ - 内存溢出：指程序申请内存时，没有足够的空间供其使用，即内从不够用
+ - 内存泄漏：指程序申请内存后，无法释放已申请的内存空间。过多的内存泄漏可能导致内存溢出
+
+内存泄漏检测工具：MAT(Memory AnalyzeTool)、LeakCanary
 
 ##### 7.（Android）如何避免内存泄漏
 
@@ -67,6 +180,13 @@
 
 ##### 10.（Android）动画分类、原理和区别
 
+动画分为三种：帧动画、视图动画和属性动画
+ - 帧动画：通过切换图片的方式实现动画效果
+ - 视图动画：通过矩阵运算修改View的显示
+ - 属性动画：通过修改对象的属性值实现动画，是真正意义上的动画。
+视图动画和属性动画的区别：例如将一个View使用视图动画移动到别的位置，但它点击监听事件还在原来的区域；而使用属性动画它的点击区域也随着控件的移动而移动。
+
+
 
 ##### 11.（Android）IPC各种方式优缺点及应用场景
 
@@ -101,6 +221,10 @@ Pull解析XML
 
 
 ##### 14.（Android）Serializable和Parcelable的原理和区别
+
+ - Serialized：使用简单，序列化和反序列化要执行大量的IO操作，低效
+ - Parcelable：使用麻烦，在内存中操作，高效
+ - Serialized适用于存储到本地或网络传输；Parcelable适用于在内存中操作。
 
 
 ##### 15.（数据结构和算法）常用排序算法及其时间复杂度
@@ -227,6 +351,14 @@ System.out.println(5|3);
 
 ##### 27.（Java）线程的各种状态
 
+ - 新建态：new
+ - 就绪状态：Runnable，调用start后，在run执行之前
+ - 运行状态：Running，run
+ - 阻塞状态：Bloked。包括同步阻塞、主动阻塞和等待阻塞
+    - 同步阻塞：锁被其他线程占用
+    - 主动阻塞：主动让出cup执行权，如Thread.sleep、thread.join()
+    - 等待阻塞：wait()
+ - 终止状态：dead、run()方法运行结束或异常退出
 
 
 ##### 28.（Android）View中两种重绘的区别
@@ -320,7 +452,7 @@ MVP：
  - CallAdapter，返回类型，默认是DefaultCallAdapter
  - 动态代理：InvocationHandler
  
-总结：Retorfit使用注解去配置Http请求，将一个Okhttp请求抽象成一个接口，然后用动态代理和反射，将接口的注解翻译成一个http请求。
+总结：Retrofit使用注解去配置Http请求，将一个OkHttp请求抽象成一个接口，然后用动态代理和反射，将接口的注解翻译成一个http请求。
 
 
 ##### 37.（Android）RxJava
@@ -352,6 +484,14 @@ HTTP报文分为请求报文和响应报文。都是由三部分组成：开始�
 
 ##### 56.（Android）对多线程的理解
 
+Android中的线程分为主线程和子线程。主线程叫叫UI线程，用来处理界面相关操作。子线程用来处理耗时的操作，如请求网络、IO。如果在主线程执行耗时的操作，程序就会无法及时响应，因此必须在子线程中执行耗时的操作。  
+
+Android中开启线程的方式有：Thread、AsyncTask(异步任务)、HandleThread、IntentService和线程池  
+ - AsyncTask：封装了线程池和Handler，可以在子线程中执行完任务之后轻易切换到主线程刷新界面
+ - HandlerThread：是一种线程，继承了Thread，通过handler消息机发送消息到子线程执行任务
+ - IntentService：是一种服务，继承了Service，使用HandlerThread去开启线程，处理完成之后会关闭服务
+ - 线程池：管理和重用线程，避免过多的创建和销毁
+
 
 ##### 57.（Android）getWidth()和getMeasureWidth()的区别
 
@@ -375,7 +515,7 @@ HTTP报文分为请求报文和响应报文。都是由三部分组成：开始�
 
 ##### 61.（Android）子线程更新UI的方式
 
-Hnadler、AsyncTask、runOnUI、view.postRunnable
+Handler、AsyncTask、runOnUI、view.postRunnable
 
 
 ##### 62.（Android）Intent可以传递的数据类型
@@ -408,7 +548,7 @@ Hnadler、AsyncTask、runOnUI、view.postRunnable
  - onWindowFocusChanged()：包含当前View的Windows获得或失去焦点时调用，View进入销毁阶段
 
 其他相关回调方法:
- - onFousChanged()
+ - onFocusChanged()
  - onKeyDown()和onKeyUp
  - onTouchEvent()
  - onSavedInstanceState()

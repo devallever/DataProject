@@ -2708,6 +2708,185 @@ button.setOnClickListener(new View.OnClickListener() {
 
 
 
+##### 2018.01.26，（）Android Studio 关于多个module引用同一jar包的问题
+
+排除引用
+```
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+```
+> 参考：[Android Studio 关于多个module引用同一jar包的问题](http://blog.csdn.net/anthony_3/article/details/64128110)
+
+
+##### 2018.01.23，（）Android 帧动画OOM问题优化
+
+> 参考：[Android 帧动画OOM问题优化](http://blog.csdn.net/wanmeilang123/article/details/53929484
+)
+
+##### 2018.01.23，（）使用SurfaceView代替AnimationDrawable播放多图帧动画，避免OOM和卡顿
+
+> 参考：使用SurfaceView代替AnimationDrawable播放多图帧动画，避免OOM和卡顿](http://blog.csdn.net/qq_16445551/article/details/53367173)
+
+
+
+##### 2018.01.22，（）使用SurfaceView代替AnimationDrawable播放多图帧动画，避免OOM和卡顿
+
+> 参考：[Service详解(八)---前台服务详解](http://blog.csdn.net/superbiglw/article/details/53158607)
+
+
+##### 2018.01.20，（）线程休眠的重要性
+
+> 参考：[线程休眠的重要性](http://jjhpeopl.iteye.com/blog/2092801)
+
+
+##### 2018.01.20，（）Android M 权限最佳实践
+
+> 参考：[Android M 权限最佳实践](http://chen-wei.me/2016/11/10/android-permission-best-practice/)
+
+
+##### 2018.01.20，（）悬浮窗权限各机型各系统适配大全
+
+> 参考：[悬浮窗权限各机型各系统适配大全](https://www.jianshu.com/p/fc43cc5cfc62)
+
+
+##### 2018.01.19，（）声音池 soundpool
+
+```
+private void initSoundPool() {
+    //声音池   播放音效
+    soundPool = null;
+    if (Build.VERSION.SDK_INT > 21) {
+        AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                .setLegacyStreamType(AudioManager.STREAM_MUSIC)
+                .build();
+        soundPool = new SoundPool.Builder()
+                .setMaxStreams(3)
+                .setAudioAttributes(audioAttributes)
+                .build();
+    } else {
+        //19一下使用 参数一：最大并发流  参数二：流类型 参数三：音频文件质量 没有意义
+        soundPool = new SoundPool(3, AudioManager.STREAM_MUSIC, 0);
+    }
+    // res／raw目录
+    load = soundPool.load(this, R.raw.awe, 1);
+}
+```
+
+> 参考：[http://blog.csdn.net/github_36225693/article/details/54604005](http://blog.csdn.net/github_36225693/article/details/54604005)
+
+
+
+##### 2018.01.18，（）细说反射，Java 和 Android 开发者必须跨越的坎
+
+> 参考：[细说反射，Java 和 Android 开发者必须跨越的坎](http://blog.csdn.net/briblue/article/details/74616922#class-%E7%9A%84%E8%8E%B7%E5%8F%96)
+
+
+##### 2018.01.16，（）glide依赖管理
+ - 场景:一个项目中自身依赖了v7包24版本,该项目依赖了另一个模块(Moudle-A)，Moudle-A也依赖了v7包，版本27，此时就会发生冲突，bulid时会提示。
+
+ - 查看依赖树-依赖传递性：终端输入(需要配置gradle环境)：gradle dependencies，会显示
+
+以上图，可以看到v4包依赖了compat包和media-compat包等等，gradle下载v4包时会它所依赖的也下载下来。
+
+ - 排除特定依赖
+
+```
+implementation("com.android.support:support-v4:24.2.1") {
+        exclude group: 'com.android.support', module: 'support-compat'
+        // exclude group:'commons-codec',module:'commons-codec'
+        // group是必选项，module可选
+}
+```
+
+上面代码会下载v4包，但是会排除(不下载)组名为：com.android.support和模块名为：support-compat的包。
+
+通常，一个JAR依赖需包含JAR文件组（group/命名空间）、JAR文件名（name）、JAR文件版本（version），特殊情况下还可指定JDK版本。
+```
+/* 单个依赖 */
+compile group:'log4j', name:'log4j', version:'1.2.17'
+// 简写 => compile 'log4j:log4j:1.2.17'
+ 
+/* 以数组形式添加多个依赖*/
+compile 'joda-time:joda-time:2.9.2', 'log4j:log4j:1.2.17'
+ 
+/* 闭包形式，以添加额外配置*/
+compile (group:'log4j', name:'log4j', version:'1.2.17'){
+    // ... 额外配置
+}
+/* 等价于 */
+compile ('log4j:log4j:1.2.17'){
+    // ... 额外配置
+}
+```
+> 参考：[Java Gradle入门指南之依赖管理（添加依赖、仓库、版本冲突）](https://www.cnblogs.com/gzdaijie/p/5296624.html)
+> 参考：[Gradle依赖--管理依赖的版本](https://www.jianshu.com/p/ee1477693d8e)
+
+##### 2018.01.10，（）Android自定义Dialog大小控制
+
+```
+Window dialogWindow = tipsDialog.getWindow();
+WindowManager windowManager = getWindowManager();
+Display display = windowManager.getDefaultDisplay(); // 获取屏幕宽、高度
+WindowManager.LayoutParams layoutParams = dialogWindow.getAttributes(); // 获取对话框当前的参数值
+double dialogHeightProportion = 0.7;
+layoutParams.height = (int) (display.getHeight() * dialogHeightProportion); // 高度设置为屏幕的0.6，根据实际情况调整
+//p.width = (int) (d.getWidth() * ); // 宽度设置为屏幕的0.65，根据实际情况调整
+dialogWindow.setAttributes(layoutParams);
+```
+
+> 参考：[Android自定义Dialog大小控制](http://blog.csdn.net/true100/article/details/43982763)
+
+
+##### 2018.01.09，（）获取屏幕密度
+
+```
+mDpi = getResources().getDisplayMetrics().density;
+```
+
+
+##### 2018.01.09，（）透明背景主题
+
+```
+<style name="AlphaTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:colorBackgroundCacheHint">@null</item>
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+</style>
+```
+
+
+##### 2018.01.09，（）播放asset的mp3
+
+```
+try {
+    AssetManager assetManager = this.getAssets();
+    AssetFileDescriptor afd = assetManager.openFd("firewind.mp3");
+    mPlayer = new MediaPlayer();
+    mPlayer.setDataSource(afd.getFileDescriptor(),
+            afd.getStartOffset(), afd.getLength());
+    mPlayer.setLooping(false);//循环播放
+    mPlayer.prepare();
+} catch (Exception e) {
+    e.printStackTrace();
+}
+```
+
+> 参考：[Android中关于assets和raw播放音频视频的实践](http://blog.csdn.net/ada_dengpan/article/details/50775826)
+
+
+##### 2018.01.09，（）如何解决Thread is already started问题
+
+> 参考：[http://blog.csdn.net/GXX_2015/article/details/51794191](http://blog.csdn.net/GXX_2015/article/details/51794191)
+
+
+##### 2018.01.06，（）取麦克风实时音量
+
+> 参考：[取麦克风实时音量](http://blog.csdn.net/wangchenggggdn/article/details/7496827)
 
 
 

@@ -2655,6 +2655,7 @@ addTextChangedListener
 
 ##### 2018.02.08，（）Android Bitmap和Drawable互转
 > [Android Bitmap和Drawable互转](http://www.cnblogs.com/a284628487/p/3097508.html)
+
 ```java
 Bitmap bmp=xxx; 
 BitmapDrawable bd=new BitmapDrawable(bmp);
@@ -2667,6 +2668,7 @@ Bitmap bm = bd.getBitmap();
 
 
 ##### 2018.02.07，（）onClickListener和onTouchListener的关系
+
 > [参考：浅谈OnTouchListener，OnClickListener和OnLongClickListener的关系](http://blog.csdn.net/bingospunky/article/details/41212261)
 
  - 执行顺序：onTouch > onClick  
@@ -2881,7 +2883,7 @@ try {
 
 ##### 2018.01.09，（）如何解决Thread is already started问题
 
-> 参考：[http://blog.csdn.net/GXX_2015/article/details/51794191](http://blog.csdn.net/GXX_2015/article/details/51794191)
+> 参考：[解决Thread is already started问题](http://blog.csdn.net/GXX_2015/article/details/51794191)
 
 
 ##### 2018.01.06，（）取麦克风实时音量

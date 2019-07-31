@@ -914,3 +914,66 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {...}
  - 原因：List中会有可能出现存在两个指针指向相同的Fragment
 
 > 参考：[https://blog.csdn.net/github_36287370/article/details/52717256](https://blog.csdn.net/github_36287370/article/details/52717256)
+
+
+##### 2018.10.09，（）Fragment: getContext() NoSuchMethodError
+
+Fragment getContext() 在Android低版本（API<=22）中出现NoSuchMethodError，Log日志
+
+```
+Exception java.lang.NoSuchMethodError: No virtual method getContext()Landroid/content/Context; in class Lcom/android/browser/preferences/MainPreferenceFragment; or its super classes (declaration of 'com.android.browser.preferences.MainPreferenceFragment' appears in /system/priv-app/Browser/Browser.apk)
+
+```
+
+Fragment中的getContext()方法是在Android6.0中才出现的，在低于该版本中使用会报NoSuchMethodError，可以使用getActivity()来替换。
+
+>  参考：[Fragment getContext() NoSuchMethodError](https://blog.csdn.net/lwq573384928/article/details/79697340)
+
+
+
+##### 2018.10.08，（） NDK 版本问题
+
+r17 不支持armeabi
+
+报错
+```
+The armeabi ABI should have exactly one architecture definitions.
+```
+
+> [参考：ndk项目编译异常---The armeabi ABI should have exactly one architecture definitions.](https://www.jianshu.com/p/dd34cb501c81)
+
+##### 2018.10.08，（） Volley不支持大文件上传和下载
+```
+原因：Volley将整个response加载到内存并进行操作（可以是解析等操作）大文件可能会引起OOM
+```
+> [参考：Volley简介](https://juejin.im/entry/58b650de2f301e006c473a26)
+
+##### 2018.10.08，（）Retrofit拦截日志
+```
+implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+```
+
+```kotlin
+val httpClientBuilder = OkHttpClient.Builder()
+if (BuildConfig.DEBUG){
+    val logging = HttpLoggingInterceptor()
+    //设置日志Level
+    logging.level = HttpLoggingInterceptor.Level.BODY
+    //添加拦截器到OkHttp，这是最关键的
+    httpClientBuilder.addInterceptor(logging)
+}
+
+val retrofit = Retrofit.Builder()
+    .baseUrl("https://raw.githubusercontent.com/devallever/DataProject/")
+    .client(httpClientBuilder.build())
+    .addConverterFactory(GsonConverterFactory.create())
+    .build()
+```
+
+> [参考：Retrofit 之日志拦截](https://juejin.im/entry/58d49ae71b69e6006ba474d5)
+
+##### 2018.10.08，（） Retrofit封装
+> [参考: Retrofit--合理封装回调能让你的项目高逼格](https://blog.csdn.net/lyhhj/article/details/51720296)
+
+
+

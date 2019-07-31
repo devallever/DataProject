@@ -84,8 +84,91 @@ View的绘制流程分为三个阶段：measure -> layout -> draw
 单例模式适用于创建对象需要消耗过多的情况，例如访问IO，数据库，请求网络等。  
 实现单例模式的方式有：懒汉式，饿汉式，DCL，静态内部类和枚举单例。其原理都是将构造函数私有，确保多线程单例有且只有一个，反序列化不会重新创建对象。  
 常见的单例写法：
+
+ - 饿汉模式
+
+这家伙太饥饿难耐啦，什么也不干，也不想想在多线程时候怎么保证单例对象的唯一性。
+
+```java
+public class HungrySingleton {
+    private static final HungrySingleton hungrySingleton = new HungrySingleton();
+    private HungrySingleton(){}
+
+    public static HungrySingleton getInstance(){
+        return hungrySingleton;
+    }
+    /**防止反序列化重新构建对象*/
+    private Object readResolve() throws ObjectStreamException{
+        return hungrySingleton;
+    }
+}
 ```
 
+ - 懒汉模式
+
+这家伙懂事点点，考虑到多线程时候怎么保证单例对象的唯一性。就加个synchronized关键字嘛，每次调用该方法都进行同步，但是反应还是有点迟钝。
+```java
+public class LazySingleton {
+    private static LazySingleton lazySingleton = null;
+    private LazySingleton(){}
+
+    /**偷懒！ 只判断一次，造成每次调用该方法都进行同步*/
+    public static synchronized LazySingleton getInstance(){
+        if (lazySingleton == null){
+            lazySingleton = new LazySingleton();
+        }
+        return lazySingleton;
+    }
+    /**防止反序列化重新构建对象*/
+    private Object readResolve() throws ObjectStreamException {
+        return lazySingleton;
+    }
+}
+
+```
+
+ - 双重检查锁定
+
+还是这家伙还是挺老实的，干活不怕苦不怕累，使用了两次判空操作，第一次判空防止不必要的同步，第二次判空保证在null情况下才创建实例。
+
+```java
+public class DCLSingleton {
+    private static volatile DCLSingleton dclSingleton = null;
+    private DCLSingleton(){}
+    public static DCLSingleton getInstance(){
+        if (dclSingleton == null){  //避免不必要的同步
+            synchronized (DCLSingleton.class){
+                if (dclSingleton == null){
+                    dclSingleton = new DCLSingleton();
+                }
+            }
+        }
+        return dclSingleton;
+    }
+    /**防止反序列化重新构建对象*/
+    private Object readResolve() throws ObjectStreamException {
+        return dclSingleton;
+    }
+}
+```
+ - 静态内部类
+
+这家伙比较靠谱了，既保证线程安全，也保证单例唯一性，又延迟了单例的实例化，mua
+```java
+public class StaticInnerSingleton {
+    private StaticInnerSingleton(){}
+    public static StaticInnerSingleton getInstance(){
+        return StaticInnerSingleHolder.staticInnerSingleton;
+    }
+
+    private static class StaticInnerSingleHolder{
+        private static final StaticInnerSingleton staticInnerSingleton = new StaticInnerSingleton();
+    }
+    /**防止反序列化重新构建对象*/
+    private Object readResolve() throws ObjectStreamException {
+        return StaticInnerSingleHolder.staticInnerSingleton;
+    }
+}
 ```
 
 ##### 10.（Android）事件分发机制

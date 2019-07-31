@@ -2350,3 +2350,129 @@ startActivity(albumIntent);
 ```
 > [参考:获取系统顶部状态栏(Status Bar)与底部导航栏(Navigation Bar)的高度](http://www.cnblogs.com/rossoneri/p/4142962.html)
 
+
+##### 2018.04.09，（）简单自定义circle_progress_bar
+> [参考：Android ProgressBar 详解 改变 ProgressBar 颜色](https://blog.csdn.net/chen930724/article/details/49807821)
+
+主要修改：android:indeterminateDrawable这个属性
+indeterminate是不确定进度的风格
+```
+    <style name="circle_progress_load">
+        <item name="android:indeterminateDrawable">@drawable/progress_circle_shape</item>
+        <item name="android:minWidth">80dp</item>
+        <item name="android:minHeight">80dp</item>
+        <item name="android:maxWidth">100dp</item>
+        <item name="android:maxHeight">100dp</item>
+    </style>
+```
+progress_circle_shape.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromDegrees="0"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:toDegrees="360" >
+    <shape
+        android:innerRadiusRatio="3"
+        android:shape="ring"
+        android:thicknessRatio="14"
+        android:useLevel="false" >
+        <gradient
+            android:centerY="0.50"
+            android:endColor="#ffffff"
+            android:startColor="#9e9e9e"
+            android:type="sweep"
+            android:useLevel="false" />
+    </shape>
+</rotate>
+```
+
+##### 2018.04.09，（）原生progressBar的转速
+修改：android:indeterminateDuration
+
+
+##### 2018.04.08，（）git强制推送当前分支,即使有冲突
+```
+git push [remote] --force
+git push origin master --force
+```
+> [参考：常用 Git 命令清单](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
+
+##### 2018.04.08，（）合并指定分支到当前分支
+```
+git merge [branch]
+当前master 合并dev到master
+git merge dev
+```
+
+##### 2018.04.08，（）gradle依赖库冲突
+其中一种情况：compile与implementation不一致
+```
+把compile方式改成implementation
+```
+
+##### 2018.04.08，（）64k限制
+> [参考:配置方法数超过 64K 的应用](https://developer.android.com/studio/build/multidex.html)
+
+如果您的 minSdkVersion 设置为 21 或更高值，您只需在模块级 build.gradle 文件中将 multiDexEnabled 设置为 true
+```
+android {
+    defaultConfig {
+        ...
+        minSdkVersion 21 
+        targetSdkVersion 26
+        multiDexEnabled true
+    }
+    ...
+}
+```
+
+但是，如果您的 minSdkVersion 设置为 20 或更低值，则您必须按如下方式使用 Dalvik 可执行文件分包支持库
+```
+android {
+    defaultConfig {
+        ...
+        minSdkVersion 15 
+        targetSdkVersion 26
+        multiDexEnabled true
+    }
+    ...
+}
+
+dependencies {
+  compile 'com.android.support:multidex:1.0.1'
+}
+```
+
+如果您没有替换 Application 类，请编辑清单文件，按如下方式设置 <application> 标记中的 android:name
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapp">
+    <application
+            android:name="android.support.multidex.MultiDexApplication" >
+        ...
+    </application>
+</manifest>
+```
+
+如果您替换了 Application 类，请按如下方式对其进行更改以扩展 MultiDexApplication（如果可能）
+```
+public class MyApplication extends MultiDexApplication { ... }
+```
+
+如果您替换了 Application 类，但无法更改基本类，则可以改为替换 attachBaseContext() 方法并调用 MultiDex.install(this) 来启用 Dalvik 可执行文件分包：
+```
+public class MyApplication extends SomeOtherApplication {
+  @Override
+  protected void attachBaseContext(Context base) {
+     super.attachBaseContext(context);
+     Multidex.install(this);
+  }
+}
+```
+
+
+
+

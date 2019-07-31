@@ -1327,7 +1327,733 @@ GradientDrawable drawable = (GradientDrawable) recyclerView.getBackground();
 drawable.setColor(getResources().getColor(R.color.colorAccent));
 ```
 
+##### 2018.08.29，（）PermissionsUtil
 
+ - PermissionsUtil.java
+```
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.content.PermissionChecker;
+import android.util.Log;
+
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Created by dfqin on 2017/1/20.
+ */
+
+public final class PermissionsUtil {
+
+    public static final String TAG = PermissionsUtil.class.getSimpleName();
+
+    private static PermissionListener sListener;
+
+    private PermissionsUtil(){}
+
+    /**
+     * 申请授权，当用户拒绝时，会显示默认一个默认的Dialog提示用户
+     * @param context
+     * @param listener
+     * @param permission 要申请的权限
+     */
+    public static void requestPermission(@NonNull Context context, PermissionListener listener, String... permission) {
+        sListener = listener;
+
+        if (listener == null) {
+            Log.e(TAG, "listener is null");
+            return;
+        }
+
+        if (PermissionsUtil.hasPermission(context, permission)) {
+            listener.permissionGranted(permission);
+        } else {
+            if (Build.VERSION.SDK_INT < 23) {
+                listener.permissionDenied(permission);
+            } else {
+                String key = String.valueOf(System.currentTimeMillis());
+                Intent intent = new Intent(context, PermissionActivity.class);
+                intent.putExtra("permission", permission);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        }
+    }
+
+    /**
+     *  申请授权，当用户拒绝时，可以设置是否显示Dialog提示用户，也可以设置提示用户的文本内容
+     * @param context
+     * @param listener
+     * @param permission 需要申请授权的权限
+     */
+
+
+    /**
+     * 判断权限是否授权
+     * @param context
+     * @param permissions
+     * @return
+     */
+    public static boolean hasPermission(@NonNull Context context, @NonNull String... permissions) {
+
+        if (permissions.length == 0) {
+            return false;
+        }
+
+        for (String per : permissions ) {
+            int result = PermissionChecker.checkSelfPermission(context, per);
+            if ( result != PermissionChecker.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * 判断一组授权结果是否为授权通过
+     * @param grantResult
+     * @return
+     */
+    public static boolean isGranted(@NonNull int... grantResult) {
+
+        if (grantResult.length == 0) {
+            return false;
+        }
+
+        for (int result : grantResult) {
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 跳转到当前应用对应的设置页面
+     * @param
+     */
+    public static void gotoSetting(@NonNull Activity activity, int requestCode) {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        intent.setData(Uri.parse("package:" + activity.getPackageName()));
+        activity.startActivityForResult(intent, requestCode);
+    }
+
+    public static void gotoSetting(@NonNull Fragment fragment, int requestCode) {
+        if (fragment.getActivity() != null){
+            gotoSetting(fragment.getActivity(), requestCode);
+        }
+    }
+
+    public static boolean hasAlwaysDeniedPermission(@NonNull Activity activity, String... deniedPermissions) {
+        return hasAlwaysDeniedPermission(activity, Arrays.asList(deniedPermissions));
+    }
+
+    public static boolean hasAlwaysDeniedPermission(@NonNull Activity activity, List<String> deniedPermissions) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
+            return false;
+        }
+
+        if (deniedPermissions.size() == 0) {
+            return false;
+        }
+
+        for (String permission : deniedPermissions) {
+            boolean rationale = activity.shouldShowRequestPermissionRationale(permission);
+            if (!rationale) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean hasAlwaysDeniedPermission(@NonNull Activity activity, String deniedPermissions) {
+        return hasAlwaysDeniedPermission(activity, deniedPermissions);
+    }
+
+    public static PermissionListener getListener(){
+        return sListener;
+    }
+
+    public static void removeListener(){
+        sListener = null;
+    }
+}
+```
+
+ - PermissionListener
+```
+import android.support.annotation.NonNull;
+
+/**
+ * Created by dfqin on 2017/1/20.
+ */
+
+public interface PermissionListener {
+
+    /**
+     * 通过授权
+     * @param permission
+     */
+    void permissionGranted(@NonNull String[] permission);
+
+    /**
+     * 拒绝授权
+     * @param permission
+     */
+    void permissionDenied(@NonNull String[] permission);
+
+    void rationableCancel();
+}
+```
+
+ - PermissionActivity
+ 
+```
+/**
+ * Created by dfqin on 2017/1/22.
+ */
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+
+public class PermissionActivity extends AppCompatActivity {
+
+
+    private static final int PERMISSION_REQUEST_CODE = 64;
+
+    private String[] permission;
+
+    private final String defaultTitle = "Help";
+    private final String defaultContent = "This App require some important permission.\n \n Click \"Setting\"-\"Permission\"-Open Require Permission。";
+    private final String defaultCancel = "Cancel";
+    private final String defaultEnsure = "Go";
+
+    private Handler mHandler;
+
+    @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getIntent() == null || !getIntent().hasExtra("permission")) {
+            finish();
+            return;
+        }
+
+        mHandler = new Handler();
+
+        permission = getIntent().getStringArrayExtra("permission");
+
+        if (PermissionsUtil.hasPermission(this, permission)) {
+            permissionsGranted();
+        } else {
+            showRationableDialog();
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (PermissionsUtil.hasPermission(this, permission)) {
+            permissionsGranted();
+        } else {
+            permissionsDenied();
+        }
+    }
+
+    // 请求权限兼容低版本
+    private void requestPermissions(String[] permission) {
+        ActivityCompat.requestPermissions(this, permission, PERMISSION_REQUEST_CODE);
+    }
+
+
+    /**
+     * 用户权限处理,
+     * 如果全部获取, 则直接过.
+     * 如果权限缺失, 则提示Dialog.
+     *
+     * @param requestCode  请求码
+     * @param permissions  权限
+     * @param grantResults 结果
+     */
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        //部分厂商手机系统返回授权成功时，厂商可以拒绝权限，所以要用PermissionChecker二次判断
+        if (requestCode == PERMISSION_REQUEST_CODE && PermissionsUtil.isGranted(grantResults)
+                && PermissionsUtil.hasPermission(this, permissions)) {
+            permissionsGranted();
+        } else if (PermissionsUtil.hasAlwaysDeniedPermission(this, permissions)){
+            showMissingPermissionDialog();
+        } else { //不需要提示用户
+            permissionsDenied();
+        }
+    }
+
+    // 显示缺失权限提示
+    private void showMissingPermissionDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(PermissionActivity.this);
+
+        builder.setTitle(defaultTitle);
+        builder.setMessage(defaultContent);
+
+        builder.setNegativeButton(defaultCancel, new DialogInterface.OnClickListener(){
+            @Override public void onClick(DialogInterface dialog, int which) {
+                permissionsDenied();
+            }
+        });
+
+        builder.setPositiveButton(defaultEnsure , new DialogInterface.OnClickListener() {
+            @Override public void onClick(DialogInterface dialog, int which) {
+                PermissionsUtil.gotoSetting(PermissionActivity.this, 0);
+            }
+        });
+
+        builder.setCancelable(false);
+        builder.show();
+    }
+
+    // 显示缺失权限提示
+    private void showRationableDialog() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(PermissionActivity.this);
+
+        builder.setTitle("Title");
+        builder.setMessage("We need this permission to...");
+
+        builder.setNegativeButton("Not agree", new DialogInterface.OnClickListener(){
+            @Override public void onClick(DialogInterface dialog, int which) {
+                //permissionsDenied();
+                final PermissionListener listener = PermissionsUtil.getListener();
+                if (listener != null) {
+                    dialog.cancel();
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            listener.rationableCancel();
+                        }
+                    }, 300);
+
+                    finish();
+                }
+            }
+        });
+
+        builder.setPositiveButton("Agree", new DialogInterface.OnClickListener() {
+            @Override public void onClick(DialogInterface dialog, int which) {
+                requestPermissions(permission);
+            }
+        });
+
+        builder.setCancelable(false);
+        builder.show();
+    }
+
+    private void permissionsDenied() {
+        PermissionListener listener = PermissionsUtil.getListener();
+        if (listener != null) {
+            listener.permissionDenied(permission);
+        }
+        finish();
+    }
+
+    // 全部权限均已获取
+    private void permissionsGranted() {
+        PermissionListener listener = PermissionsUtil.getListener();
+        if (listener != null) {
+            listener.permissionGranted(permission);
+        }
+        finish();
+    }
+
+    protected void onDestroy() {
+        PermissionsUtil.removeListener();
+        super.onDestroy();
+    }
+
+}
+
+
+```
+
+ - theme
+ 
+```
+
+    <style name="GrantorNoDisplay" parent="Theme.AppCompat.Light.NoActionBar"> >
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+    </style>
+```
+
+
+ - Usage 
+ 
+```
+        findViewById<View>(R.id.id_btn_camera).setOnClickListener {
+            val hasPerms = PermissionsUtil.hasPermission(this@MainActivity, Manifest.permission.CAMERA)
+            if (hasPerms) {
+                Toast.makeText(this@MainActivity, "has permission", Toast.LENGTH_SHORT).show()
+            } else {
+                PermissionsUtil.requestPermission(this@MainActivity, object : PermissionListener {
+                    override fun permissionGranted(permission: Array<String>) {
+
+                    }
+
+                    override fun permissionDenied(permission: Array<String>) {
+
+                    }
+
+                    override fun rationableCancel() {
+                        Log.d("MainActi", "cancelRationable")
+                        finish()
+                    }
+                }, Manifest.permission.CAMERA, Manifest.permission.READ_CONTACTS)
+            }
+        }
+```
+
+
+##### 2018.08.25，（）EditText相关
+###### 修改光标颜色
+ - android:textCursorDrawable=”@null” 表示光标的颜色和字体的颜色一样
+ - 通过xml修改，
+
+ -  新建xml的drawable，如下内容
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+    <size android:width="2dp" />
+    <solid android:color="#ff7200" />
+</shape>
+```
+ -  在EditText中使用
+
+```
+android:textCursorDrawable=”@drawable/edit_cursor_color”
+```
+
+> [参考：Android 修改EditText的光标颜色和背景色](https://blog.csdn.net/u012301841/article/details/51151745)
+
+###### 修改下滑线颜色
+
+ - 在style中新建这样的Style
+
+```xml
+<style name="EditTextUnderLineStyle" parent="Theme.AppCompat.Light">
+    <item name="colorControlNormal">@color/message_list_line</item>
+    <item name="colorControlActivated">@color/message_list_line</item>
+</style>
+```
+
+ - EditText控件中使用theme属性
+
+```
+android:theme="@style/EditTextUnderLineStyle"
+```
+
+> [参考：EditText修改光标和下划线颜色](https://blog.csdn.net/qq_24252589/article/details/78133011)
+
+
+> [参考：Android更改EditText下划线颜色样式的方法](https://www.jb51.net/article/101967.htm)
+
+###### InputType属性
+
+ - 常用
+ 
+
+类型 | 值
+---|---
+text     | TYPE_CLASS_TEXT
+number   | TYPE_CLASS_NUMBER
+
+
+
+> [参考：TextView | Android Developers – android:inputType](http://developer.android.com/reference/android/widget/TextView.html#attr_android:inputType)
+
+> [参考：Android中EditText（或TextView）中的InputType类型含义与如何定义](https://blog.csdn.net/ysh06201418/article/details/71123273)
+
+
+###### EditText + ListPopWindow 实现带弹出列表的EditText
+
+ - 思路：设置editText的onTouchListener，判断触摸位置，如果是右边的话就弹出ListPopWindow，如果是其他位置，则跟正常一样，即输入
+
+ - 创建ListPopWindow对象，并设置相关属性
+
+```java
+ListPopupWindow lpw = new ListPopupWindow(this);
+lpw.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, list));
+lpw.setAnchorView(etTest);
+lpw.setModal(true);
+lpw.setOnItemClickListener(this);
+
+```
+ - 设置EditText的onTouchListener, 当点击右边区域时弹出ListPopupWindow
+
+```java
+editText.setOnTouchListener(new OnTouchListener() {
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        final int DRAWABLE_LEFT = 0;
+        final int DRAWABLE_TOP = 1;
+        final int DRAWABLE_RIGHT = 2;
+        final int DRAWABLE_BOTTOM = 3;
+
+        // Check if touch point is in the area of the right button
+        if(event.getAction() == MotionEvent.ACTION_UP) {
+            if(event.getX() >= (etTest.getWidth() - etTest
+                .getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                // your action here
+                lpw.show();
+                return true;
+            }
+        }
+        return false;
+    }
+});
+
+```
+
+ - 监听ListPopupWindow选项,选中后将选项中的数值显示到EditText
+
+```
+@Override
+public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    String item = list[position];
+    etTest.setText(item);
+    lpw.dismiss();
+}
+```
+
+> [参考：带弹出列表的EditText](https://www.jianshu.com/p/031fc60a66d0)
+
+##### 2018.08.25，（）自定义控件之组合控件
+
+ - 创建布局
+
+```xml
+<LinearLayout >
+    <EditText .../>
+    <TextView .../>
+</LinearLayout>
+```
+
+ - 创建自定义属性,在attrs中添加下面代码
+ - 添加flag标签后，当使用属性是会自动弹出, 获取属性值是做相应处理
+
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UnderTipEditText">
+        <attr name="text" format="reference|string" />
+        <attr name="inputType" format="integer" >
+            <flag name="text" value=0/>
+            <flag name="number" value=1/>
+        </attr>
+        <attr name="maxLength" format="integer" />
+    </declare-styleable>
+</resources>
+
+```
+
+ - 创建控件类，继承父布局控件
+
+```
+class UnderTipEditText extends LinearLayout{
+
+    private static final int INPUT_TYPE_TEXT = 0;
+    private static finel int INPUT_TYPE_NUMBER = 1;
+
+    private Context mContext;
+    
+    public UnderTipEditText(Context context){
+        this(context, null);
+    }
+    public UnderTipEditText(Context context, AttributeSet attrs){
+        this(context, attrs, 0);
+    }
+    public UnderTipEditText(Context context, AttributeSet sattrset, int defStyle){
+        super(context, attrs, defStyle);
+        mContext = context;
+        
+        //自定义属性
+        TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.UnderTipEditText);
+        mStrContent = typedArray.getString(R.styleable.UnderTipEditText_text);
+        mInputType = typedArray.getInt(R.styleable.UnderTipEditText_inputType, 0);
+        mMaxLength =  typedArray.getInt(R.styleable.UnderTipEditText_maxLength, 20);
+        
+        //获取资源后要及时回收
+        typedArray.recycle();
+        
+        initView();
+    }
+    
+    private voie initView(){
+        View view  = LayoutInflater.from(mContext).inflate(R.layout.under_tip_edit_text, this, ture);
+        mEtContext = view.findViewById();
+        mTvTip = view.findViewById();
+        
+        mTvTip.setText(mEtContent.getText().length() + "/" + mMaxLength);
+        mEtContent.setText(mStrContent);
+        siwtch(inputType){
+            case INPUT_TYPE_TEXT:
+                mEtContent.setInputType(InputType.XXX_TEXT);
+                break;
+            case INPUT_TYPE_TEXT:
+                mEtContent.setInputType(InputType.XXX_NUMBER);
+                break;
+        }
+        
+        //省略其他逻辑
+        //...
+    }
+}
+```
+
+
+##### 2018.08.25，（）WifiManager
+```
+WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+WifiInfo info = wifi.getConnectionInfo();
+viewDelegate.setTextViewText(R.id.wifi_name_tv, info.getSSID().replace("\"", ""));
+```
+
+
+##### 2018.08.21，（）Android Studio设置shadowsocks代理
+> [参考：Android Studio设置shadowsocks代理](https://blog.csdn.net/u013495603/article/details/50970067)
+
+配置好shadowsocks后，不用开启全局代理服务，就这样挂着，然后，switchOmiga设置proxy，
+访问外网时提示，有资源没能加载，添加限制后就可以了
+
+##### 2018.08.21，（）ViewStub用法
+两个xml布局文件, 根布局设置了id属性
+
+```xml
+<!-- stub_view_layout_1.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/id_stub_view_1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stub View 1"/>
+
+</LinearLayout>
+
+
+<!-- stub_view_layout_2.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/id_stub_view_2">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stub View 2"/>
+
+</LinearLayout>
+```
+
+使用ViewStub
+
+ -  id属性指定viewstub控件的引用
+ - inflatedId属性指定 包含的布局的根元素的id
+ - layou属性指定:待加载的布局
+
+
+```xml
+    <ViewStub
+        android:id="@+id/stub_test_view_1"
+        android:inflatedId="@id/id_stub_view_1"
+        android:layout="@layout/stub_view_layout_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ViewStub
+        android:id="@+id/stub_test_view_2"
+        android:inflatedId="@id/id_stub_view_2"
+        android:layout="@layout/stub_view_layout_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+```
+
+代码中加载布局
+
+```java
+ViewStub viewStub1 = findViewById(R.id.stub_test_view_1);
+viewStub1.inflate();
+
+//或者
+
+ViewStub viewStub2 = findViewById(R.id.stub_test_view_2);
+viewStub2.setVisibility(View.VISIBLE);
+
+```
+
+##### 2018.08.21，（）Spinner使用
+
+根ListView差不多,可以使用系统内部布局,可以自定义Item布局  
+可以用ArrayAdapter,或者自定义Adapter,根ListView的adapter一样
+
+xml中使用Spinner
+
+```xml
+    <Spinner
+        android:id="@+id/id_spinner_weekday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+```
+
+代码中
+
+```java
+        mSpinnerWeeday = findViewById(R.id.id_spinner_weekday);
+
+        mySpinnerAdapter = new MySpinnerAdapter(this, mSpinnerItemList);
+        //mArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,mArrWeekday);
+
+        //mSpinnerWeeday.setAdapter(mArrayAdapter);
+        mSpinnerWeeday.setAdapter(mySpinnerAdapter);
+        
+        mSpinnerWeeday.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(SpannerTestActivity.this, mArrWeekday[i], Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+```
 
 
 

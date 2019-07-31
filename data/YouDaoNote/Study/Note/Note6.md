@@ -976,4 +976,366 @@ val retrofit = Retrofit.Builder()
 > [参考: Retrofit--合理封装回调能让你的项目高逼格](https://blog.csdn.net/lyhhj/article/details/51720296)
 
 
+##### 2018.09.29，（） 模拟点击
+```
+view.performClick()
+```
+
+> [参考:Android中performClick方法---代码调用点击事件（模拟去触摸控件）](https://blog.csdn.net/lplj717/article/details/76177429)
+
+##### 2018.09.29，（）DialogFragment的返回键处理
+
+```java
+dialog.setOnKeyListener(new DialogInterface.OnKeyListener() { 
+                @Override 
+                public boolean onKey(DialogInterface anInterface, int keyCode, KeyEvent event) { 
+                    if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) { 
+               ／／自己业务处理，用true拦截 
+                        return true; 
+                    } 
+                    return false; 
+                } 
+            }); 
+
+```
+> [参考：DialogFragment的返回键处理](https://blog.csdn.net/daoxiaomianzi/article/details/66973189)
+
+##### 2018.09.29，（） 改变Dialog 背景透明度
+
+```xml
+<style name="CustomDialog" parent="@android:style/Theme.Dialog">
+    <item name="android:backgroundDimAmount">0.2</item> 
+</style>
+
+```
+
+```
+//设置背景透明度，0~1.0  默认0.5
+dialog.getWindow().setDimAmount(0.1f);
+
+```
+
+> [参考：android- 改变Dialog 背景透明度](https://blog.csdn.net/u013372185/article/details/45645665)
+
+
+##### 2018.09.27，（）  修改纯色图标颜色
+
+```
+xml
+android:tint="#7f7f7f"
+代码
+setColorFilter(R.color.black)
+```
+
+##### 2018.09.20，（）  需要运行时申请的权限
+
+```
+group:android.permission-group.CONTACTS
+  permission:android.permission.WRITE_CONTACTS
+  permission:android.permission.GET_ACCOUNTS
+  permission:android.permission.READ_CONTACTS
+
+group:android.permission-group.PHONE
+  permission:android.permission.READ_CALL_LOG
+  permission:android.permission.READ_PHONE_STATE
+  permission:android.permission.CALL_PHONE
+  permission:android.permission.WRITE_CALL_LOG
+  permission:android.permission.USE_SIP
+  permission:android.permission.PROCESS_OUTGOING_CALLS
+  permission:com.android.voicemail.permission.ADD_VOICEMAIL
+
+group:android.permission-group.CALENDAR
+  permission:android.permission.READ_CALENDAR
+  permission:android.permission.WRITE_CALENDAR
+
+group:android.permission-group.CAMERA
+  permission:android.permission.CAMERA
+
+group:android.permission-group.SENSORS
+  permission:android.permission.BODY_SENSORS
+
+group:android.permission-group.LOCATION
+  permission:android.permission.ACCESS_FINE_LOCATION
+  permission:android.permission.ACCESS_COARSE_LOCATION
+
+group:android.permission-group.STORAGE
+  permission:android.permission.READ_EXTERNAL_STORAGE
+  permission:android.permission.WRITE_EXTERNAL_STORAGE
+
+group:android.permission-group.MICROPHONE
+  permission:android.permission.RECORD_AUDIO
+
+group:android.permission-group.SMS
+  permission:android.permission.READ_SMS
+  permission:android.permission.RECEIVE_WAP_PUSH
+
+```
+
+
+##### 2018.09.18，（）List数值排序
+
+```
+Collections.sort(list);
+```
+> [list集合的排序方法：](https://blog.csdn.net/tiankongcheng6/article/details/54744994)
+
+##### 2018.09.18，（）Calendar中的小时
+
+```
+Calendar.HOUR 12小时制
+Calendar.HOUR_OF_DAY 24小时制
+```
+
+##### 2018.09.18，（）TextView 文本过长省略号
+
+```
+在xml中：
+android:ellipsize="end"　　   省略号在结尾
+android:ellipsize="start" 　　省略号在开头
+android:ellipsize="middle"   省略号在中间
+android:ellipsize="marquee"  跑马灯
+最好加一个TextView显示行数的约束，例如：
+android:singleline="true"或者android:lines="2"
+
+在java文件中：
+tv.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
+tv.setEllipsize(TextUtils.TruncateAt.valueOf("START"));
+tv.setEllipsize(TextUtils.TruncateAt.valueOf("MIDDLE"));
+tv.setEllipsize(TextUtils.TruncateAt.valueOf("MARQUEE"));
+```
+> [参考：Android TextView内容过长加省略号，点击显示全部内容](https://blog.csdn.net/wwzqj/article/details/8731859)
+
+##### 2018.09.18，（）跳转飞行模式设置界面和其他界面
+
+```
+ACTION_AIRPLANE_MODE_SETTINGS： // 飞行模式，无线网和网络设置界面
+
+Intent intent =  new Intent(Settings.ACTION_AIRPLANE_MODE_SETTINGS);
+startActivity(intent);
+
+```
+
+> [参考：Android通过代码跳转到系统设置的相关界面](https://www.jianshu.com/p/57c034f38bcb)
+
+
+##### 2018.09.15，（）自定义radio button样式
+```
+
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/green_16" android:state_checked="true"></item>
+    <item android:drawable="@color/grey_b3" android:state_checked="false"></item>
+
+</selector>
+```
+
+```
+        <RadioGroup
+            android:id="@+id/id_dialog_h_w_rg_weight_unit_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/id_dialog_h_w_rb_unit_kg"
+                style="@style/action_finish_rb_unit"
+                android:checked="true"
+                android:text="@string/unit_kg"/>
+
+            <RadioButton
+                android:id="@+id/id_dialog_h_w_rb_unit_lb"
+                style="@style/action_finish_rb_unit"
+                android:checked="false"
+                android:text="@string/unit_lb"/>
+
+        </RadioGroup>
+```
+
+```
+    <style name="action_finish_rb_unit">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/rb_finish_unit_selector</item>
+        <item name="android:button">@null</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">5dp</item>
+    </style>
+```
+
+
+##### 2018.09.11，（）EditText取消下划线
+```xml
+android:background="@null"
+```
+
+##### 2018.09.11，（）底部弹窗DialogFragment
+
+ - 继承DialogFragment
+
+```
+package com.allever.kotlinweather.alarm
+
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.os.Bundle
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.WindowManager
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.fragment.app.FragmentManager
+import com.allever.kotlinweather.R
+
+class SceneEditFragment : AppCompatDialogFragment() {
+
+    var mView: View? = null
+
+    override fun onStart() {
+        super.onStart()
+
+        val window = dialog.window
+        if (window != null) {
+            // 必须设置，否则无法全屏
+            window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            //设置dialog在屏幕底部
+            window.setGravity(Gravity.BOTTOM)
+            //设置dialog弹出时的动画效果，从屏幕底部向上弹出
+            window.setWindowAnimations(R.style.DialogStyle)
+            //获得window窗口的属性
+            val lp = window.attributes
+            //设置窗口宽度为充满全屏
+            lp.width = WindowManager.LayoutParams.MATCH_PARENT
+            //设置窗口高度为包裹内容
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+            //将设置好的属性set回去
+            window.attributes = lp
+        }
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        mView = LayoutInflater.from(activity).inflate(R.layout.fragment_sence_edit,  null)
+        return AlertDialog.Builder(activity!!)
+                .setView(mView)
+                .create()
+    }
+
+    override fun show(fragmentManager: FragmentManager?, tag: String?) {
+        try {
+            fragmentManager?.beginTransaction()?.remove(this)?.commit()
+            super.show(fragmentManager, tag)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+}
+```
+ - Style
+
+```xml
+    <!-- 弹出框动画 由下至上 -->
+    <style name="DialogStyle" parent="@android:style/Animation.Dialog">
+        <item name="@android:windowEnterAnimation">@anim/dialog_enter</item>
+        <!-- 进入时的动画 -->
+        <item name="@android:windowExitAnimation">@anim/dialog_exit</item>
+        <!-- 退出时的动画 -->
+    </style>
+```
+
+ - anim
+ 
+```
+//dialog_enter
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate
+        android:duration="100"
+        android:fromYDelta="100%" />
+</set>
+
+//dialog_exit
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate
+        android:duration="100"
+        android:toYDelta="100%" />
+</set>
+
+
+```
+
+##### 2018.09.11，（）NestedScrollerView嵌套RecyclerView卡顿
+
+```java
+LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+//layoutManager.setSmoothScrollbarEnabled(true);
+//layoutManager.setAutoMeasureEnabled(true);
+
+recyclerView.setLayoutManager(layoutManager);
+//recyclerView.setHasFixedSize(true);
+recyclerView.setNestedScrollingEnabled(false);`
+```
+
+
+##### 2018.09.10，（）RecyclerView实现的格子布局，单个item夸列
+
+```java
+RecyclerView recyclerView = new RecyclerView(this);
+GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+recyclerView.setLayoutManager(gridLayoutManager);
+gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+    @Override
+    public int getSpanSize(int position) {
+        if (position == 0){
+            //第一列占据两个位置
+            return 2;
+        }else {
+            return 1;
+        }
+    }
+});
+```
+> 参考：[recyclerView中GridLayoutManager实现每一行不同布局的问题](https://blog.csdn.net/yearningseeker/article/details/79709802)
+
+##### 2018.09.10，（） 默认单选列表对话框
+
+```
+final String[] items = {"Mon, Tue, Web, Thur, Fri, Sat, Sun"};
+AlertDialog.Builder builder = new AlertDialog.Builder(this);
+builder.setSingleChoiceItems(items, android.R.layout.simple_list_item_1, new DialogInterface.OnClickListener() {
+    @Override
+    public void onClick(DialogInterface dialogInterface, int position) {
+        Log.d(TAG, "onClick: " + items[position]);
+    }
+});
+builder.create().show();
+```
+> [参考：Android中的普通对话框、单选对话框、多选对话框、带Icon的对话框、以及自定义Adapter和自定义View对话框详解](https://blog.csdn.net/u012702547/article/details/50676606?tdsourcetag=s_pctim_aiomsg)
+
+##### 2018.09.10，（）修改View的背景色
+
+```java
+RelativeLayout relativeLayout = new RelativeLayout(this);
+GradientDrawable drawable = (GradientDrawable) recyclerView.getBackground();
+//这样不会修改背景drawable(列如使用圆角的drawable)
+drawable.setColor(getResources().getColor(R.color.colorAccent));
+```
+
+
+
+
+
+
+
+
+
+
+
+
 

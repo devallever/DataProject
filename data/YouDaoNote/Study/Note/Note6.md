@@ -879,3 +879,38 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {...}
 ```
 
 > 参考：[https://blog.csdn.net/wangsf1112/article/details/51545101](https://blog.csdn.net/wangsf1112/article/details/51545101)
+
+
+##### 2018.11.19，（）给Grid方式排列的RecyclerView添加间距
+
+```
+        mRecyclerView.addItemDecoration(object : RecyclerView.ItemDecoration() {
+            override fun getItemOffsets(
+                outRect: Rect, view: View,
+                parent: RecyclerView, state: RecyclerView.State
+            ) {
+                val pos = parent.getChildLayoutPosition(view)
+                if (pos / MAX_COL == 0) {
+                    //设置第一行
+                    outRect.top = firstTopSpacing
+                }
+
+                outRect.bottom = bottomSpacing
+            }
+        })
+```
+
+> 参考：[给Grid方式排列的RecyclerView添加间距](https://blog.csdn.net/laxian2009/article/details/72824594)
+
+
+##### 2018.11.19，（）Android Studio怎么把查看代码的左箭头、右箭头图标加到右边的快捷工具栏
+[Android Studio怎么把查看代码的左箭头、右箭头图标加到右边的快捷工具栏](https://blog.csdn.net/dearlaoyuan/article/details/80158013)
+
+
+##### 2018.11.16，（） viewPager异常
+
+> java.lang.IllegalStateException: Can't change tag of fragment ShowImageFragment{d178bfd id=0x7f0f0104 android:switcher:2131689732:0}: was android:switcher:2131689732:0 now android:switcher:2131689732:1
+
+ - 原因：List中会有可能出现存在两个指针指向相同的Fragment
+
+> 参考：[https://blog.csdn.net/github_36287370/article/details/52717256](https://blog.csdn.net/github_36287370/article/details/52717256)

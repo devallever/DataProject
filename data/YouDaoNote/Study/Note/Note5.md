@@ -139,7 +139,7 @@ Service是Android中实现程序后台运行的解决方案，它适合去执行
 
 ##### 18.（）自定义View常用的构造函数及参数作用
 常用的有三个，一个只有Context，一个只有Context和attributeSet，另外一个主题id
-```
+```java
 public class CustomView extends View {
     public CustomView(Context context) {
         super(context);
@@ -157,7 +157,7 @@ public class CustomView extends View {
 }
 ```
 
-```
+```kotlin
 class CustomView : View {
     constructor(context: Context) : super(context) {}
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {}

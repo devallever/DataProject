@@ -807,6 +807,75 @@ VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING：充满屏幕显示，保持比�
  
 > https://blog.csdn.net/GH_HOME/article/details/53585760
  
+ 
+##### 2018.12.11，（）Android~获取view在屏幕中的位置
+
+ - getLocalVisibleRect ， 返回一个填充的Rect对象， 感觉是这个View的Rect大小，left，top取到的都是0
+
+ - getGlobalVisibleRect ， 获取全局坐标系的一个视图区域， 返回一个填充的Rect对象；该Rect是基于总整个屏幕的
+
+ - getLocationOnScreen ，计算该视图在全局坐标系中的x，y值，（注意这个值是要从屏幕顶端算起，也就是索包括了通知栏的高度）//获取在当前屏幕内的绝对坐标 
+
+ - getLocationInWindow ，计算该视图在它所在的widnow的坐标x，y值，//获取在整个窗口内的绝对坐标 (不是很理解= =、)
+
+ - getLeft , getTop, getBottom, getRight,  这一组是获取相对在它父亲里的坐标
 
 
+> 注意：如果在Activity的OnCreate()事件输出那些参数，是全为0，要等UI控件都加载完了才能获取到这些
 
+example:
+
+```
+    int[] location = new int[2];
+    v.getLocationOnScreen(location);
+    int x = location[0];
+    int y = location[1];
+
+```
+
+> 参考：[](> https://blog.csdn.net/centralperk/article/details/7949900) https://blog.csdn.net/centralperk/article/details/7949900
+
+
+##### 2018.12.08，（） ScrollView嵌套子view的滑动冲突处理
+ - 场景：使用scrollerview作为外部，内布局时ViewGroup(如RelativeLayout), ViewGoup有个子View(如ImageView), 子View设置了onTouchListener, 触摸子View时，onTouch方法会先调用，返回true，但是，事件会传递到ScrollerView的onTouchEvent，然后子View就不能继续滑动，其实子View先滑动了一丢丢距离，然后才停止滑动.  
+ - 解决办法：
+在子View的onTouch方法中添加
+```java
+//屏蔽父控件拦截onTouch事件
+getParent().requestDisallowInterceptTouchEvent(true);
+```
+
+> 参考：https://thoreau.iteye.com/blog/2002272
+
+##### 2018.12.08，（） LinearLayout子View层叠覆盖效果
+
+设置“layout_marginTop”属性
+```
+android:layout_marginTop="-30dp"
+```
+
+> 参考：https://blog.csdn.net/ming_csdn_/article/details/54290244
+
+
+##### 2018.12.06，（） 父view超出子view
+```
+android:clipChildren="false"
+android:clipToPadding="false"
+```
+> 参考：[https://www.jianshu.com/p/e5708a23fb90](https://www.jianshu.com/p/e5708a23fb90)
+
+##### 2018.12.06，（） Android 防止同时按下两个按钮触发两个事件，连续点击事件
+
+ 在这两个按钮 或其他控件 的父控件上加上
+ ```
+ android:splitMotionEvents="false"
+ ```
+>  参考：[https://blog.csdn.net/EvloutionPLUS/article/details/80541022](https://blog.csdn.net/EvloutionPLUS/article/details/80541022)
+
+##### 2018.12.06，（）Android中判断当前API的版本号
+
+```
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {...}
+```
+
+> 参考：[https://blog.csdn.net/wangsf1112/article/details/51545101](https://blog.csdn.net/wangsf1112/article/details/51545101)

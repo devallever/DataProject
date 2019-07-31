@@ -649,3 +649,25 @@ logo.setOnClickListener(object : View.OnClickListener {
         })
 ```
 
+
+##### 2019.03.01，（）播放视频时无法调整播放位置seekTo(ms)无效
+
+现象：重不正确的位置开始播放，或从头开始播放
+原因：视频源没有关键帧
+
+seekTo(ms)
+
+seekTo 跳转的位置其实并不是参数所带的 position，而是离 position 最近的视频关键帧。  
+
+```
+关于视频关键帧建议大家可以去了解一下相关知识，大致上就是视频播放时需要从一个关键帧的位置开始。  
+```
+
+所以当视频在跳转到相应的 position 位置缺少关键帧的情况下，调用 seekTo 方法是无法在当前位置开始播放。这时会寻找离指定 position 最近的关键帧位置开始播放。  
+
+> 参考：[关于Android VideoView seekTo不准确的解决方案:https://www.jianshu.com/p/f51b2febcfd2](https://www.jianshu.com/p/f51b2febcfd2)
+
+8.0 解决方案  
+seekTo(ms, mode)
+
+> 参考: [https://blog.csdn.net/u012510322/article/details/79803433](https://blog.csdn.net/u012510322/article/details/79803433)

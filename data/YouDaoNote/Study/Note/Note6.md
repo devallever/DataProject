@@ -1329,7 +1329,7 @@ drawable.setColor(getResources().getColor(R.color.colorAccent));
 
 ##### 2018.08.29，（）PermissionsUtil
 
- - PermissionsUtil.java
+PermissionsUtil.java
 ```
 import android.app.Activity;
 import android.content.Context;
@@ -1488,7 +1488,7 @@ public final class PermissionsUtil {
 }
 ```
 
- - PermissionListener
+PermissionListener
 ```
 import android.support.annotation.NonNull;
 
@@ -1514,7 +1514,7 @@ public interface PermissionListener {
 }
 ```
 
- - PermissionActivity
+PermissionActivity
  
 ```
 /**
@@ -1690,7 +1690,7 @@ public class PermissionActivity extends AppCompatActivity {
 
 ```
 
- - theme
+theme
  
 ```
 
@@ -1704,9 +1704,7 @@ public class PermissionActivity extends AppCompatActivity {
         <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
     </style>
 ```
-
-
- - Usage 
+Usage 
  
 ```
         findViewById<View>(R.id.id_btn_camera).setOnClickListener {

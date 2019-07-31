@@ -665,3 +665,82 @@ seekTo 跳转的位置其实并不是参数所带的 position，而是离 positi
 seekTo(ms, mode)
 
 > 参考: [https://blog.csdn.net/u012510322/article/details/79803433](https://blog.csdn.net/u012510322/article/details/79803433)
+
+##### 2019.02.19，（）Java深拷贝和浅拷贝
+
+实则浅拷贝和深拷贝只是相对的
+
+ - 如果一个对象内部只有基本数据类型，那用 clone() 方法获取到的就是这个对象的深拷贝。
+ - 如果其内部还有引用数据类型，那用 clone() 方法就是一次浅拷贝的操作。
+
+> [参考：细说 Java 的深拷贝和浅拷贝 https://www.cnblogs.com/plokmju/p/7357205.html](https://www.cnblogs.com/plokmju/p/7357205.html)
+
+
+##### 2019.02.19，（） ViewPager设置 缓存个数
+
+```
+mViewPager.setOffscreenPageLimit(2);//设置缓存view 的个数（实际有3个，缓存2个+正在显示的1个）
+```
+> 参考[ViewPager设置 缓存个数、页卡间距、数据更新](https://blog.csdn.net/jia4525036/article/details/18982197)
+
+##### 2019.02.19，（） Kotlin 在 Android 开发中的 16 个建议
+
+ - 1.延时加载：只在它被调用时才将资源加载进内存。
+```
+ val purchasingApi: PurchasingApi by lazy {
+    val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl(API_URL)
+            .addConverterFactory(MoshiConverterFactory.create())
+            .build()
+    retrofit.create(PurchasingApi::class.java)
+}
+```
+通过使用像这样的延迟加载，如果用户根本没有想要在应用中发生购买行为，你的应用将不会加载 PurchasingApi，因此不会消耗它可能会占用的资源。
+延迟加载也是封装初始化逻辑的好方法：
+```
+// bounds is created as soon as the first call to bounds is made
+val bounds: RectF by lazy { 
+    RectF(0f, 0f, width.toFloat(), height.toFloat()) 
+}
+```
+只有当 bounds 变量第一次被引用时，将会使用 view 的当前宽和高的值来创建 RectF，这样我们就不需要一开始显式的创建 RectF，然后把它设置给 bounds。
+
+ - 2.
+
+> [Kotlin 在 Android 开发中的 16 个建议：https://juejin.im/entry/5958907c6fb9a06b9e118ee5](https://juejin.im/entry/5958907c6fb9a06b9e118ee5)
+
+
+##### 2019.02.19，（） android绘图canvas.clipRect()方法的作用
+
+只显示裁剪的部分
+
+> 参考[android绘图canvas.clipRect()方法的作用](https://blog.csdn.net/lovexieyuan520/article/details/50698320)
+
+
+###### 2019.02.19，（）Canvas的save和restore
+
+ - save：用来保存Canvas的状态。save之后，可以调用Canvas的平移、放缩、旋转、错切、裁剪等操作。
+ - restore：用来恢复Canvas之前保存的状态。防止save后对Canvas执行的操作对后续的绘制有影响。
+ 
+> 参考[Canvas的save和restore](https://www.cnblogs.com/xirihanlin/archive/2009/07/24/1530246.html)
+
+##### 2019.02.19，（） viewpager + fragment+FragmentStatePagerAdapter中用List存放多个Fragment 造成的内存泄漏
+
+ - 原因：List里一直有Fragment的引用，Fragment无法回收造成内存泄漏
+ - 解决办法：重写的PagerAdapter的getItem()方法中，return new yourFragment()
+
+> 参考[viewpager + fragment+FragmentStatePagerAdapter中用List存放多个Fragment 造成的内存泄漏](https://blog.csdn.net/K_Hello/article/details/82996162)
+
+
+##### 2019.02.18，（）在Android中记忆设计模式
+
+ - 单例模式：获取系统服务
+ - Builder模式：Dialog、Notification
+ - 观察者模式：Adapter的notifyDataSetChanged()
+ - 模板方法模式：Activity中的生命周期回调、AsyncTask的回调
+
+
+ 
+
+
+

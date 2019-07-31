@@ -2201,10 +2201,152 @@ float 类型的 4.1 和4.9 强转成int类型后，会失去精准度变成 int�
 > [参考：dialogfragment监听返回键](https://blog.csdn.net/u011421608/article/details/51542761)
 
 
+##### 2018.05.30，（）代码修改控件位置
+
+```
+params =  (RelativeLayout.LayoutParams)mLlLeftTop.getLayoutParams();
+params.setMargins(left, top,right,bottom);
+mLlLeftTop.setLayoutParams(params);
+```
+
+> [参考：android在java代码中修改控件的位置](https://blog.csdn.net/qq_33335724/article/details/78500377)
+
+##### 2018.05.30，（）Android图片资源放置姿势
+
+> [Android drawable微技巧，你所不知道的drawable的那些细节](https://blog.csdn.net/guolin_blog/article/details/50727753)
 
 
+##### 2018.05.25，（）选择谷歌照片裁剪的一些坑
+```
+/**
+* 如何用户选择了图片，则打开剪裁界面
+* 注意：打开剪裁界面后，该Activity不能销毁，否则从谷歌照片选择图片后的Uri是没有权限
+* SecurityException: Permission Denial +
+* * com.google.android.apps.photos.contentprovider.impl.MediaContentProvider* requires the provider be exported, or grantUriPermission()
+*/
+```
+
+##### 2018.05.21，（）onCreateOptionMenu()不执行的可能原因
+没有设置Toolbar
+例如下面代码
+```
+if(getSupportActionBar() != null){
+    setSupportActionBar(mToolbar);
+}
+```
+
+##### 2018.05.21，（）TextView加图标
+```
+drawableLeft="@drawable/xxx"
+```
+
+##### 2018.05.21，（）AppBarLayout注意
+AppBarLayout要放在Coordinlayout布局里面
 
 
+##### 2018.05.16，（）ViewPager画廊效果
+> [官方文档：https://developer.android.com/training/animation/screen-slide](官方文档：https://developer.android.com/training/animation/screen-slide)
 
+> [Android超高仿QQ附近的人搜索展示（一）](https://mp.weixin.qq.com/s?__biz=MzAxMTI4MTkwNQ==&mid=2650820073&idx=1&sn=9e084723624180f7ab28e54f2aef132c&scene=23&srcid=0506b08maFirw2pBvnewcDsp#rd)
 
+> [hongyangAndroid/MagicViewPager](https://github.com/hongyangAndroid/MagicViewPager)
+
+> [ViewPager的切换动画](https://www.jianshu.com/p/4c07241292c0)
+
+> [Android开发之ViewPager切换动画（只有你想不到，没有做不到）](https://www.jianshu.com/p/c9e8448472ed)
+
+> [ViewPager系列之ViewPager一屏显示多个子页面](https://blog.csdn.net/JM_beizi/article/details/51297605)
+
+##### 2018.05.16，（）调用系统相册
+最常规的方式
+```
+Intent albumIntent = new Intent(Intent.ACTION_VIEW);
+albumIntent.setDataAndType(Uri.fromFile(file), "image/*");
+startActivity(albumIntent);
+```
+
+调用系统相册查看一张图片, 7.0
+```
+Intent albumIntent = new Intent(Intent.ACTION_VIEW);
+File file;
+file = new File(imagePath);
+albumIntent.setDataAndType(Uri.fromFile(file), "image/*");
+startActivity(albumIntent);
+```
+
+试图打开指定目录的相册(指定某个相册)是不行的
+一个做法是，先打开app的一个相册界面，类似照片墙效果，然后再点击某一张图片，使用系统相册打开，
+
+> 7.0 Uri权限问题
+
+##### 2018.05.03，（）屏幕适配
+480p:   480x800     hdpi    values-hdpi
+720p:   720x1280    xhdpi
+1080p:  1080x1920   xxhdpi
+2k:     1440x2560   xxxhdpi
+/res/value/dimens.xml
+
+##### 2018.05.03，（）代码中改变dialog所占屏幕比例
+> [参考:Android自定义Dialog大小控制](https://blog.csdn.net/true100/article/details/43982763)
+
+```
+        //在Dialog类调用
+        Window dialogWindow = getWindow();
+        WindowManager m = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display d = m.getDefaultDisplay(); // 获取屏幕宽、高度
+        WindowManager.LayoutParams p = dialogWindow.getAttributes(); // 获取对话框当前的参数值
+        if (checkDeviceHasNavigationBar(context)){
+            //有导航栏加上导航栏高度
+            p.height = (int) ((d.getHeight() + getNavigationBarHeight() ) * 0.5);
+        }else {
+            p.height = (int) (d.getHeight() * 0.5);
+        }
+        p.width = (int) (d.getWidth() * 0.9);
+        getWindow().setAttributes(p);
+```
+
+##### 2018.05.03，（）判断是否存在导航栏
+
+```
+    /**
+     * 获取是否存在NavigationBar
+     * @param context
+     * @return
+     */
+    public boolean checkDeviceHasNavigationBar(Context context) {
+        boolean hasNavigationBar = false;
+        Resources rs = context.getResources();
+        int id = rs.getIdentifier("config_showNavigationBar", "bool", "android");
+        if (id > 0) {
+            hasNavigationBar = rs.getBoolean(id);
+        }
+        try {
+            Class systemPropertiesClass = Class.forName("android.os.SystemProperties");
+            Method m = systemPropertiesClass.getMethod("get", String.class);
+            String navBarOverride = (String) m.invoke(systemPropertiesClass, "qemu.hw.mainkeys");
+            if ("1".equals(navBarOverride)) {
+                hasNavigationBar = false;
+            } else if ("0".equals(navBarOverride)) {
+                hasNavigationBar = true;
+            }
+        } catch (Exception e) {
+
+        }
+        return hasNavigationBar;
+    }
+```
+> [参考:判断有无虚拟按键（导航栏）](https://blog.csdn.net/z_x_Qiang/article/details/75911755)
+
+##### 2018.05.03，（）获取导航栏高度
+
+```
+    private int getNavigationBarHeight() {
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier("navigation_bar_height","dimen", "android");
+        int height = resources.getDimensionPixelSize(resourceId);
+        Log.d(TAG, "Navi height:" + height);
+        return height;
+    }
+```
+> [参考:获取系统顶部状态栏(Status Bar)与底部导航栏(Navigation Bar)的高度](http://www.cnblogs.com/rossoneri/p/4142962.html)
 

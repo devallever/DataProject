@@ -739,7 +739,73 @@ val bounds: RectF by lazy {
  - 观察者模式：Adapter的notifyDataSetChanged()
  - 模板方法模式：Activity中的生命周期回调、AsyncTask的回调
 
+##### 2019.01.18，（）通过Flag启动Activity
 
+ - FLAG_ACTIVITY_CLEAR_TOP : 栈内复用，销毁Activity以上的活动
+ 
+> 参考：[Activity的启动方式和flag详解: https://blog.csdn.net/singwhatiwanna/article/details/9294285](https://blog.csdn.net/singwhatiwanna/article/details/9294285)
+
+
+##### 2019.01.18，（）VideoView适应宽高
+
+ - 设置match_parent
+ - 设置模式
+ 
+```
+VIDEO_SCALING_MODE_SCALE_TO_FIT：适应屏幕显示
+VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING：充满屏幕显示，保持比例，如果屏幕比例不对，则进行裁剪
+```
+
+如
+```java
+    override fun onPrepared(it: MediaPlayer?) {
+
+        //适应屏幕显示
+        it?.setVideoScalingMode(MediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT)
+
+        //显示第一帧
+        mVideoView?.seekTo(100)
+        it?.setOnInfoListener { mp, what, extra ->
+            if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) {
+                mVideoView?.setBackgroundColor(Color.TRANSPARENT)
+            }
+            return@setOnInfoListener true
+        }
+    }
+```
+
+
+##### 2019.01.18，（）使用迭代器遍历列表并删除其中元素
+
+```
+    Iterator<Student> iterator = list.iterator();
+    while (iterator.hasNext()) {
+        Student student = iterator.next();
+        if ("male".equals(student.getGender()){
+               iterator.remove();//使用迭代器的删除方法删除
+            }
+        }
+
+```
+ 
+ 
+##### 2019.01.18，（）判断视频
+
+> https://github.com/kevinma2010/jfinal-api-scaffold/blob/master/src/main/java/com/mlongbo/jfinal/common/utils/FileUtils.java
+
+
+> https://rainsilence.iteye.com/blog/842338
+
+
+##### 2019.01.18，（）刷新媒体库
+
+
+ - sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, dirUri));  
+ - sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,fileUri)); //刷新单个文件
+
+> 刷新sd卡在23以上报错， 刷新单个文件可以 
+ 
+> https://blog.csdn.net/GH_HOME/article/details/53585760
  
 
 

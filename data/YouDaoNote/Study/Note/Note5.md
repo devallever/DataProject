@@ -15,6 +15,7 @@
 ##### 3.（）MVC和MVP
 
 MVC
+
  - Model-View-Controller：模型-视图-控制器
  - 目的：将数据与视图分离，以控制器连接两者实现解耦。
  - Android中的MVC，View层由XML负责，M层数据存取，Controller连接View和Model
@@ -22,6 +23,7 @@ MVC
  - 缺点：没有明确定义，Activity既可以做Controller也可以做View，使得掺杂了各种业务逻辑代码变得臃肿
 
 MVP：
+
  - 作用：解决了MVC中M层与V层的耦合，带来更良好的可扩展性，保证系统整洁与灵活
  - V：Activity、Fragment或某个View负责显示与刷新
  - M：数据存取
@@ -67,6 +69,7 @@ MVP：
 ##### 8.（）Activity启动模式
 
 Activity有四种启动模式：Standard、Single'Top、SingleTask和SingleInstance
+
  - Standard：这是默认的启动模式，每次启动都会创建实例
  - SingleTop：栈顶复用模式，如果需要启动的Activity在栈顶，就重用该实例，否侧创建实例，如阅读类App的内容界面
  - SingleTask：栈内复用模式，如果栈内已有该Activity实例，就重用该实例，并将该Activity以上的Activity全部移除，如App的主界面。
@@ -237,6 +240,7 @@ class CustomView : View {
 ##### 25.（）MessageQueue工作原理
 
 MessageQueue有两个主要的方法：
+
  - enqueueMessage()：将消息入队
  - next()：将消息出队。内部是单链表实现的队列，因为要频繁的入队出队操作。next()方法是个阻塞方法，没有消息会一直阻塞在那里。
 
@@ -254,6 +258,7 @@ MessageQueue有两个主要的方法：
 
 Handler的主要工作是发送消息和处理消息。post()方法最终会调用sendMessage()方法去发送消息，而sendMessage()最终会调用到MessageQueue的enqueMessage()方法，即把消息移入到消息队列中去，
 这就完成了。Looper则取出消息，调用handler的dispatchMessage方法。dispatchMessage()方法有两种处理方式：
+
  - 当handler使用post方法发送消息，message.callback不为空，此时会选择调用handleCallback()方法，该方法会调用callback的run方法。CallBack实际上是Runnable对象，这里就是执行post()时的Runnable。如果msg.callback为空，则会调用handlerMessage，这里会调用创建Handler子类时重写的handleMessage()方法。
 
 ##### 28.（）使用线程的方式和原理
@@ -317,6 +322,7 @@ Handler的主要工作是发送消息和处理消息。post()方法最终会调�
 ##### 34.（）IPC进程间通信的方式
 
 Android跨进程通信的方式有：Intent、文件共享、ContentProvider、广播、Socket和AIDL
+
  - Intent：
  - 文件共享：两个进程读写一个文件来传递数据
  - ContentProvider：Andorid专用于不同应用间共享数据
@@ -359,9 +365,11 @@ Android跨进程通信的方式有：Intent、文件共享、ContentProvider、�
 
 ##### 40.（）性能优化的方式
 主要包括：布局、绘制、内存、响应速度、ListView、Bitmap、线程
+
  - 线程优化(补充)：尽量使用线程池，而不是每次都创建一个Thread
 
 性能优化建议：
+
  - 避免创建过多对象
  - 不要过多使用枚举，枚举占用空间比整形大
  - 常量使用static final修饰

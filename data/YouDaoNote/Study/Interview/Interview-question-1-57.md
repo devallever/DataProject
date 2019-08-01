@@ -333,6 +333,7 @@ Android跨进程通信的方式有：Intent、文件共享、ContentProvider、�
  - hashCode()：对象散列码，由对象导出的整形值。Object类的hashCode()返回对象的地址
 
 equals()和hashCode()的规律
+
  - 如果两个对象equals，那么它们的hashCode一定相等
  - 如果两个对象不equals，它们的hashCode有可能相等
  - 如果两个对象hashCode相等，它们不一定equals

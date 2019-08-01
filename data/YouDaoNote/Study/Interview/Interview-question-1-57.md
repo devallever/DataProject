@@ -2,7 +2,8 @@
 
 Android中的线程分为主线程和子线程。主线程叫叫UI线程，用来处理界面相关操作。子线程用来处理耗时的操作，如请求网络、IO。如果在主线程执行耗时的操作，程序就会无法及时响应，因此必须在子线程中执行耗时的操作。  
 
-Android中开启线程的方式有：Thread、AsyncTask(异步任务)、HandleThread、IntentService和线程池  
+Android中开启线程的方式有：Thread、AsyncTask(异步任务)、HandleThread、IntentService和线程池
+
  - AsyncTask：封装了线程池和Handler，可以在子线程中执行完任务之后轻易切换到主线程刷新界面
  - HandlerThread：是一种线程，继承了Thread，通过handler消息机发送消息到子线程执行任务
  - IntentService：是一种服务，继承了Service，使用HandlerThread去开启线程，处理完成之后会关闭服务
@@ -25,6 +26,7 @@ Android中开启线程的方式有：Thread、AsyncTask(异步任务)、HandleTh
 ##### 3.（架构）MVP模式的理解
 
 MVP全称：Model-View-Presenter，解除了View和Model之间的耦合，可以有效的降低View层的复杂性，避免业务逻辑塞进View中。
+
  - View：在Android中，View层由Acitivity、Fragment或者某个View充当，实现了一个逻辑接口，并持有一个presenter变量。View的操作转交给Presenter执行，执行完成后，presenter调用view层的逻辑接口方法，返回给View。View层只管显示。
  - Model：model层主要负责数据的存储功能,Persenter向Model层获取存储数据。
  - Persenter：主要负责连接View层和Model层。Presenter向Model层获取数据返回给View层，使得View和Model之间没有耦合，也将View的业务逻辑抽离出来。
@@ -70,6 +72,7 @@ value属性对应值
 ##### 8.（Android）View的绘制流程(原理)
 
 View的绘制流程分为三个阶段：measure -> layout -> draw
+
  - measure: 第一步measure，即测量View的大小。从顶层View到子View，递归调用measure方法，measure又会调用onMeasure()方法完成测量过程
  - layout：第二步layout，即确定View的位置，进行页面布局。从顶层View到子View递归调用View的layout方法，根据子View的布局参数将子View放在合适的位置上。
  - draw：第三步绘制。绘制过程又分为4个步骤，
@@ -174,6 +177,7 @@ public class StaticInnerSingleton {
 ##### 10.（Android）事件分发机制
 
 当一个MotionEvent产生后，需要把这个事件传递给一个具体的View，这个传递的过程就是事件分发的过程。这个过程由三个重要的方法完成：dispatchTouchEvent、onInterceptTouchEvent和onTouchEvent。
+
  - dispatchToucnEvent：负责分发事件，它的返回值受onInterceptTouchEvent和onTouchEvent的影响，表示是否消耗事件
  - onInterceptTouchEvent：用来判断是偶拦截事件
  - onTouchEvent：负责处理事件，返回值表示是否消耗了事件
@@ -231,12 +235,14 @@ onAttach -> onCreate -> onCreateView -> onActivityCrate -> onStart -> onResume -
 
 ##### 16.（Android）Broadcast广播机制
 
-广播分为：标准广播、有序广播和本地广播。  
+广播分为：标准广播、有序广播和本地广播。
+
  - 标准广播：是一种异步广播，所有广播接收器几乎同时受到广播
  - 有序广播：是一种同步广播，优先级较高的广播接收器西安搜狐到广播，可拦截广播和传递数据
  - 本地广播：只有当前应用可以接收
 
 注册广播的方式有两种：动态注册和静态注册
+
  - 静态注册：是指在AndroidMenifest配置中注册，这种方式注册的广播接收器白应用没运行也能收到广播
  - 动态注册：是指在代码中注册，这种方式注册的广播接收器在运行应用并且注册后才能收到广播，注意需要取消注册
 动态注册的优先级比静态注册的高
@@ -244,18 +250,22 @@ onAttach -> onCreate -> onCreateView -> onActivityCrate -> onStart -> onResume -
 
 ##### 17.（Android）对Context的理解
 
-Context，即上下文环境，是一种抽象类，提供程序运行的基础信息。  
+Context，即上下文环境，是一种抽象类，提供程序运行的基础信息。
+
 Context有两个子类：ContextWrapper和ContextImpl。
+
  - ContextWrapper是上下文功能的封装类
  - ContextImpl是上下文功能的实现类  
 
 ContextWrapper又有三个子类：Application、Service和ContextThemeWrapper。ContextThemeWrapper是一个带主题的封装类，Activity继承ContextThemeWrapper。  
+
 因此，Context共有三种类型：Application、Service和Activity。大多情况下，三种类型的context是通用的，但有些特殊场景，比如启动Activity和Dialog，只能用Activity类的Context。因为Dialog必须建立在Activity上面弹出(除了AlertDialog)；启动Activity必须建立在另一Activity之上，以形成返回栈。
 
 
 ##### 18.（Android）Activity启动模式
 
 Activity有四种启动模式：Standard、Single'Top、SingleTask和SingleInstance
+
  - Standard：这是默认的启动模式，每次启动都会创建实例
  - SingleTop：栈顶复用模式，如果需要启动的Activity在栈顶，就重用该实例，否侧创建实例，如阅读类App的内容界面
  - SingleTask：栈内复用模式，如果栈内已有该Activity实例，就重用该实例，并将该Activity以上的Activity全部移除，如App的主界面。
@@ -265,6 +275,7 @@ Activity有四种启动模式：Standard、Single'Top、SingleTask和SingleInsta
 ##### 19.（）自定义View的方式
 
 自定义View的方式有三种：组合控件、继承原有控件和完全自定义View。
+
  - 组合控件：将一些基础组件封装起来形成新的控件，如通用的标题栏
  - 继承原有控件：在原有控件的基础上添加方法来扩展功能，或者修改原有的显示逻辑
  - 完全自定义View：需要重写onMeasure()实现测量逻辑，需要重写onDraw方法实现绘制逻辑，需要注意支持wrap_parent和Padding
@@ -273,6 +284,7 @@ Activity有四种启动模式：Standard、Single'Top、SingleTask和SingleInsta
 ##### 20.（Android）动画种类
 
 动画分为三种：帧动画、视图动画和属性动画
+
  - 帧动画：通过切换图片的方式实现动画效果
  - 视图动画：通过矩阵运算修改View的显示
  - 属性动画：通过修改对象的属性值实现动画，是真正意义上的动画。
@@ -282,6 +294,7 @@ Activity有四种启动模式：Standard、Single'Top、SingleTask和SingleInsta
 ##### 21.（Android）跨进程通信方式
 
 Android跨进程通信的方式有：Intent、文件共享、ContentProvider、广播、Socket和AIDL
+
  - Intent：
  - 文件共享：两个进程读写一个文件来传递数据
  - ContentProvider：Andorid专用于不同应用间共享数据
@@ -314,6 +327,7 @@ Android跨进程通信的方式有：Intent、文件共享、ContentProvider、�
 ##### 26.（Java）==和equals()、equals()和hashCode()的区别
 
 ==、equals()和hachCode()的作用：
+
  - ==：用来比较基本类型的值是否相等；也用来比较对象地址是否相等；
  - equals()：用来比较对象的内容是否相等；Object类的equals()用==判断
  - hashCode()：对象散列码，由对象导出的整形值。Object类的hashCode()返回对象的地址
@@ -329,7 +343,8 @@ equals()和hashCode()的规律
 ##### 27.（Java）基本类型和包装类型的区别
 
 8种基本类型都有对应的包装类型。
- - 基本类型用" == " 判断相等，包装类型用equals判断，缓存区也可以用==
+
+ - 基本类型用 = = 判断相等，包装类型用equals判断，缓存区也可以用==
  - 包装类型解决了基本类型无法做到的事，如泛型类型参数，序列化、类型转换。
  - 
  
@@ -377,6 +392,7 @@ equals()和hashCode()的规律
 ##### 33.（Java）常用集合有哪些
 
 常用的集合分为：List、Set、Map和Queue
+
  - List常用的有：ArrayList、LinkedList、CopyOrWriteArrayList
  - Set常用的有：HashSet、TreeSet、LinkedHashSet
  - Map常用的有：HashMap、TreeMap、LinkedHashMap、ConcurrentHashMap
@@ -413,6 +429,7 @@ equals()和hashCode()的规律
 ##### 38.（Java）HashMap和HashTable的区别
 
 都是用哈希表实现
+
  - HashMap：是非线程安全集合，允许null键和值，效率高，初始16， 以2的指数扩展
  - HashTable：是线程安全集合，不允许null键和值，效率低，初始11，以2*old+1方式扩展
 
@@ -517,8 +534,8 @@ equals()和hashCode()的规律
 
 ##### 53.（Java）await、signal、signalAll和wait、notify、notifyAll的区别
 
-
 作用：
+
  - await()/wait()；都是将线程加入等待池中并释放锁
  - signal()/notify()：随机解除等待池中的一个线程
  - signalAll()/notifyAll()：解除等待池中的线程
@@ -552,6 +569,7 @@ equals()和hashCode()的规律
 ##### 57. （Java）类加载流程
 
 类的加载流程分为三个阶段：加载、链接、初始化
+
  - 加载：读取文件产生二进制流，并转化为特定的数据结构，初步校验cafe babe魔法数，常量池、文件长度、是否有父类等。创建java.lang.Class实例
  - 链接：链接阶段又分为是三个过程：验证、准备和解析
     - 验证：更详细的校验，比如类型是否正确，静态变量是否合理

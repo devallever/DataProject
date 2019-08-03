@@ -240,6 +240,362 @@ SurfaceView与View的区别：
  - VIew在主线程对画面进行刷新；SurfaceView通过子线程进行刷新
  - View绘图没有使用双缓冲；SurfaceView实现了双缓冲机制
 
+##### 23.（）TCP三次握手
+
+准备工作：服务器创建传输控制块TCB，准备接收客户端的连接请求。此后Server处于Listen状态，Client也创建TCB
+
+ - C向S发送连接请求报文段(我可以向你发数据吗)
+ - S收到连接请求报文段，同意，则向C发出确认，等待C发送数据(可以，你什么时候发)
+ - C收到S的确认后还要向S发送确认(我现在就发)
+
+为什么不是两次握手？
+
+ - C还要发送一次确认，主要是为了防止已失效的连接请求报文突然又传到了S，因而发生错误。
+
+什么是已失效的连接请求报文段？
+
+ - C发送的第一个请求在某些网络节点上长时间滞留了，以至延误到连接释放以后的某个时间点才到达S。
+
+
+##### 24.（）TCP四次握手
+
+ - C向S发送连接释放请求报文段，并停止发送数据。
+ - S收到连接释放报文段后发出确认。此时，S进入半关闭状态，即 C -> S 方向关闭。但S仍然可以向C发送数据。
+ - S向C发送连接释放报文段。
+ - C收到S的连接释放请求报文，发出确认。
+
+
+##### 25.（）equals()和“==”的和区别
+
+
+##### 26.（）equals()和hashCode()的作用和区别
+
+##### 27.（）动画机制
+
+ - 视图动画
+ - 属性动画
+ - 插值器：定义动画的变换速率，相当于物理中的加速度。例如先慢后快。
+ - SVG矢量动画：优势，缩放不失真
+
+
+##### 28.（）Activity启动模式
+
+> 注意：使用singleTop或singleTask的ActivityA通过startActivityFroResult来启动ActivityB，系统直接返回RESULT_CANCEL，而不会再去等待返回。
+
+##### 29.（）Activity启动标记
+
+ - NEW_TASK：使用新的Task来启动Activity
+ - SINGLE_TOP：与singleTop相同
+ - CLEAR_TOP：与singleTask相同
+ - NO_HISTORY：使用这种模式启动的ActivityA来启动Activity之后，A就销毁。
+
+##### 30.（）Android系统信息与安全机制
+
+ - 获取Android系统信息：android.os.Build
+ - 应用管理：PackageManager
+ - 安全机制：混淆、签名、数字证书、沙箱机制
+
+
+##### 31.（）静态块与飞静态块
+
+ - 相同点：在JVM加载类时且在构造方法前执行，在类中可定义多个。一般在代码块中对一些static变量进行赋值。
+ - 不同点：
+    - 静态块总是比非静态块先执行；
+    - 静态块只在第一次new的时候执行一次，之后不执行；
+    - 非静态块在每一次new的时候都执行。
+
+##### 32.（）静态块与静态方法
+
+ - 区别：静态块是自动执行（类加载的时候执行一次）；静态方法是被动调用；
+ - 作用：静态块用来初始化一些项目中最常用的变量和对象；静态方法可以用作不创建对象亦可以执行代码。
+
+
+##### 33.（）Activity退出怎么保存数据
+
+
+##### 34.（）读写文件
+
+ - 保存文本数据：
+ - 保存二进制数据：
+ - 读取文本文件：
+ - 读取二进制文件：
+
+
+##### 35.（）ANR及解决办法
+ - ANR：Application Not Response，应用程序无响应。
+ - 出现场景：主线程被IO操作阻塞、主线程存在耗时操作、主线程中错误的操作，如Thread.sleep
+    - 应用在5s内未响应用户操作
+    - BroadcastReceiver未在10s内完成相关处理
+    - Service在20s内无法处理完成
+    - 有些情况已经ANR，但不会弹出对话框
+ - 如何避免：
+    - UI线程只做跟UI相关的工作；
+    - 耗时的操作单独放在线程中处理；
+    - 使用AsyncTask或者Handler处理耗时的操作；
+    - BroadcastReceiver中onReceive方法尽量减少耗时，建议使用IntentService处理耗时的操作。
+ - 主线程有哪些：Activity生命周期回调方法、onKeyDown、onClick；AsyncTask处理doINBackground。
+
+
+##### 36.（）Glide的缓存策略
+
+
+##### 37.（）RxJava优缺点
+
+ - RxJava：一个用响应式编程和观察者模式实现的异步操作库。RxJava中的响应式编程是被观察者拿到数据主动传递给观察者，将展示层和数据处理层分离，解耦了各个模块，通过不同线程操控代码运作配合变换过滤等API操作实现数据流传递。
+ - 优点：异步、简洁
+    - 内部支持多线程操作
+    - 强大的map和flapMap保证了依赖上一次接口进行二次处理时不发生嵌套
+    - 将各个模块分离
+    - 支持Lamda表达式，保证RxJava代码在阅读上更加简洁
+    - 随着程序逻辑复杂，依然保持简洁
+
+
+##### 38.（）Android中的序列化
+ - 什么是序列化：把Java对象转换成字节序列并存储到一个存储介质的过程。
+ - 什么是反序列化：把字节序列恢复为Java对象。
+ - Java对象的组成：变量和方法。但是序列化和反序列化仅处理变量不处理方法。
+ - 原理：把Java对象的状态信息保存到存储媒介，这样可以在JVM非运行情况下，获取Java对象。也可以在其他机器的JVM上获取指定Java对象，如使用RMI(远程方法调用)、网络中传递对象。
+ - 使用场景：
+    - 把内存中的对象保存到一个文件或者数据库
+    - 用套接字在网络上传递对象
+    - 远程传输对象
+ - 方式：Serializable和Parcelable
+
+##### 39.（）Serializable和Parcelable的区别
+
+
+##### 40.（）View的绘制原理(流程)
+
+
+##### 41.（）冒泡排序
+
+ - 交换排序：两两比较排序记录的关键字，一旦发现两个记录不满足要求则进行交换，知道整个序列全部满足要求为止。
+ - 冒泡排序：比较相邻记录，如果逆序则进行交换，从而使得关键字小的记录如气泡一样逐渐往上漂浮(左移)，或者说关键字大的记录如石块一样逐渐往下沉(右移)。
+ - 结束比较：当一轮比较之后没有发生交换，则已经排好序。因此用个标志位来记录是否发生过交换。
+ - 时间复杂度：O(n^2)
+ - 算法特点：
+    - 稳定
+    - 可用于链式存储
+    - 缺点：移动次数较多，当n很大时不适用
+ - Java实现：
+```
+    private static void popSort(int[] a){
+        //最基本的冒泡排序写法
+        /*int i;
+        for (i=0;i<a.length;i++){
+            for (int j=0;j<a.length-1;j++){
+                if (a[j]>a[j+1]){
+                    int temp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = temp;
+                }
+            }
+        }*/
+
+        //改进的冒泡排序写法
+        int len = a.length-1;
+        boolean flag = true;//用来标识是否发生交换操作
+        while (len>0 && flag){
+            flag = false;
+            for (int j=0;j<len;j++){
+                if (a[j] > a[j+1]){
+                    //交换
+                    int temp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = temp;
+                    flag = true;
+                }
+            }
+            show(a);
+            len--;
+        }
+    }
+```
+ - C实现：
+```
+
+```
+
+##### 42.（）直接插入排序
+
+ - 插入排序：每一趟将一个待排记录按其关键字大小插入到已经排好序的一组记录的适当位置上，直到所有待排记录全部插入。
+ - 直接插入排序：将一条记录插入到已排好序的有序表中，从而得到一个新的、记录数量增1的有序表。
+ - 时间复杂度：O(n^2)
+ - 特点：
+    - 稳定
+    - 算法简便、容易实现
+    - 适用于链式存储结构
+    - 适用于基本有序。当初始无序，n比较大时不适用
+ - Java实现：
+```java
+    private static void insertSort(int[] a){
+        System.out.println("插入排序算法:");
+        int i, j;
+        for (i=0; i<a.length; i++){
+            for (j=i; j>0; j--){
+                if (a[j] < a[j-1]){
+                    int temp = a[j];
+                    a[j] = a[j-1];
+                    a[j-1] = temp;
+                }
+            }
+            System.out.print("第" + (i+1) + "次排序后:");
+            show(a);
+        }
+    }
+```
+
+##### 43.（）顺序表和链表比较
+
+
+##### 44.（）快速排序
+
+
+ - 思想：在待排记录中选择一个记录(通常第一个)作为枢纽(关键记录)pivotkey. 经过一趟排序，以枢纽记录分为两个子表，左边子表记录比枢纽记录小，右边子表比枢纽记录大。然后对每个子表重复以上过程。知道每个子表只有一个记录时，排序结束。
+ - 每一趟操做：参考《大话数据结构》有详细解析
+    - 选择表中一个记录作为枢纽(通常是第一个记录) 保存好记录的值pivotkey
+    - 从high往左每个记录依次与pivotkey比较，比pivotkey大或相等的，high往左移(high--), 比pivotkey小的结束high移动，交换low和high的值
+ 	- 从low往右每个记录依次与pivotkey比较，比pivotkey小或相等的，low往右移(low++), 比pivotkey小的结束low移动，交换low和high的值
+    - 返回pivotkey的值
+ - 时间复杂度：O(nlogn)
+ - 特点：不稳定；适用于顺序存储，不适用于链式存储。适用于n比较大，初始记录无序。
+ - java实现
+```
+int a[10] = {4,3,2,6,1,9,5,8,7,0};
+```
+
+```
+    private static void quickSort(int[] a,int low, int high){
+        if (low<high){
+            int povit = partition(a,low,high);
+            quickSort(a,povit+1,high);  //对枢纽记录右边子表进行排序
+            quickSort(a,low,povit-1);   //对枢纽记录左边的子表进行排序
+        }
+    }
+
+    private static int partition(int[] a, int low, int high){
+        System.out.println("low = " + low);
+        int pivot = a[low]; //用子表的第一个记录作为枢纽记录
+        while (low<high){   //
+            while (low<high && a[high]>=pivot)  //右往左比较
+                high--;                         //如果记录比枢纽记录大或者相等，high向左移动一个
+            swap(a,low,high);                   //交换，比枢纽记录小的放左边
+            show(a);
+            while (low<high && a[low]<=pivot)   //左往右比较
+                low++;                          //如果记录比枢纽记录小或者相等，high向右移动一个
+            swap(a,low,high);                   //交换，比枢纽记录大的放右边
+            show(a);
+        }
+        System.out.println("pivot = " + pivot);
+        System.out.println();
+        return low;
+    }
+```
+
+
+调用
+```java
+quickSort(a, 0, a.length-1);
+```
+
+##### 45.（）Looper原理
+
+
+##### 46.（）希尔排序
+
+ - 思想：希尔排序的思想是使数组中任意间隔为h的元素都是有序的. 这样的数组成为h有序数组  
+简单地说, 一个h有序数组就是h个互相独立的有序数组编织在一起组成的一个数组.  
+在进行排序时, 如果h很大, 我们能将元素移动到很远的地方, 为实现更小的h有序数组创造方便, 用这种方式,对于任意以1结尾的h序列, 我们都能够将数组排序.  
+这就是希尔排序.
+ - 时间复杂度：O(n^1.3)
+ - 特点：
+    - 不稳定
+    - 只适用于顺序存储，不适用于链式存储；适用于初始记录无序
+    - n越大，效果越明显
+ - Java实现
+```
+    private static void shellSort(int[] a){
+        int N = a.length;
+        int h = 1;
+        while (h < (N/3)) h = h * 3 + 1;
+        while (h >= 1){
+            for (int i=h; i<N; i++){
+                for (int j=i; j>=h;j=j-h){
+                    //进行插入排序
+                    if (a[j] < a[j-h]){
+                        int temp = a[j];
+                        a[j]= a[j-h];
+                        a[j-h] = temp;
+                    }
+                }
+            }
+            System.out.print("h = " + h + ": ");
+            show(a);
+            h = h/3;
+        }
+    }
+```
+
+##### 47.（）二分查找算法
+
+ - 思想：在有序表中，取中间记录作为比较对象。
+    - 如果关键字与中间相等则查找成功；
+    - 如果关键字小于中间记录，则在中间记录左半区域继续查找；
+    - 如果关键字大于中间记录，则在中间记录右半区域继续查找；
+    - 重复以上过程，直到查找成功，或者查找区域无记录。
+ - 时间复杂度：O(logn)
+ - 特点：
+    - 比较次数少，效率高；
+    - 只适用于顺序存储结构，且查找前要排序；
+    - 不适用于经常插入删除操作的顺序表；
+ - Java实现
+```
+
+```
+
+##### 48.（）Bitmap如何避免OOM
+
+ - 思想：使用BitmapFactory.Option加载所需尺寸的图片，即通过一定的采样率来加载缩放后的图片。
+ - 采样率：inSampleSize
+    - inSampleSize = 1, 不缩放。
+    - inSampleSize = n，缩小图片的宽高为原来的 1/n，大小为原来的 1/n^2。建议inSampleSize为2的指数倍。
+ - 流程：
+    - 将Option的inJustDecodeBound设置为true，并加载图片。此时只会解析图片的宽高信息，而不会加载图片。
+    - 从Option中取出图片宽高；
+    - 通过一定的算法计算出适当的采样率
+    - 将Option的inJustDecodeBound设为false，并重新加载图片，此时加载的就是缩小后的缩略图。
+ - 获取采样率通用算法：
+```
+
+```
+
+##### 49.（）使用线程的方式。
+
+
+##### 50.（）HTTP协议
+
+ - http的工作流程：
+    - 服务器不断监听TCP的80端口，以便发现是否有客户端向它发送连接建立请求
+    - 一旦监听到连接请求并建立TCP之后，客户端向服务器发出一访问某个页面的请求。
+    - 最后TCP连接释放
+    - 在请求和响应的交互，必须按照规定的格式和循环一定的规则。这些规则和格式就是HTTP协议。
+ - HTTP的报文结构：HTTP报文分为请求报文和响应报文。都是由三部分组成：开始行、首部和实体主体。  
+请求报文的开始行称为请求行；响应报文的开始行称为状态行。其他部分一样。  
+    - 请求方法：GET、POST、HEAD、DELETE、PUT
+    - 常见首部字段：Host、Connection、User-Agent、Accept-Language、Content-Type
+    - 版本：1.1、2.0
+    - 状态码：2xx表示成功；3xx表示重定向；4xx表示客户端错误；5xx表示服务器错误。
+ - 请求报文举例：
+```
+开始行：GET、/SocialServer/LoginServer?username=xm&passwd=dixm
+首部行：
+实体主体：
+```
+
+
+
+
+
 
 
 

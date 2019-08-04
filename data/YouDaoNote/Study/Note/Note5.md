@@ -126,7 +126,13 @@ Service是Android中实现程序后台运行的解决方案，它适合去执行
     - EXACTLY：精确值模式。指定控件的宽高为具体数值，或者match_parent
     - AT_MOST：最大值模式，控件宽高为wrap_center，控件大小随着内容变化而变化，此时控件的尺寸只要不超过父控件允许的最大值即可
     - UNSPECIFIED：不指定其大小的测量模式，View想要多大就多大，绘制自定义View的时候才使用
-    - View的onMeasure()默认使用EXACTLY模式，如果让自定义View支持wrap_centent，必须重写onMeasure方法来指定wrap_centent时的大小
+ - View的onMeasure()默认使用EXACTLY模式，如果让自定义View支持wrap_centent，必须重写onMeasure方法来指定wrap_centent时的大小
+ - 重写onMeasure方法时，默认调用父类的onMeasure，在父类的onMeasure方法中会调用setMeasureDimension()把测量后的宽高值设置进去。而我们重写onMeasure的目的就是把我们重新定义的宽高值设置进去。
+ - 自定义测量值的模板代码
+
+```
+
+```
 
  
  

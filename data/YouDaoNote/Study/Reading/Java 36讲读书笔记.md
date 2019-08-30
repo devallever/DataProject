@@ -1,0 +1,28 @@
+# 第一讲 Java平台的理解
+- 语言特性：面向对象、反射、泛型、Lamda
+- Java类库
+  - 核心类库：IO/NIO、并发、网络、Util
+  - 安全类库
+  - 第三方类库
+- JVM
+  - 垃圾收集
+  - 类加载机制
+    - 类加载器Class-Loader：Bootstrap、Application、Extension-Class-Loader
+    - 加载过程：加载->验证->链接->初始化
+    - 垃圾收集器：SerialGC、ParallelGC、CMS、G1
+  - 运行时
+  - 动态编译
+- 工具
+  - 编译器：javac、sjavac
+  - 辅助工具：jar、jlink、
+  - 诊断工具：jmap、jstack、jconsole
+- Java/JVM生态：JavaEE、Android、Spring
+
+- 一次编译到处运行
+- GC,大多数情况不操心内存分配和回收
+- JDK和JRE
+  - JDK
+  - JRE
+- 解析执行还是编译执行
+  - 编译执行的情况
+  - 解析执行的情况

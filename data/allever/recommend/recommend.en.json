@@ -1,0 +1,59 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "type": 0,
+      "pkg": "com.allever.app.virtual.call",
+      "name": "Virtual call",
+      "desc": "Entertainment is exhausted, blind dates are embarrassing, trivial matters are difficult to speak, and a call to get out is urgently needed to save you from fire and water.",
+      "url": "http://app.mi.com/details?id=com.allever.app.virtual.call",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",
+      "size": "3.8",
+      "iconResId": 0
+    },
+    {
+      "id": 2,
+      "type": 0,
+      "pkg": "com.allever.app.translation.assistant",
+      "name": "Translation Assistant",
+      "desc": "Simple and practical translation software, supporting multi-language and voice translation",
+      "url": "https://shouji.baidu.com/software/26623167.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
+      "size": "4.3",
+      "iconResId": 0
+    },
+    {
+      "id": 3,
+      "type": 0,
+      "pkg": "com.allever.app.qr.code.scaner",
+      "name": "Super QR Code",
+      "desc": "Practical QR code scanning and production tools",
+      "url": "http://app.mi.com/details?id=com.allever.app.qr.code.scaner",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
+      "size": "4.9",
+      "iconResId": 0
+    },
+    {
+      "id": 4,
+      "type": 1,
+      "pkg": "com.allever.game.game2048.stream.line",
+      "name": "2048 Lite",
+      "desc": "Casual, Puzzle Games",
+      "url": "https://shouji.baidu.com/software/26614467.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/game2048/logo.png",
+      "size": "2.8",
+      "iconResId": 0
+    },
+    {
+      "id": 5,
+      "type": 1,
+      "pkg": "com.allever.game.firescreen",
+      "name": "Magic flame screen",
+      "desc": "Beautiful flame burning on the phone screen",
+      "url": "https://shouji.baidu.com/software/26613814.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/firescreen/logo.png",
+      "size": "3.3",
+      "iconResId": 0
+    }
+  ]
+}

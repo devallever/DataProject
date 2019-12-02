@@ -34,36 +34,25 @@
       "iconResId": 0
     },
     {
-      "id": 0,
-      "type": 0,
-      "pkg": "",
-      "name": "超级二维码",
-      "desc": "一款快速扫码软件",
-      "url": "https://shouji.baidu.com/software/26623176.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
-      "size": "3.0M",
+      "id": 4,
+      "type": 1,
+      "pkg": "com.allever.game.game2048.stream.line",
+      "name": "2048精简版",
+      "desc": "休闲，益智小游戏",
+      "url": "https://shouji.baidu.com/software/26614467.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/2048/logo.png",
+      "size": "2.8",
       "iconResId": 0
     },
     {
-      "id": 0,
-      "type": 0,
-      "pkg": "",
-      "name": "超级二维码",
-      "desc": "一款快速扫码软件",
-      "url": "https://shouji.baidu.com/software/26623176.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
-      "size": "3.0M",
-      "iconResId": 0
-    },
-    {
-      "id": 0,
-      "type": 0,
-      "pkg": "",
-      "name": "超级二维码",
-      "desc": "一款快速扫码软件",
-      "url": "https://shouji.baidu.com/software/26623176.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
-      "size": "3.0M",
+      "id": 5,
+      "type": 1,
+      "pkg": "com.allever.game.firescreen",
+      "name": "魔幻火焰屏幕",
+      "desc": "美丽的火焰在手机屏幕上燃烧",
+      "url": "https://shouji.baidu.com/software/26613814.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/firescreen/logo.png",
+      "size": "3.3",
       "iconResId": 0
     }
   ]

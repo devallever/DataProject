@@ -1,6 +1,19 @@
 {
   "data": [
     {
+      "id": 7,
+      "type": 1,
+      "pkg": "com.allever.game.electricscreen",
+      "name": "雷电屏幕恶作剧",
+      "desc": "在手机屏幕模拟真实闪电, 恶搞您的好友",
+      "url": "https://shouji.baidu.com/software/26632279.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/electricscreen/logo.png",
+      "size": "3.8",
+      "version": "1.0",
+      "tag": "首发",
+      "iconResId": 0
+    },
+    {
       "id": 6,
       "type": 0,
       "pkg": "com.allever.lose.weight",

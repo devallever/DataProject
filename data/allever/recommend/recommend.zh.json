@@ -10,7 +10,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",
       "size": "3.8",
       "version": "1.6.0",
-      "tag": "Hot",
+      "tag": "热门",
       "iconResId": 0
     },
     {
@@ -23,7 +23,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
       "size": "4.3",
       "version": "1.7.3",
-      "tag": "New",
+      "tag": "热门",
       "iconResId": 0
     },
     {
@@ -36,7 +36,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
       "size": "4.9",
       "version": "1.4.0",
-      "tag": "Hot",
+      "tag": "",
       "iconResId": 0
     },
     {

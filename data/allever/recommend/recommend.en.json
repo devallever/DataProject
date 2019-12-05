@@ -1,6 +1,19 @@
 {
   "data": [
     {
+      "id": 4,
+      "type": 1,
+      "pkg": "com.allever.game.game2048.stream.line",
+      "name": "2048 Lite",
+      "desc": "Casual, Puzzle Games",
+      "url": "https://shouji.baidu.com/software/26638631.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/game2048/logo.png",
+      "size": "3.4",
+      "version": "1.1.5",
+      "tag": "Update",
+      "iconResId": 0
+    },
+    {
       "id": 7,
       "type": 1,
       "pkg": "com.allever.game.electricscreen",
@@ -62,19 +75,6 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
       "size": "4.9",
       "version": "1.4.0",
-      "tag": "",
-      "iconResId": 0
-    },
-    {
-      "id": 4,
-      "type": 1,
-      "pkg": "com.allever.game.game2048.stream.line",
-      "name": "2048 Lite",
-      "desc": "Casual, Puzzle Games",
-      "url": "https://shouji.baidu.com/software/26614467.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/game2048/logo.png",
-      "size": "2.8",
-      "version": "1.1.2",
       "tag": "",
       "iconResId": 0
     },

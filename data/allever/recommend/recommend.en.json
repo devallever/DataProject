@@ -1,6 +1,32 @@
 {
   "data": [
     {
+      "id": 8,
+      "type": 1,
+      "pkg": "com.allever.game.popstars.lite",
+      "name": "PopStars Lite",
+      "desc": "A beautifully pictured star elimination game",
+      "url": "https://shouji.baidu.com/software/26644733.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/popstars/logo.png",
+      "size": "4.8",
+      "version": "1.0",
+      "tag": "Starting",
+      "iconResId": 0
+    },
+    {
+      "id": 2,
+      "type": 0,
+      "pkg": "com.allever.app.translation.assistant",
+      "name": "Translation Assistant",
+      "desc": "Simple and practical translation software, supporting multi-language and voice translation",
+      "url": "https://shouji.baidu.com/software/26643936.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
+      "size": "4.3",
+      "version": "1.7.4",
+      "tag": "Update",
+      "iconResId": 0
+    },
+    {
       "id": 4,
       "type": 1,
       "pkg": "com.allever.game.game2048.stream.line",
@@ -23,7 +49,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/electricscreen/logo.png",
       "size": "3.8",
       "version": "1.0",
-      "tag": "Starting",
+      "tag": "",
       "iconResId": 0
     },
     {
@@ -50,19 +76,6 @@
       "size": "3.8",
       "version": "1.6.0",
       "tag": "New",
-      "iconResId": 0
-    },
-    {
-      "id": 2,
-      "type": 0,
-      "pkg": "com.allever.app.translation.assistant",
-      "name": "Translation Assistant",
-      "desc": "Simple and practical translation software, supporting multi-language and voice translation",
-      "url": "https://shouji.baidu.com/software/26623167.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
-      "size": "4.3",
-      "version": "1.7.3",
-      "tag": "Hot",
       "iconResId": 0
     },
     {

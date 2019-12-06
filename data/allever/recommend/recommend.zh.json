@@ -1,6 +1,32 @@
 {
   "data": [
     {
+      "id": 8,
+      "type": 1,
+      "pkg": "com.allever.game.popstars.lite",
+      "name": "消灭星星精简版",
+      "desc": "一款画面精美的星星消除游戏。",
+      "url": "https://shouji.baidu.com/software/26644733.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/popstars/logo.png",
+      "size": "4.8",
+      "version": "1.0",
+      "tag": "首发",
+      "iconResId": 0
+    },
+    {
+      "id": 2,
+      "type": 0,
+      "pkg": "com.allever.app.translation.assistant",
+      "name": "翻译助手",
+      "desc": "简洁实用的翻译软件，支持多语言，语音翻译",
+      "url": "https://shouji.baidu.com/software/26643936.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
+      "size": "4.3",
+      "version": "1.7.4",
+      "tag": "更新",
+      "iconResId": 0
+    },
+    {
       "id": 4,
       "type": 1,
       "pkg": "com.allever.game.game2048.stream.line",
@@ -23,7 +49,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/electricscreen/logo.png",
       "size": "3.8",
       "version": "1.0",
-      "tag": "首发",
+      "tag": "",
       "iconResId": 0
     },
     {
@@ -49,19 +75,6 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",
       "size": "3.8",
       "version": "1.6.0",
-      "tag": "热门",
-      "iconResId": 0
-    },
-    {
-      "id": 2,
-      "type": 0,
-      "pkg": "com.allever.app.translation.assistant",
-      "name": "翻译助手",
-      "desc": "简洁实用的翻译软件，支持多语言，语音翻译",
-      "url": "https://shouji.baidu.com/software/26623167.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
-      "size": "4.3",
-      "version": "1.7.3",
       "tag": "热门",
       "iconResId": 0
     },

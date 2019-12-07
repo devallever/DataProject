@@ -14,6 +14,19 @@
       "iconResId": 0
     },
     {
+      "id": 1,
+      "type": 0,
+      "pkg": "com.allever.app.virtual.call",
+      "name": "Virtual call",
+      "desc": "Entertainment is exhausted, blind dates are embarrassing, trivial matters are difficult to speak, and a call to get out is urgently needed to save you from fire and water.",
+      "url": "https://shouji.baidu.com/software/26645135.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",
+      "size": "3.8",
+      "version": "1.6.1",
+      "tag": "Update",
+      "iconResId": 0
+    },
+    {
       "id": 2,
       "type": 0,
       "pkg": "com.allever.app.translation.assistant",
@@ -63,19 +76,6 @@
       "size": "6.6",
       "version": "1.1.1",
       "tag": "Newest",
-      "iconResId": 0
-    },
-    {
-      "id": 1,
-      "type": 0,
-      "pkg": "com.allever.app.virtual.call",
-      "name": "Virtual call",
-      "desc": "Entertainment is exhausted, blind dates are embarrassing, trivial matters are difficult to speak, and a call to get out is urgently needed to save you from fire and water.",
-      "url": "http://app.mi.com/details?id=com.allever.app.virtual.call",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",
-      "size": "3.8",
-      "version": "1.6.0",
-      "tag": "New",
       "iconResId": 0
     },
     {

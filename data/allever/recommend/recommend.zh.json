@@ -14,6 +14,19 @@
       "iconResId": 0
     },
     {
+      "id": 1,
+      "type": 0,
+      "pkg": "com.allever.app.virtual.call",
+      "name": "虚拟来电",
+      "desc": "应酬疲惫，相亲尴尬，琐事缠身，难以开口，急需一个脱身电话救你于水火。",
+      "url": "https://shouji.baidu.com/software/26645135.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",
+      "size": "3.8",
+      "version": "1.6.1",
+      "tag": "更新",
+      "iconResId": 0
+    },
+    {
       "id": 2,
       "type": 0,
       "pkg": "com.allever.app.translation.assistant",
@@ -62,20 +75,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/loseweight/logo.png",
       "size": "6.6",
       "version": "1.1.1",
-      "tag": "最新",
-      "iconResId": 0
-    },
-    {
-      "id": 1,
-      "type": 0,
-      "pkg": "com.allever.app.virtual.call",
-      "name": "虚拟来电",
-      "desc": "应酬疲惫，相亲尴尬，琐事缠身，难以开口，急需一个脱身电话救你于水火。",
-      "url": "http://app.mi.com/details?id=com.allever.app.virtual.call",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",
-      "size": "3.8",
-      "version": "1.6.0",
-      "tag": "热门",
+      "tag": "",
       "iconResId": 0
     },
     {

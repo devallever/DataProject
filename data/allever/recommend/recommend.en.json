@@ -14,6 +14,32 @@
       "iconResId": 0
     },
     {
+      "id": 5,
+      "type": 1,
+      "pkg": "com.allever.game.firescreen",
+      "name": "Fire Screen Prank",
+      "desc": "Beautiful flame burning on the phone screen",
+      "url": "https://shouji.baidu.com/software/26647547.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/firescreen/logo.png",
+      "size": "4.1",
+      "version": "1.0.2",
+      "tag": "Update",
+      "iconResId": 0
+    },
+    {
+      "id": 3,
+      "type": 0,
+      "pkg": "com.allever.app.qr.code.scaner",
+      "name": "Super QR Code",
+      "desc": "Practical QR code scanning and production tools",
+      "url": "https://shouji.baidu.com/software/26647950.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
+      "size": "5.3",
+      "version": "1.4.1",
+      "tag": "Update",
+      "iconResId": 0
+    },
+    {
       "id": 1,
       "type": 0,
       "pkg": "com.allever.app.virtual.call",
@@ -23,7 +49,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",
       "size": "3.8",
       "version": "1.6.1",
-      "tag": "Update",
+      "tag": "Hot",
       "iconResId": 0
     },
     {
@@ -36,7 +62,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
       "size": "4.3",
       "version": "1.7.4",
-      "tag": "Update",
+      "tag": "Hot",
       "iconResId": 0
     },
     {
@@ -49,7 +75,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/game2048/logo.png",
       "size": "3.4",
       "version": "1.1.5",
-      "tag": "Update",
+      "tag": "",
       "iconResId": 0
     },
     {
@@ -75,33 +101,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/loseweight/logo.png",
       "size": "6.6",
       "version": "1.1.1",
-      "tag": "Newest",
-      "iconResId": 0
-    },
-    {
-      "id": 3,
-      "type": 0,
-      "pkg": "com.allever.app.qr.code.scaner",
-      "name": "Super QR Code",
-      "desc": "Practical QR code scanning and production tools",
-      "url": "http://app.mi.com/details?id=com.allever.app.qr.code.scaner",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
-      "size": "4.9",
-      "version": "1.4.0",
       "tag": "",
-      "iconResId": 0
-    },
-    {
-      "id": 5,
-      "type": 1,
-      "pkg": "com.allever.game.firescreen",
-      "name": "Magic flame screen",
-      "desc": "Beautiful flame burning on the phone screen",
-      "url": "https://shouji.baidu.com/software/26627994.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/firescreen/logo.png",
-      "size": "3.3",
-      "version": "1.0.1",
-      "tag": "New",
       "iconResId": 0
     }
   ]

@@ -1,42 +1,16 @@
 {
   "data": [
     {
-      "id": 8,
-      "type": 1,
-      "pkg": "com.allever.game.popstars.lite",
-      "name": "PopStars Lite",
-      "desc": "A beautifully pictured star elimination game",
-      "url": "https://shouji.baidu.com/software/26644733.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/popstars/logo.png",
-      "size": "4.8",
-      "version": "1.0",
-      "tag": "Starting",
-      "iconResId": 0
-    },
-    {
-      "id": 5,
-      "type": 1,
-      "pkg": "com.allever.game.firescreen",
-      "name": "Fire Screen Prank",
-      "desc": "Beautiful flame burning on the phone screen",
-      "url": "https://shouji.baidu.com/software/26647547.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/firescreen/logo.png",
-      "size": "4.1",
-      "version": "1.0.2",
-      "tag": "Update",
-      "iconResId": 0
-    },
-    {
-      "id": 3,
+      "id": 9,
       "type": 0,
-      "pkg": "com.allever.app.qr.code.scaner",
-      "name": "Super QR Code",
-      "desc": "Practical QR code scanning and production tools",
-      "url": "https://shouji.baidu.com/software/26647950.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
-      "size": "5.3",
-      "version": "1.4.1",
-      "tag": "Update",
+      "pkg": "com.allever.app.sceneclock",
+      "name": "Scene alarm clock",
+      "desc": "A simple and practical alarm clock software。",
+      "url": "http://app.mi.com/details?id=com.allever.app.sceneclock",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/sceneclock/logo.png",
+      "size": "6.4",
+      "version": "0.0.3",
+      "tag": "Starting",
       "iconResId": 0
     },
     {
@@ -63,6 +37,45 @@
       "size": "4.3",
       "version": "1.7.4",
       "tag": "Hot",
+      "iconResId": 0
+    },
+    {
+      "id": 8,
+      "type": 1,
+      "pkg": "com.allever.game.popstars.lite",
+      "name": "PopStars Lite",
+      "desc": "A beautifully pictured star elimination game",
+      "url": "https://shouji.baidu.com/software/26644733.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/popstars/logo.png",
+      "size": "4.8",
+      "version": "1.0",
+      "tag": "",
+      "iconResId": 0
+    },
+    {
+      "id": 5,
+      "type": 1,
+      "pkg": "com.allever.game.firescreen",
+      "name": "Fire Screen Prank",
+      "desc": "Beautiful flame burning on the phone screen",
+      "url": "https://shouji.baidu.com/software/26647547.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/firescreen/logo.png",
+      "size": "4.1",
+      "version": "1.0.2",
+      "tag": "",
+      "iconResId": 0
+    },
+    {
+      "id": 3,
+      "type": 0,
+      "pkg": "com.allever.app.qr.code.scaner",
+      "name": "Super QR Code",
+      "desc": "Practical QR code scanning and production tools",
+      "url": "https://shouji.baidu.com/software/26647950.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
+      "size": "5.3",
+      "version": "1.4.1",
+      "tag": "",
       "iconResId": 0
     },
     {

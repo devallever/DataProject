@@ -14,6 +14,19 @@
       "iconResId": 0
     },
     {
+      "id": 2,
+      "type": 0,
+      "pkg": "com.allever.app.translation.assistant",
+      "name": "Translation Assistant",
+      "desc": "Simple and practical translation software, supporting multi-language and voice translation",
+      "url": "https://shouji.baidu.com/software/26696510.html",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
+      "size": "4.3",
+      "version": "2.0.0",
+      "tag": "Update",
+      "iconResId": 0
+    },
+    {
       "id": 1,
       "type": 0,
       "pkg": "com.allever.app.virtual.call",
@@ -23,19 +36,6 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",
       "size": "3.8",
       "version": "1.6.1",
-      "tag": "Hot",
-      "iconResId": 0
-    },
-    {
-      "id": 2,
-      "type": 0,
-      "pkg": "com.allever.app.translation.assistant",
-      "name": "Translation Assistant",
-      "desc": "Simple and practical translation software, supporting multi-language and voice translation",
-      "url": "https://shouji.baidu.com/software/26643936.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
-      "size": "4.3",
-      "version": "1.7.4",
       "tag": "Hot",
       "iconResId": 0
     },

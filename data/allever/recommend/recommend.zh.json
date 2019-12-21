@@ -19,11 +19,11 @@
       "pkg": "com.allever.app.translation.assistant",
       "name": "翻译助手",
       "desc": "简洁实用的翻译软件，支持多语言，语音翻译",
-      "url": "https://shouji.baidu.com/software/26643936.html",
+      "url": "https://shouji.baidu.com/software/26696510.html",
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
       "size": "4.3",
-      "version": "1.7.4",
-      "tag": "热门",
+      "version": "2.0.0",
+      "tag": "更新",
       "iconResId": 0
     },
     {

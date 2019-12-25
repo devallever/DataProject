@@ -31,6 +31,7 @@
       "type": 0,
       "pkg": "com.allever.app.virtual.call",
       "name": "虚拟来电",
+      "channel": "google",
       "desc": "应酬疲惫，相亲尴尬，琐事缠身，难以开口，急需一个脱身电话救你于水火。",
       "url": "https://shouji.baidu.com/software/26645135.html",
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",

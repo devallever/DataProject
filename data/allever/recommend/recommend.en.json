@@ -31,6 +31,7 @@
       "type": 0,
       "pkg": "com.allever.app.virtual.call",
       "name": "Virtual call",
+      "channel": "google",
       "desc": "Entertainment is exhausted, blind dates are embarrassing, trivial matters are difficult to speak, and a call to get out is urgently needed to save you from fire and water.",
       "url": "https://shouji.baidu.com/software/26645135.html",
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",

@@ -1,6 +1,21 @@
 {
   "data": [
     {
+      "id": 10,
+      "type": 1,
+      "pkg": "com.allever.game.game2048.pro",
+      "name": "2048专业版",
+      "desc": "休闲，益智小游戏",
+      "channel": "google",
+      "url": "https://shouji.baidu.com/software/26770264.html",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.game.game2048.pro",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/game2048pro/logo.png",
+      "size": "3.0",
+      "version": "1.0.0",
+      "tag": "新品",
+      "iconResId": 0
+    },
+    {
       "id": 2,
       "type": 0,
       "pkg": "com.allever.app.translation.assistant",

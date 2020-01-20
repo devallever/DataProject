@@ -1,6 +1,21 @@
 {
   "data": [
     {
+      "id": 11,
+      "type": 1,
+      "pkg": "com.allever.game.jigsaw",
+      "name": "Cat puzzle",
+      "desc": "Fun and jigsaw puzzles",
+      "channel": "google",
+      "url": "",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.game.jigsaw",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/jigsawCat/logo.png",
+      "size": "3.6",
+      "version": "1.0.0",
+      "tag": "New",
+      "iconResId": 0
+    },
+    {
       "id": 10,
       "type": 1,
       "pkg": "com.allever.game.game2048.pro",

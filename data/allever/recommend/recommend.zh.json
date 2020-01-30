@@ -1,6 +1,21 @@
 {
   "data": [
     {
+      "id": 4,
+      "type": 1,
+      "pkg": "com.allever.game.game2048.stream.line",
+      "name": "2048精简版",
+      "desc": "休闲，益智小游戏",
+      "channel": "google",
+      "url": "https://shouji.baidu.com/software/26638631.html",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.game.game2048.stream.line",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/game2048/logo.png",
+      "size": "3.4",
+      "version": "1.1.5",
+      "tag": "",
+      "iconResId": 0
+    },
+    {
       "id": 11,
       "type": 1,
       "pkg": "com.allever.game.jigsaw",
@@ -11,8 +26,8 @@
       "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.game.jigsaw",
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/jigsawCat/logo.png",
       "size": "3.6",
-      "version": "1.0.0",
-      "tag": "新品",
+      "version": "1.0.2",
+      "tag": "",
       "iconResId": 0
     },
     {
@@ -26,8 +41,8 @@
       "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.game.game2048.pro",
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/game2048pro/logo.png",
       "size": "3.0",
-      "version": "1.0.0",
-      "tag": "新品",
+      "version": "1.0.2",
+      "tag": "",
       "iconResId": 0
     },
     {
@@ -41,7 +56,7 @@
       "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.app.translation.assistant",
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
       "size": "4.9",
-      "version": "2.0.4",
+      "version": "2.0.5",
       "tag": "热门",
       "iconResId": 0
     },
@@ -57,7 +72,7 @@
       "xiaomiUrl": "http://app.mi.com/details?id=com.allever.app.virtual.call",
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",
       "size": "3.8",
-      "version": "2.0.4",
+      "version": "2.0.5",
       "tag": "热门",
       "iconResId": 0
     },
@@ -127,19 +142,6 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
       "size": "5.3",
       "version": "1.4.3",
-      "tag": "",
-      "iconResId": 0
-    },
-    {
-      "id": 4,
-      "type": 1,
-      "pkg": "com.allever.game.game2048.stream.line",
-      "name": "2048精简版",
-      "desc": "休闲，益智小游戏",
-      "url": "https://shouji.baidu.com/software/26638631.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/game2048/logo.png",
-      "size": "3.4",
-      "version": "1.1.5",
       "tag": "",
       "iconResId": 0
     },

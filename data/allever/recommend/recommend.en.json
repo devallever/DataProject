@@ -1,6 +1,21 @@
 {
   "data": [
     {
+      "id": 8,
+      "type": 1,
+      "pkg": "com.allever.game.popstars.lite",
+      "name": "PopStars Lite",
+      "desc": "A beautifully cleared star elimination game。",
+      "channel": "google",
+      "url": "https://shouji.baidu.com/software/26644733.html",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.game.popstars.lite",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/popstars/logo.png",
+      "size": "4.4",
+      "version": "1.0",
+      "tag": "New",
+      "iconResId": 0
+    },
+    {
       "id": 12,
       "type": 1,
       "pkg": "com.allever.game.memory",
@@ -116,19 +131,6 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/sceneclock/logo.png",
       "size": "6.4",
       "version": "0.0.5",
-      "tag": "",
-      "iconResId": 0
-    },
-    {
-      "id": 8,
-      "type": 1,
-      "pkg": "com.allever.game.popstars.lite",
-      "name": "PopStars Lite",
-      "desc": "A beautiful star elimination game.",
-      "url": "https://shouji.baidu.com/software/26644733.html",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/popstars/logo.png",
-      "size": "4.8",
-      "version": "1.0",
       "tag": "",
       "iconResId": 0
     },

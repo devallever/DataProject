@@ -1,6 +1,21 @@
 {
   "data": [
     {
+      "id": 12,
+      "type": 1,
+      "pkg": "com.allever.game.memory",
+      "name": "记忆游戏",
+      "desc": "休闲，益智小游戏，提升记忆力",
+      "channel": "google",
+      "url": "https://play.google.com/store/apps/details?id=com.allever.game.memory",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.game.memory",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/memory/logo.png",
+      "size": "13.0",
+      "version": "1.0.2",
+      "tag": "新品",
+      "iconResId": 0
+    },
+    {
       "id": 4,
       "type": 1,
       "pkg": "com.allever.game.game2048.stream.line",

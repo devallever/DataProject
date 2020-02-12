@@ -1,6 +1,21 @@
 {
   "data": [
     {
+      "id": 12,
+      "type": 1,
+      "pkg": "com.allever.game.memory",
+      "name": "记忆游戏",
+      "desc": "休闲，益智小游戏，提升记忆力",
+      "channel": "google",
+      "url": "https://shouji.baidu.com/software/26802172.html",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.game.memory",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/memory/logo.png",
+      "size": "13.0",
+      "version": "1.1.1",
+      "tag": "更新",
+      "iconResId": 0
+    },
+    {
       "id": 1,
       "type": 0,
       "pkg": "com.allever.app.virtual.call",
@@ -42,21 +57,6 @@
       "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.game.popstars.lite",
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/popstars/logo.png",
       "size": "4.4",
-      "version": "1.1.0",
-      "tag": "更新",
-      "iconResId": 0
-    },
-    {
-      "id": 12,
-      "type": 1,
-      "pkg": "com.allever.game.memory",
-      "name": "记忆游戏",
-      "desc": "休闲，益智小游戏，提升记忆力",
-      "channel": "google",
-      "url": "https://shouji.baidu.com/software/26800395.html",
-      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.game.memory",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/memory/logo.png",
-      "size": "13.0",
       "version": "1.1.0",
       "tag": "更新",
       "iconResId": 0

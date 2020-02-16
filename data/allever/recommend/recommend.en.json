@@ -1,6 +1,21 @@
 {
   "data": [
     {
+      "id": 13,
+      "type": 0,
+      "pkg": "com.allever.app.giffun",
+      "name": "Gif Funny",
+      "channel": "google",
+      "desc": "The fastest and easiest way to search and share GIFs!",
+      "url": "https://play.google.com/store/apps/details?id=com.allever.app.giffun",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.app.giffun",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/giffun/logo.png",
+      "size": "3.5",
+      "version": "1.0.2",
+      "tag": "",
+      "iconResId": 0
+    },
+    {
       "id": 12,
       "type": 1,
       "pkg": "com.allever.game.memory",

@@ -1,6 +1,36 @@
 {
   "data": [
     {
+      "id": 4,
+      "type": 1,
+      "pkg": "com.allever.game.game2048.stream.line",
+      "name": "2048 Lite",
+      "desc": "Casual, Puzzle Games",
+      "channel": "google",
+      "url": "https://shouji.baidu.com/software/26756727.html",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.game.game2048.stream.line",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/game2048/logo.png",
+      "size": "3.4",
+      "version": "1.1.7",
+      "tag": "Ad",
+      "iconResId": 0
+    },
+    {
+      "id": 2,
+      "type": 0,
+      "pkg": "com.allever.app.translation.assistant",
+      "name": "Translator",
+      "desc": "Simple and practical translation software, supporting multi-language and voice translation",
+      "channel": "google",
+      "url": "https://shouji.baidu.com/software/26799653.html",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.app.translation.assistant",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
+      "size": "4.9",
+      "version": "2.1.1",
+      "tag": "Ad",
+      "iconResId": 0
+    },
+    {
       "id": 13,
       "type": 0,
       "pkg": "com.allever.app.giffun",
@@ -11,8 +41,8 @@
       "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.app.giffun",
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/giffun/logo.png",
       "size": "3.5",
-      "version": "1.0.2",
-      "tag": "",
+      "version": "1.1.1",
+      "tag": "Ad",
       "iconResId": 0
     },
     {
@@ -27,7 +57,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/memory/logo.png",
       "size": "13.0",
       "version": "1.1.1",
-      "tag": "",
+      "tag": "Ad",
       "iconResId": 0
     },
     {
@@ -43,22 +73,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcall/logo.png",
       "size": "3.8",
       "version": "2.1.1",
-      "tag": "",
-      "iconResId": 0
-    },
-    {
-      "id": 2,
-      "type": 0,
-      "pkg": "com.allever.app.translation.assistant",
-      "name": "Translator",
-      "desc": "Simple and practical translation software, supporting multi-language and voice translation",
-      "channel": "google",
-      "url": "https://shouji.baidu.com/software/26799653.html",
-      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.app.translation.assistant",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/translator/logo.png",
-      "size": "4.9",
-      "version": "2.1.1",
-      "tag": "",
+      "tag": "Ad",
       "iconResId": 0
     },
     {
@@ -73,7 +88,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/popstars/logo.png",
       "size": "4.4",
       "version": "1.1.0",
-      "tag": "",
+      "tag": "Ad",
       "iconResId": 0
     },
     {
@@ -88,22 +103,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/loseweight/logo.png",
       "size": "5.0",
       "version": "1.0",
-      "tag": "",
-      "iconResId": 0
-    },
-    {
-      "id": 4,
-      "type": 1,
-      "pkg": "com.allever.game.game2048.stream.line",
-      "name": "2048 Lite",
-      "desc": "Casual, Puzzle Games",
-      "channel": "google",
-      "url": "https://shouji.baidu.com/software/26756727.html",
-      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.game.game2048.stream.line",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/game2048/logo.png",
-      "size": "3.4",
-      "version": "1.1.7",
-      "tag": "",
+      "tag": "Ad",
       "iconResId": 0
     },
     {
@@ -118,7 +118,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/jigsawCat/logo.png",
       "size": "3.6",
       "version": "1.1.0",
-      "tag": "",
+      "tag": "Ad",
       "iconResId": 0
     },
     {
@@ -133,7 +133,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/game2048pro/logo.png",
       "size": "3.0",
       "version": "1.1.0",
-      "tag": "",
+      "tag": "Ad",
       "iconResId": 0
     },
     {
@@ -148,7 +148,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/sceneclock/logo.png",
       "size": "6.4",
       "version": "1.1.0",
-      "tag": "",
+      "tag": "Ad",
       "iconResId": 0
     },
     {
@@ -161,7 +161,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/firescreen/logo.png",
       "size": "4.1",
       "version": "1.0.4",
-      "tag": "",
+      "tag": "Ad",
       "iconResId": 0
     },
     {
@@ -176,7 +176,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
       "size": "5.3",
       "version": "1.5.0",
-      "tag": "",
+      "tag": "Ad",
       "iconResId": 0
     },
     {
@@ -189,7 +189,7 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/electricscreen/logo.png",
       "size": "3.8",
       "version": "1.0",
-      "tag": "",
+      "tag": "Ad",
       "iconResId": 0
     }
   ]

@@ -31,21 +31,6 @@
       "iconResId": 0
     },
     {
-      "id": 13,
-      "type": 0,
-      "pkg": "com.allever.app.giffun",
-      "name": "Gif Funny",
-      "channel": "",
-      "desc": "The fastest and easiest way to search and share GIFs!",
-      "url": "https://shouji.baidu.com/software/26831236.html",
-      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.app.giffun",
-      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/giffun/logo.png",
-      "size": "3.5",
-      "version": "1.1.1",
-      "tag": "Ad",
-      "iconResId": 0
-    },
-    {
       "id": 12,
       "type": 1,
       "pkg": "com.allever.game.memory",

@@ -62,6 +62,21 @@
       "iconResId": 0
     },
     {
+      "id": 15,
+      "type": 0,
+      "pkg": "com.allever.app.gif.search",
+      "name": "Gif Search",
+      "channel": "google",
+      "desc": "The world's largest library of GIF animations, now on your phone!",
+      "url": "https://play.google.com/store/apps/details?id=com.allever.app.gif.search",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.app.gif.search",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/gifsearch/logo.png",
+      "size": "3.6",
+      "version": "1.0.1",
+      "tag": "Ad",
+      "iconResId": 0
+    },
+    {
       "id": 14,
       "type": 0,
       "pkg": "com.allever.app.translation.text",
@@ -88,6 +103,21 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/popstars/logo.png",
       "size": "4.4",
       "version": "1.1.0",
+      "tag": "Ad",
+      "iconResId": 0
+    },
+    {
+      "id": 16,
+      "type": 0,
+      "pkg": "com.allever.app.virtual.call.girlfriend",
+      "name": "Virtual Call Prank GirlFriend",
+      "channel": "google",
+      "desc": "An app that simulates a real call from a girlfriend",
+      "url": "https://play.google.com/store/apps/details?id=com.allever.app.virtual.call.girlfriend",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.app.virtual.call.girlfriend",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcallgirlfriend/logo.png",
+      "size": "4.3",
+      "version": "1.0.1",
       "tag": "Ad",
       "iconResId": 0
     },

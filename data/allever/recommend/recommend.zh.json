@@ -62,6 +62,21 @@
       "iconResId": 0
     },
     {
+      "id": 15,
+      "type": 0,
+      "pkg": "com.allever.app.gif.search",
+      "name": "Gif图搜索",
+      "channel": "google",
+      "desc": "世界上最大的GIF动画库，现在您的手机上！",
+      "url": "https://play.google.com/store/apps/details?id=com.allever.app.gif.search",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.app.gif.search",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/gifsearch/logo.png",
+      "size": "3.6",
+      "version": "1.0.1",
+      "tag": "Ad",
+      "iconResId": 0
+    },
+    {
       "id": 14,
       "type": 0,
       "pkg": "com.allever.app.translation.text",
@@ -88,6 +103,21 @@
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/game/popstars/logo.png",
       "size": "4.4",
       "version": "1.1.0",
+      "tag": "Ad",
+      "iconResId": 0
+    },
+    {
+      "id": 16,
+      "type": 0,
+      "pkg": "com.allever.app.virtual.call.girlfriend",
+      "name": "虚拟来电 女朋友 - 假电话恶作剧",
+      "channel": "google",
+      "desc": "一款模拟女朋友真实来电的应用",
+      "url": "https://play.google.com/store/apps/details?id=com.allever.app.virtual.call.girlfriend",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.app.virtual.call.girlfriend",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/virtualcallgirlfriend/logo.png",
+      "size": "3.6",
+      "version": "1.0.1",
       "tag": "Ad",
       "iconResId": 0
     },

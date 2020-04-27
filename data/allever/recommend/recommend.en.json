@@ -31,6 +31,21 @@
       "iconResId": 0
     },
     {
+      "id": 18,
+      "type": 0,
+      "pkg": "com.allever.app.photoeditor",
+      "name": "Easy P Editor",
+      "channel": "google",
+      "desc": "Advanced picture editor Puzzle, sticker, filter editor",
+      "url": "https://play.google.com/store/apps/details?id=com.allever.app.photoeditor",
+      "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.app.photoeditor",
+      "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/EasyPEditor/logo.png",
+      "size": "16.1",
+      "version": "1.0.3",
+      "tag": "Ad",
+      "iconResId": 0
+    },
+    {
       "id": 17,
       "type": 0,
       "pkg": "com.allever.security.photo.browser",
@@ -97,11 +112,11 @@
       "name": "Text Translator",
       "channel": "google",
       "desc": "Global multilingual text translation tool",
-      "url": "https://shouji.baidu.com/software/26838949.html",
+      "url": "https://shouji.baidu.com/software/26934411.html",
       "googleUrl": "https://play.google.com/store/apps/details?id=com.allever.app.translation.text",
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/texttranslation/logo.png",
       "size": "5.0",
-      "version": "1.0.1",
+      "version": "1.0.3",
       "tag": "Ad",
       "iconResId": 0
     },
@@ -206,7 +221,7 @@
       "xiaomiUrl": "http://app.mi.com/details?id=com.allever.app.sceneclock",
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/sceneclock/logo.png",
       "size": "6.4",
-      "version": "1.1.0",
+      "version": "1.2.2",
       "tag": "Ad",
       "iconResId": 0
     },
@@ -230,11 +245,11 @@
       "name": "SuperQR Code",
       "desc": "Practical QR code scanning and production tools",
       "channel": "xiaomi",
-      "url": "https://shouji.baidu.com/software/26799742.html",
+      "url": "https://shouji.baidu.com/software/26921005.html",
       "xiaomiUrl": "http://app.mi.com/details?id=com.allever.app.qr.code.scaner",
       "iconUrl": "https://raw.githubusercontent.com/devallever/DataProject/master/data/allever/app/qrcode/logo.png",
       "size": "5.3",
-      "version": "1.5.0",
+      "version": "1.5.1",
       "tag": "Ad",
       "iconResId": 0
     },
